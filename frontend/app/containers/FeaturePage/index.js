@@ -6,7 +6,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { FormattedMessage } from 'react-intl';
-
+import Header from 'components/Header';
 import H1 from 'components/H1';
 import messages from './messages';
 import List from './List';
@@ -23,6 +23,7 @@ export default function FeaturePage() {
           content="Feature page of React.js Boilerplate application"
         />
       </Helmet>
+      <Header/>
       <H1>
         <FormattedMessage {...messages.header} />
       </H1>
