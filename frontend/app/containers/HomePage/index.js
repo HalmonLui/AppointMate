@@ -87,7 +87,7 @@ export function HomePage({
                 value={username}
                 onChange={onChangeUsername}
               />
-            <StyledButton href="/features">Sign In</StyledButton>
+            <StyledButton href="/bookings">Sign In</StyledButton>
           </Form>
         </Section>
       </div>

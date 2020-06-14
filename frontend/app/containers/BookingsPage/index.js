@@ -13,14 +13,14 @@ import List from './List';
 import ListItem from './ListItem';
 import ListItemTitle from './ListItemTitle';
 
-export default function FeaturePage() {
+export default function BookingsPage() {
   return (
     <div>
       <Helmet>
-        <title>Feature Page</title>
+        <title>Bookings Page</title>
         <meta
           name="description"
-          content="Feature page of React.js Boilerplate application"
+          content="Bookings page stuff"
         />
       </Helmet>
       <Header/>

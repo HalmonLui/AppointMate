@@ -12,9 +12,17 @@ export default defineMessages({
     id: `${scope}.home`,
     defaultMessage: 'Sign out',
   },
+  discover: {
+    id: `${scope}.discover`,
+    defaultMessage: 'Discover',
+  },
   bookings: {
     id: `${scope}.bookings`,
     defaultMessage: 'Bookings',
+  },
+  loyalty: {
+    id: `${scope}.loyalty`,
+    defaultMessage: 'Loyalty',
   },
   settings: {
     id: `${scope}.settings`,
