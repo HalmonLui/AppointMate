@@ -5,7 +5,7 @@ import A from './A';
 import Img from './Img';
 import NavBar from './NavBar';
 import HeaderLink from './HeaderLink';
-import Banner from './banner.jpg';
+import Banner from './barber_logo.png';
 import messages from './messages';
 
 function Header() {
@@ -16,10 +16,13 @@ function Header() {
       </A>
       <NavBar>
         <HeaderLink to="/">
-          <FormattedMessage {...messages.home} />
+          <FormattedMessage {...messages.signout} />
         </HeaderLink>
-        <HeaderLink to="/features">
-          <FormattedMessage {...messages.features} />
+        <HeaderLink to="/bookings">
+          <FormattedMessage {...messages.bookings} />
+        </HeaderLink>
+        <HeaderLink to="/settings">
+          <FormattedMessage {...messages.settings} />
         </HeaderLink>
       </NavBar>
     </div>
