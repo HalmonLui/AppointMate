@@ -36,11 +36,12 @@ import { makeSelectUsername } from './selectors';
 import reducer from './reducer';
 import saga from './saga';
 import Banner from './barber_logo.png';
-import './HomePage.css';
+import './RegisterPage.css';
 
 const key = 'home';
 
-export function HomePage({
+export function RegisterPage({
+  name,
   username,
   email,
   loading,
@@ -68,7 +69,7 @@ export function HomePage({
   return (
     <article>
       <Helmet>
-        <title>Login Page</title>
+        <title>Sign Up</title>
         <meta
           name="description"
           content="Login page"
@@ -77,10 +78,21 @@ export function HomePage({
       <div>
         <Section>
           <Img src={Banner} alt="react-boilerplate - Logo" />
-          <H2 id="logintext">
-            Log In
-          </H2>
+          <div id="signup-container">
+            <div></div>
+            <H2 id="logintext">
+              Sign Up
+            </H2>
+            <a href="/">Login</a>
+          </div>
           <Form onSubmit={onSubmitForm}>
+              <Input
+                id="name"
+                type="text"
+                placeholder="Name"
+                value={name}
+                onChange={onChangeUsername}
+              />
               <Input
                 id="email"
                 type="text"
@@ -103,18 +115,17 @@ export function HomePage({
                 onChange={onChangeUsername}
                 value={username}
               />
-              Remember Me
+              I would like to receive your newsletter and other promotional information.
               </div>
-            <StyledButton href="/bookings">Log In</StyledButton>
+            <StyledButton href="/bookings">Sign Up</StyledButton>
           </Form>
-          <a id="forgotpassword">Forgot your password?</a>
         </Section>
       </div>
     </article>
   );
 }
 
-HomePage.propTypes = {
+RegisterPage.propTypes = {
   loading: PropTypes.bool,
   error: PropTypes.oneOfType([PropTypes.object, PropTypes.bool]),
   repos: PropTypes.oneOfType([PropTypes.array, PropTypes.bool]),
@@ -148,4 +159,4 @@ const withConnect = connect(
 export default compose(
   withConnect,
   memo,
-)(HomePage);
+)(RegisterPage);

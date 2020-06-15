@@ -12,6 +12,7 @@ import styled from 'styled-components';
 import { Switch, Route } from 'react-router-dom';
 
 import HomePage from 'containers/HomePage/Loadable';
+import RegisterPage from 'containers/RegisterPage/Loadable';
 import DiscoverPage from 'containers/DiscoverPage/Loadable';
 import BookingsPage from 'containers/BookingsPage/Loadable';
 import LoyaltyPage from 'containers/LoyaltyPage/Loadable';
@@ -42,6 +43,7 @@ export default function App() {
       </Helmet>
       <Switch>
         <Route exact path="/" component={HomePage} />
+        <Route path="/register" component={RegisterPage} />
         <Route path="/discover" component={DiscoverPage} />
         <Route path="/bookings" component={BookingsPage} />
         <Route path="/loyalty" component={LoyaltyPage} />

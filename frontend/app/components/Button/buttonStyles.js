@@ -1,11 +1,12 @@
 import { css } from 'styled-components';
 
 const buttonStyles = css`
-  display: inline-block;
-  box-sizing: border-box;
-  padding: 0.25em 2em;
+  display: flex;
+  padding: 1em;
+  margin: auto;
+  justify-content: center;
   text-decoration: none;
-  border-radius: 4px;
+  border-radius: 50px;
   -webkit-font-smoothing: antialiased;
   -webkit-touch-callout: none;
   user-select: none;
@@ -14,12 +15,12 @@ const buttonStyles = css`
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: bold;
   font-size: 16px;
-  border: 2px solid #41addd;
-  color: #41addd;
+  background: #5DB075;
+  color: #fff;
 
-  &:active {
-    background: #41addd;
+  &:hover {
     color: #fff;
+    opacity: 0.9;
   }
 `;
 

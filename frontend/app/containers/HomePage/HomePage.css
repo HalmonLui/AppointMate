@@ -1,0 +1,15 @@
+#forgotpassword {
+  display: flex;
+  justify-content: center;
+  color: #5DB075;
+}
+
+#logintext {
+  display: flex;
+  justify-content: center;
+  font-size: 32px;
+}
+
+#rememberme {
+  color: #8C8C8C;
+}
