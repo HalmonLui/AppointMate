@@ -1,0 +1,102 @@
+#profilepicture-container {
+  width: 10em;
+  height: 10em;
+  overflow: hidden;
+  border-radius: 50%;
+  border: .5em solid #fafafa;
+}
+
+#top-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(#5DB075 50%, #fafafa 50%);
+}
+
+#logout-container {
+  display: flex;
+  width: 100%;
+  padding: 2em;
+  align-items: flex-end;
+  justify-content: flex-end;
+  flex-direction: column;
+  color: #fafafa;
+}
+
+#toggleswitch {
+  width: 90%;
+  display: flex;
+  justify-content: space-around;
+  background-color: #F6F6F6;
+  border: 2px solid #E8E8E8;
+  border-radius: 8%/50%;
+  color: #C1C1C1;
+}
+
+#toggle-profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: .5em;
+  margin: .1em;
+  color: #5DB075;
+  background-color: #fafafa;
+  width: 50%;
+  border-radius: 20%/50%;
+  font-weight: bold;
+}
+
+#toggle-saved {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 50%;
+  border-radius: 10%/50%;
+  font-weight: bold;
+}
+
+#bot-container {
+
+}
+
+.bot-info-container {
+  display: flex;
+  flex-direction: column;
+  margin: 1em 1.5em .5em 1.5em;
+  padding: 0px 0em 1em 0em;
+  border-bottom: 1px solid #E8E8E8;
+}
+
+.info-title {
+  font-weight: bold;
+  margin-bottom: .5em;
+  padding: 0px;
+}
+
+.info-text {
+  color: #BDBDBD;
+  margin: 0px;
+  padding: 0px;
+}
+
+#payment-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#creditcardicon {
+  width: 40px;
+}
+
+#creditnumber {
+  font-size: 12px;
+}
+
+#addcard {
+  color: #5DB075;
+}

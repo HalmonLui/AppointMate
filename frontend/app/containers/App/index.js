@@ -12,10 +12,12 @@ import styled from 'styled-components';
 import { Switch, Route } from 'react-router-dom';
 
 import HomePage from 'containers/HomePage/Loadable';
+import RegisterPage from 'containers/RegisterPage/Loadable';
 import DiscoverPage from 'containers/DiscoverPage/Loadable';
 import BookingsPage from 'containers/BookingsPage/Loadable';
 import LoyaltyPage from 'containers/LoyaltyPage/Loadable';
 import SettingsPage from 'containers/SettingsPage/Loadable';
+import SavedPage from 'containers/SavedPage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import Header from 'components/Header';
 import Footer from 'components/Footer';
@@ -27,7 +29,6 @@ const AppWrapper = styled.div`
   margin: 0 auto;
   display: flex;
   min-height: 100%;
-  padding: 0 16px;
   flex-direction: column;
 `;
 
@@ -42,9 +43,11 @@ export default function App() {
       </Helmet>
       <Switch>
         <Route exact path="/" component={HomePage} />
+        <Route path="/register" component={RegisterPage} />
         <Route path="/discover" component={DiscoverPage} />
         <Route path="/bookings" component={BookingsPage} />
         <Route path="/loyalty" component={LoyaltyPage} />
+        <Route path="/saved" component={SavedPage} />
         <Route path="/settings" component={SettingsPage} />
         <Route path="" component={NotFoundPage} />
       </Switch>
