@@ -10,19 +10,23 @@ export const scope = 'boilerplate.containers.FeaturePage';
 export default defineMessages({
   header: {
     id: `${scope}.header`,
-    defaultMessage: 'Dummy Discover Page',
+    defaultMessage: 'Hi, Name!',
   },
   scaffoldingHeader: {
     id: `${scope}.scaffolding.header`,
-    defaultMessage: 'Find stuff near ya',
+    defaultMessage: 'Trending Near You',
   },
-  scaffoldingMessage: {
+  scaffoldingHeader2: {
     id: `${scope}.scaffolding.message`,
-    defaultMessage: `Woah much stuff`,
+    defaultMessage: `Recommendations`,
+  },
+  scaffoldingHeader3: {
+    id: `${scope}.scaffolding.message`,
+    defaultMessage: `Hot Deals`,
   },
   bookNail: {
     id: `${scope}.scaffolding.message`,
-    defaultMessage: 'Very wow'
+    defaultMessage: 'Book Nails'
   },
   bookNailMessage: {
     id: `${scope}.scaffolding.message`,
