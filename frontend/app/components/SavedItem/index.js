@@ -11,19 +11,19 @@ function SavedItem(props) {
       <div id="saveditem-container-right">
         <div>
             <p class="saveditem-title">
-              Sally's Salon
+              {props.title}
             </p>
             <p class="saveditem-location">
-              1st Street
+              {props.location}
             </p>
         </div>
         <div id="rating-container">
           <div id="rating-star-container">
             <img id="starimage" src={star} alt="react-boilerplate - Logo"/>
-            <p class="saveditem-rating">4.5</p>
+            <p class="saveditem-rating">{props.rating}</p>
           </div>
           <p class="saveditem-num-ratings">
-            555 ratings
+            {props.numratings} ratings
           </p>
         </div>
       </div>

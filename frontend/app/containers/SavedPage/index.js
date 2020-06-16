@@ -88,10 +88,30 @@ export default function SavedPage() {
         </div>
       </div>
       <div>
-        <SavedItem/>
-        <SavedItem/>
-        <SavedItem/>
-        <SavedItem/>
+        <SavedItem
+          title='Sallys Salon'
+          location='123 Street'
+          rating='5.0'
+          numratings='222'
+        />
+        <SavedItem
+          title='Haair Shop'
+          location='2 Washington Road'
+          rating='2.1'
+          numratings='1529'
+        />
+        <SavedItem
+          title='What is Hair'
+          location='38 Boyce Avenue'
+          rating='5.0'
+          numratings='87237'
+        />
+        <SavedItem
+          title='Sample Store'
+          location='18 And Up'
+          rating='2.4'
+          numratings='68'
+        />
       </div>
     </div>
   );
