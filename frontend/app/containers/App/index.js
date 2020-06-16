@@ -17,6 +17,7 @@ import DiscoverPage from 'containers/DiscoverPage/Loadable';
 import BookingsPage from 'containers/BookingsPage/Loadable';
 import LoyaltyPage from 'containers/LoyaltyPage/Loadable';
 import SettingsPage from 'containers/SettingsPage/Loadable';
+import SavedPage from 'containers/SavedPage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import Header from 'components/Header';
 import Footer from 'components/Footer';
@@ -46,6 +47,7 @@ export default function App() {
         <Route path="/discover" component={DiscoverPage} />
         <Route path="/bookings" component={BookingsPage} />
         <Route path="/loyalty" component={LoyaltyPage} />
+        <Route path="/saved" component={SavedPage} />
         <Route path="/settings" component={SettingsPage} />
         <Route path="" component={NotFoundPage} />
       </Switch>
