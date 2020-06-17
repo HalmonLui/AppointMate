@@ -15,6 +15,8 @@ import messages from './messages';
 import List from './List';
 import ListItem from './ListItem';
 import ListItemTitle from './ListItemTitle';
+import './DiscoverPage.css';
+import Card from './Card'
 
 export default class DiscoverPage extends Component {
   data = [
@@ -50,15 +52,19 @@ export default class DiscoverPage extends Component {
         data={this.data}
         callback={record => console.log(record)}
         />
+        <br/>
         <H2>
           <FormattedMessage {...messages.scaffoldingHeader}/>
         </H2>
+        <Card/>
         <H3>
           <FormattedMessage {...messages.scaffoldingHeader2}/>
         </H3>
+        <Card/>
         <H3>
           <FormattedMessage {...messages.scaffoldingHeader3}/>
         </H3>
+        <Card/>
       </div>
     );
   }
