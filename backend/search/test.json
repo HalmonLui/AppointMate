@@ -1,0 +1,79 @@
+{
+    "2020-06-15": [{
+        "name": "Nicole's Pro Beauty Salon",
+        "type": ["Hair Salon", "Barbershop"],
+        "location": "55 Grant Ave, San Francisco, CA 94108",
+        "opening-hours": {
+            "MON": [{
+                    "Start": "0900",
+                    "End": "1300"
+                },
+                {
+                    "Start": "1400",
+                    "End": "1800"
+                }
+            ],
+            "TUE": [{
+                    "Start": "0900",
+                    "End": "1300"
+                },
+                {
+                    "Start": "1400",
+                    "End": "1800"
+                }
+            ],
+            "WED": [{
+                    "Start": "0900",
+                    "End": "1300"
+                },
+                {
+                    "Start": "1400",
+                    "End": "1800"
+                }
+            ],
+            "THU": [{
+                    "Start": "0900",
+                    "End": "1300"
+                },
+                {
+                    "Start": "1400",
+                    "End": "2000"
+                }
+            ],
+            "FRI": [{
+                    "Start": "0900",
+                    "End": "1300"
+                },
+                {
+                    "Start": "1400",
+                    "End": "2000"
+                }
+            ],
+            "SAT": [],
+            "SUN": []
+        },
+        "rating": 4.6,
+        "price": {
+            "Haircut": 95,
+            "Wash&BlowDry": 70,
+            "SingleProcessColor": 98,
+            "FullHighlights": 200,
+            "OmbreHairColor": 200,
+            "JapaneseHairStraightening": 560,
+            "BrazilianBlowout": 360
+        },
+        "stylists": {
+            "name": "Nicowo Nyah",
+            "type": ["haircut"],
+            "availability": {
+                "0900-0945": 1,
+                "1000-1045": 0,
+                "1100-1145": 0,
+                "1400-1445": 1,
+                "1500-1545": 1,
+                "1600-1645": 0,
+                "1700-1745": 0
+            }
+        }
+    }]
+}
