@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import './DiscoverPage.css';
 import HairSalon from './hair_salon.jpg'
+import FiveStars from './FiveStars'
+import FourStars from './FourStars'
 
-export default class DiscoverPage extends Component{
+export default class Card extends Component{
     render(){
         return (
             <div class="row">
@@ -14,12 +16,7 @@ export default class DiscoverPage extends Component{
                         <div class="container">
                             <h4><b>Beauty Paradise</b></h4> 
                             <p class="text-muted">Haircuts, Balayage etc.</p> 
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star not-checked"></span>
-                            <span class="text-muted"> 154 ratings</span>
+                            <FiveStars/>
                         </div>
                     </div>
                 </div>
@@ -29,10 +26,7 @@ export default class DiscoverPage extends Component{
                         <div class="container">
                             <h4><b>Beauty Paradise</b></h4> 
                             <p class="text-muted">Haircuts, Balayage etc.</p> 
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="text-muted"> 52 ratings</span>
+                            <FourStars/>
                         </div>
                     </div>
                 </div>
@@ -42,10 +36,7 @@ export default class DiscoverPage extends Component{
                         <div class="container">
                             <h4><b>Beauty Paradise</b></h4> 
                             <p class="text-muted">Haircuts, Balayage etc.</p> 
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="text-muted"> 178 ratings</span>
+                            <FourStars/>
                         </div>
                     </div>
                 </div>

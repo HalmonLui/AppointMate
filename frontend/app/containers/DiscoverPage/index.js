@@ -18,6 +18,7 @@ import ListItemTitle from './ListItemTitle';
 import './DiscoverPage.css';
 import Card from './Card'
 
+
 export default class DiscoverPage extends Component {
   data = [
     {
