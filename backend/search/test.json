@@ -62,7 +62,7 @@
             "JapaneseHairStraightening": 560,
             "BrazilianBlowout": 360
         },
-        "stylists": {
+        "stylists": [{
             "name": "Nicowo Nyah",
             "type": ["haircut"],
             "availability": {
@@ -74,6 +74,6 @@
                 "1600-1645": 0,
                 "1700-1745": 0
             }
-        }
+        }]
     }]
 }
