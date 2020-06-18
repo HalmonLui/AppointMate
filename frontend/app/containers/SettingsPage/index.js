@@ -7,7 +7,9 @@ import React from 'react';
 import styled from "styled-components";
 import { Helmet } from 'react-helmet';
 import { FormattedMessage } from 'react-intl';
+import { Link } from 'react-router-dom';
 import Header from 'components/Header';
+import Footer from 'components/Footer';
 import H1 from 'components/H1';
 import H2 from 'components/H2';
 import messages from './messages';
@@ -75,7 +77,7 @@ export default function SettingsPage() {
       </Helmet>
       <div id="top-container">
         <div id="logout-container">
-          <a>Logout</a>
+          <Link id="logout-text" to="/">Logout</Link>
         </div>
         <div id="profilepicture-container">
           <Img id="profilepicture" src={Banner} alt="react-boilerplate - Logo" />
@@ -136,7 +138,7 @@ export default function SettingsPage() {
         </div>
 
       </div>
-
+      <Footer/>
     </div>
   );
 }

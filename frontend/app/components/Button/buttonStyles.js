@@ -7,6 +7,7 @@ const buttonStyles = css`
   justify-content: center;
   text-decoration: none;
   border-radius: 50px;
+  width: 90%;
   -webkit-font-smoothing: antialiased;
   -webkit-touch-callout: none;
   user-select: none;

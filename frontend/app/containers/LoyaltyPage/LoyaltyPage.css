@@ -1,12 +1,22 @@
 @import url('https://fonts.googleapis.com/css?family=Inter');
+#loyaltypage {
+  font-family: Inter;
+}
 
-#hearticon-container {
+#bellicon-container {
   width: 8em;
   height: 8em;
   margin-top: 2em;
   overflow: hidden;
   border-radius: 50%;
   opacity: 0.8;
+  padding: 1em;
+  border: 2px solid #BDBDBD;
+  background-color: #67B57D;
+}
+
+#bellicon {
+  width: 100%;
 }
 
 #top-save-container {
@@ -15,21 +25,12 @@
   justify-content: center;
   align-items: center;
   font-family: Inter;
-  /* background: linear-gradient(#5DB075 1%, #fafafa 75%); */
 }
 
-#logout-container {
-  display: flex;
-  width: 100%;
-  padding: 2em;
-  align-items: flex-end;
-  justify-content: flex-end;
-  flex-direction: column;
-  color: #fafafa;
-}
-
-#save-venues-text {
+#loyalty-text {
   width: 80%;
+  margin: 0px;
+  padding: 0px;
   font-size: 1.25em;
   text-align: center;
   color: #BDBDBD;
@@ -38,7 +39,9 @@
 
 #toggleswitch {
   width: 90%;
+  margin: 2em;
   display: flex;
+  font-family: Inter;
   justify-content: space-around;
   background-color: #F6F6F6;
   border: 2px solid #E8E8E8;
@@ -46,21 +49,22 @@
   color: #C1C1C1;
 }
 
-#toggle-profile {
+#toggle-active {
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
   padding: .5em;
   margin: .1em;
-  color: #5DB075;
+  color: #67B57D;
   background-color: #fafafa;
   width: 50%;
   border-radius: 20%/50%;
   font-weight: bold;
+  font-family: Inter;
 }
 
-#toggle-saved {
+#toggle-inactive {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -68,50 +72,11 @@
   width: 50%;
   border-radius: 10%/50%;
   font-weight: bold;
-}
-
-#bot-container {
-
-}
-
-.bot-info-container {
-  display: flex;
-  flex-direction: column;
-  margin: 1em 1.5em .5em 1.5em;
-  padding: 0px 0em 1em 0em;
-  border-bottom: 1px solid #E8E8E8;
   font-family: Inter;
 }
 
-.info-title {
-  font-weight: bold;
-  margin-bottom: .5em;
-  padding: 0px;
-  font-family: Inter;
-}
-
-.info-text {
-  color: #BDBDBD;
-  margin: 0px;
-  padding: 0px;
-  font-family: Inter;
-}
-
-#payment-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
-
-#creditcardicon {
-  width: 40px;
-}
-
-#creditnumber {
-  font-size: 12px;
-}
-
-#addcard {
-  color: #5DB075;
+#loyalty-title {
+  width: 100%;
+  padding-left: 1em;
+  text-align: left;
 }

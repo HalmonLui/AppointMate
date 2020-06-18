@@ -1,9 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=Inter');
+
 #profilepicture-container {
   width: 10em;
   height: 10em;
   overflow: hidden;
   border-radius: 50%;
   border: .5em solid #fafafa;
+  font-family: Inter;
 }
 
 #top-container {
@@ -11,6 +14,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-family: Inter;
   background: linear-gradient(#5DB075 50%, #fafafa 50%);
 }
 
@@ -22,6 +26,12 @@
   justify-content: flex-end;
   flex-direction: column;
   color: #fafafa;
+  font-family: Inter;
+}
+
+#logout-text {
+  text-decoration: none;
+  font-family: Inter;
 }
 
 #toggleswitch {
@@ -32,6 +42,7 @@
   border: 2px solid #E8E8E8;
   border-radius: 8%/50%;
   color: #C1C1C1;
+  font-family: Inter;
 }
 
 #toggle-profile {
@@ -46,6 +57,7 @@
   width: 50%;
   border-radius: 20%/50%;
   font-weight: bold;
+  font-family: Inter;
 }
 
 #toggle-saved {
@@ -56,6 +68,7 @@
   width: 50%;
   border-radius: 10%/50%;
   font-weight: bold;
+  font-family: Inter;
 }
 
 #bot-container {
@@ -68,18 +81,21 @@
   margin: 1em 1.5em .5em 1.5em;
   padding: 0px 0em 1em 0em;
   border-bottom: 1px solid #E8E8E8;
+  font-family: Inter;
 }
 
 .info-title {
   font-weight: bold;
   margin-bottom: .5em;
   padding: 0px;
+  font-family: Inter;
 }
 
 .info-text {
   color: #BDBDBD;
   margin: 0px;
   padding: 0px;
+  font-family: Inter;
 }
 
 #payment-container {
@@ -87,6 +103,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  font-family: Inter;
 }
 
 #creditcardicon {
@@ -95,8 +112,10 @@
 
 #creditnumber {
   font-size: 12px;
+  font-family: Inter;
 }
 
 #addcard {
   color: #5DB075;
+  font-family: Inter;
 }
