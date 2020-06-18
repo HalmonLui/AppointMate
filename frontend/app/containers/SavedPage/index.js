@@ -76,9 +76,6 @@ export default function SavedPage() {
         />
       </Helmet>
       <div id="top-save-container">
-        <div id="logout-container">
-          <a>Logout</a>
-        </div>
         <div id="hearticon-container">
           <Img id="hearticon" src={Heart} alt="heart icon" />
         </div>

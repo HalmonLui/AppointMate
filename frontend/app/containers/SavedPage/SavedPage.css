@@ -1,6 +1,7 @@
 #hearticon-container {
   width: 8em;
   height: 8em;
+  margin-top: 2em;
   overflow: hidden;
   border-radius: 50%;
   opacity: 0.8;

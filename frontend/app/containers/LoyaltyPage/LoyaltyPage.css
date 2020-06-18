@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css?family=Inter');
+#loyaltypage {
+  font-family: Inter;
+}
+
+#bellicon-container {
+  width: 8em;
+  height: 8em;
+  margin-top: 2em;
+  overflow: hidden;
+  border-radius: 50%;
+  opacity: 0.8;
+  padding: 1em;
+  border: 2px solid #BDBDBD;
+  background-color: #67B57D;
+}
+
+#bellicon {
+  width: 100%;
+}
+
+#top-save-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: Inter;
+}
+
+#loyalty-text {
+  width: 80%;
+  margin: 0px;
+  padding: 0px;
+  font-size: 1.25em;
+  text-align: center;
+  color: #BDBDBD;
+  font-family: Inter;
+}
+
+#toggleswitch {
+  width: 90%;
+  margin: 2em;
+  display: flex;
+  font-family: Inter;
+  justify-content: space-around;
+  background-color: #F6F6F6;
+  border: 2px solid #E8E8E8;
+  border-radius: 8%/50%;
+  color: #C1C1C1;
+}
+
+#toggle-active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: .5em;
+  margin: .1em;
+  color: #67B57D;
+  background-color: #fafafa;
+  width: 50%;
+  border-radius: 20%/50%;
+  font-weight: bold;
+  font-family: Inter;
+}
+
+#toggle-inactive {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 50%;
+  border-radius: 10%/50%;
+  font-weight: bold;
+  font-family: Inter;
+}
+
+#loyalty-title {
+  width: 100%;
+  padding-left: 1em;
+  text-align: left;
+}
