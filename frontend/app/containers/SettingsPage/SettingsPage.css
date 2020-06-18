@@ -24,6 +24,10 @@
   color: #fafafa;
 }
 
+#logout-text {
+  text-decoration: none;
+}
+
 #toggleswitch {
   width: 90%;
   display: flex;

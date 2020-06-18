@@ -6,9 +6,10 @@ import './Footer.css'
 import LocaleToggle from 'containers/LocaleToggle';
 import Wrapper from './Wrapper';
 import messages from './messages';
-import Homeicon from './home.svg';
-import Usericon from './user.svg'
-import Hearticon from './heart.svg';
+import Homeicon from './home.png';
+import Bellicon from './appointments.png'
+import Usericon from './person.png'
+import Hearticon from './favorite.png';
 
 function Footer() {
   return (
@@ -17,7 +18,7 @@ function Footer() {
         <img class="icon" src={Homeicon} alt="home"/>
       </Link>
       <Link class="link" to="/loyalty">
-        <img class="icon" src={Homeicon} alt="loyalty"/>
+        <img class="icon" src={Bellicon} alt="loyalty"/>
       </Link>
       <Link class="link" to="/saved">
         <img class="icon" src={Hearticon} alt="saved"/>
