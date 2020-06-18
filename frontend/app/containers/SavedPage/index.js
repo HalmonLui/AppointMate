@@ -16,7 +16,7 @@ import List from './List';
 import ListItem from './ListItem';
 import ListItemTitle from './ListItemTitle';
 import Img from './Img';
-import Banner from './coolcat.jpg';
+import Heart from './heart-icon.png';
 import Ccicon from './creditcardicon.png'
 import './SavedPage.css';
 
@@ -78,14 +78,10 @@ export default function SavedPage() {
         <div id="logout-container">
           <a>Logout</a>
         </div>
-        <div id="profilepicture-container">
-          <Img id="profilepicture" src={Banner} alt="react-boilerplate - Logo" />
+        <div id="hearticon-container">
+          <Img id="hearticon" src={Heart} alt="heart icon" />
         </div>
-        <H2>Soooonam Ghosh</H2>
-        <div id="toggleswitch">
-          <p id="toggle-saved">Profile</p>
-          <p id="toggle-profile">Saved</p>
-        </div>
+        <p id="save-venues-text">Save venues to get alerts for promotions and deals from your favorite places!</p>
       </div>
       <div>
         <SavedItem
@@ -104,7 +100,7 @@ export default function SavedPage() {
           title='What is Hair'
           location='38 Boyce Avenue'
           rating='5.0'
-          numratings='87237'
+          numratings='8237'
         />
         <SavedItem
           title='Sample Store'

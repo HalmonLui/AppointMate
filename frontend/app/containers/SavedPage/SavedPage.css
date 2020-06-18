@@ -1,9 +1,9 @@
-#profilepicture-container {
+#hearticon-container {
   width: 10em;
   height: 10em;
   overflow: hidden;
   border-radius: 50%;
-  border: .5em solid #fafafa;
+  opacity: 0.7;
 }
 
 #top-container {
@@ -11,7 +11,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(#5DB075 50%, #fafafa 50%);
 }
 
 #logout-container {
@@ -22,6 +21,13 @@
   justify-content: flex-end;
   flex-direction: column;
   color: #fafafa;
+}
+
+#save-venues-text {
+  width: 80%;
+  font-size: 1.25em;
+  text-align: center;
+  color: #BDBDBD;
 }
 
 #toggleswitch {

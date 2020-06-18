@@ -9,6 +9,8 @@
 }
 #storeimage {
   width: 150px;
+  border-radius: .5em;
+  border: .25em solid #E8E8E8;
 }
 #starimage {
   width: 20px;
@@ -26,6 +28,7 @@
   font-weight: bold;
   margin: none;
   padding: none;
+  font-size: 1.25em;
 }
 
 #rating-container {
@@ -53,7 +56,9 @@
 }
 .saveditem-rating{
   margin: 1em;
+  font-size: 1.15em;
 }
 .saveditem-num-ratings {
   color: #BDBDBD;
+  font-size: 1.15em;
 }
