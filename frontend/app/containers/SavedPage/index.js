@@ -8,6 +8,7 @@ import styled from "styled-components";
 import { Helmet } from 'react-helmet';
 import { FormattedMessage } from 'react-intl';
 import Header from 'components/Header';
+import Footer from 'components/Footer';
 import H1 from 'components/H1';
 import H2 from 'components/H2';
 import SavedItem from 'components/SavedItem';
@@ -109,6 +110,7 @@ export default function SavedPage() {
           numratings='68'
         />
       </div>
+      <Footer/>
     </div>
   );
 }
