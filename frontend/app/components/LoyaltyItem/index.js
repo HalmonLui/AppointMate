@@ -5,12 +5,11 @@ import star from './star.png'
 import './LoyaltyItem.css';
 
 function LoyaltyItem(props) {
-  var progress_percent = props.points/props.totalpoints*100
-  console.log(progress_percent)
+  var progress_percent = props.points / props.totalpoints * 100
   return (
     <div id="saveditem-container">
 
-      <img id="storeimage" src={quokka} alt="react-boilerplate - Logo"/>
+      <img id="loyaltyimage" src={quokka} alt="react-boilerplate - Logo"/>
       <div id="loyalty-container-right">
         <div>
             <p class="loyalty-title">
