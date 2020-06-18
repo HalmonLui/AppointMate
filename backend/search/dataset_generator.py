@@ -3,6 +3,7 @@
 import json
 import barnum
 import random
+import requests
 from faker import Faker
 # @TODO: add yelp api
 
@@ -145,4 +146,29 @@ for name in temp_names:
     for date in dates:
         d[date].append(business_dict)
 
+# Add in random availabilities
+for date in dates:  # each date key
+    for i in range(len(d[date])):  # each dict in the date key val array
+        for j in range(len(d[date][i]["stylists"])):  # each stylist in stylist arr
+            for key, value in d[date][i]["stylists"][j]["availability"].items():  # iterate the dicts
+                d[date][i]["stylists"][j]["availability"][key] = random.randint(0, 1)
+
+
 print(json.dumps(d, indent=4))
+
+# Yelp API testing
+"""
+f2 = open('keys.json',)
+data3 = json.load(f2)
+data4 = json.dumps(data3)  # takes dict and returns string
+yelp_creds = json.loads(data4)  # takes string and returns dict
+
+api_key = yelp_creds["yelp"]["apiKey"]
+headers = {'Authorization': 'Bearer %s' % api_key}
+
+url='https://api.yelp.com/v3/businesses/search'
+params={'term':'salon', 'location':'San Francisco'}
+req = requests.get(url, params=params, headers=headers)
+parsed = json.loads(req.text)
+print(json.dumps(parsed, indent=4))
+"""
