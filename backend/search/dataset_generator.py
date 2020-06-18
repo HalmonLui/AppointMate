@@ -3,7 +3,7 @@
 import json
 import barnum
 import random
-
+from faker import Faker
 # @TODO: add yelp api
 
 f = open('test.json',)
@@ -36,24 +36,6 @@ for name in name_prefixes:
 
 print(temp_names)
 
-skeleton_dict = {
-    "name": "",
-    "type": [],
-    "location": "",
-    "opening-hours": {
-        "MON": [],
-        "TUE": [],
-        "WED": [],
-        "THU": [],
-        "FRI": [],
-        "SAT": [],
-        "SUN": []
-    },
-    "rating": 0.0,
-    "price": {},
-    "stylists": [],
-    "distance": 0.0
-}
 
 stylist_dict = {
     "name": "",
@@ -83,7 +65,45 @@ def gen_opening_hours_dict(times, num_of_op_days):
             op_hours_dict[d].append({"Start": str(times[1][0])+"00", "End": str(times[1][1])+"00"})
     
     return op_hours_dict
+
+def gen_stylists(num_of_stylists, times):
+    stylist_dict = []
+    faker = Faker(['en_US'])
+    for _ in range(num_of_stylists):
+        stylist_dict.append({"name": faker.name(), "type": [], "availability": {}})
     
+    # pre fill in times as available for now and keep schedules consistent for now
+    if len(times) == 1:
+        start = times[0][0]
+        end = times[0][1]
+        #time_range = range(start, end)
+        slots = []
+        for num in range(start, end):
+            if num < 10:
+                slots.append("0"+str(num)+"00"+"-0"+str(num)+"45")
+            else:
+                slots.append(str(num)+"00-"+str(num)+"45")
+    elif len(times) == 2:
+        start1 = times[0][0]
+        end1 = times[0][1]
+        start2 = times[1][0]
+        end2 = times[1][1]
+        slots = []
+        for num in range(start1, end1):
+            if num < 10:
+                slots.append("0"+str(num)+"00"+"-0"+str(num)+"45")
+            else:
+                slots.append(str(num)+"00-"+str(num)+"45")
+        for num in range(start2, end2):
+            slots.append(str(num)+"00-"+str(num)+"45")
+    
+    for d in stylist_dict:
+        for slot in slots:
+            d["availability"][slot] = 1
+    
+    return stylist_dict
+
+
 def gen_json_data(name):
     types = ["Hair Salon", "Nail Salon", "Barbershop", "Spa Center", "Piercing Parlor"]
     # Whether this business has a break in between
@@ -104,6 +124,9 @@ def gen_json_data(name):
     # Choose if M-F or M-Sat or M-Sun
     num_of_op_days = random.randint(5, 7)
 
+    # number of stylists
+    num_of_stylists = random.randint(2, 3)
+
     business_dict = {
     "name": name,
     "type": list(set([random.choice(types) for i in range(random.randint(1, 3))])),
@@ -111,14 +134,15 @@ def gen_json_data(name):
     "opening-hours": gen_opening_hours_dict(times, num_of_op_days),
     "rating": round(random.uniform(3.49, 5.00), 2),
     "price": {},
-    "stylists": [],
+    "stylists": gen_stylists(num_of_stylists, times),
     "distance": 0.0
     }
 
     return business_dict
 
-for date in dates:
-    for name in temp_names:
-        d[date].append(gen_json_data(name))
+for name in temp_names:
+    business_dict = gen_json_data(name)
+    for date in dates:
+        d[date].append(business_dict)
 
 print(json.dumps(d, indent=4))
