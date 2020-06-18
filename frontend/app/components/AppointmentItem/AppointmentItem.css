@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css?family=Inter');
+
+#saveditem-container {
+  display: flex;
+  width: 95%;
+  margin: auto;
+  padding: 0.5em;
+  align-items: center;
+  justify-content: space-around;
+  border-bottom: 1px solid #E8E8E8;
+  font-family: Inter;
+}
+#loyaltyimage {
+  width: 100px;
+  height: 100px;
+  border-radius: .5em;
+  border: .25em solid #E8E8E8;
+}
+#starimage {
+  width: 20px;
+  height: 20px;
+}
+
+#loyalty-container-right{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  font-family: Inter;
+  padding: 1em;
+}
+
+.loyalty-title{
+  font-weight: bold;
+  margin: 0px;
+  padding: 0px;
+  font-size: 1.25em;
+  font-family: Inter;
+}
+
+#rating-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+}
+
+#points-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.loyalty-points{
+  color: #67B57D;
+  font-size: 1.5em;
+  margin: 0px;
+  padding: 0px;
+  text-align: right;
+  font-family: Inter;
+}
+.saveditem-rating{
+  margin: 1em;
+  font-size: 1.15em;
+  font-family: Inter;
+}
+.green-points-text {
+  color: #67B57D;
+  font-family: Inter;
+}
+.points-text {
+  color: #BDBDBD;
+  font-size: .75em;
+  font-family: Inter;
+}
+.progress-bar-container{
+  background-color: #E8E8E8;
+  width: 100%;
+  border-radius: 1em;
+  height: .5em;
+}
+.progress-bar{
+  background-color: #67B57D;
+  border-radius: 1em;
+  height: .5em;
+  width: 100%;
+}

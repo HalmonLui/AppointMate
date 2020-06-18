@@ -6,6 +6,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { FormattedMessage } from 'react-intl';
+import { Link } from 'react-router-dom';
 import Header from 'components/Header';
 import Footer from 'components/Footer';
 import H1 from 'components/H1';
@@ -32,8 +33,12 @@ export default function LoyaltyPage() {
           <img id="bellicon" src={Bellicon} alt="bell icon" />
         </div>
         <div id="toggleswitch">
-          <p id="toggle-inactive">Appointments</p>
-          <p id="toggle-active">Loyalty Programs</p>
+          <Link id="toggle-inactive" to="/appointments">
+            <p>Appointments</p>
+          </Link>
+          <Link id="toggle-active" to="/loyalty">
+            <p>Loyalty Programs</p>
+          </Link>
         </div>
         <p id="loyalty-text">Rack up loyalty points with your favorite places to redeem rewards!</p>
         <h2 id="loyalty-title">Active Loyalty Programs</h2>
