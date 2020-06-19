@@ -74,7 +74,7 @@ export default function AppointmentsPage() {
 
       </div>
 
-      <Footer/>
+      <Footer activepage="appointments"/>
     </div>
   );
 }

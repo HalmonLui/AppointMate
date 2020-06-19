@@ -107,7 +107,7 @@ export default function SavedPage() {
           numratings='68'
         />
       </div>
-      <Footer/>
+      <Footer activepage="saved"/>
     </div>
   );
 }

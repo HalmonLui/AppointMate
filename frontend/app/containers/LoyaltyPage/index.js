@@ -67,7 +67,7 @@ export default function LoyaltyPage() {
         />
       </div>
 
-      <Footer/>
+      <Footer activepage="loyalty"/>
     </div>
   );
 }
