@@ -43,8 +43,33 @@ export default function AppointmentsPage() {
         <p id="loyalty-text">Never miss an appointment by turning notifications on!</p>
         <h2 id="loyalty-title">Upcoming Appointments</h2>
       </div>
-        <AppointmentItem />
-        <AppointmentItem />
+        <AppointmentItem
+          title="Sally's Salon"
+          address="123 Beacon Street"
+          phone="617-617-6176"
+          day="Fri"
+          date="July 7th"
+          time="4:00 PM"
+          activity="Haircut with Sally"
+        />
+        <AppointmentItem
+          title="Nancy's Salon"
+          address="2 Washington Street"
+          phone="617-617-6176"
+          day="Tue"
+          date="July 13th"
+          time="2:40 PM"
+          activity="Gel your nails"
+        />
+        <AppointmentItem
+          title="Barbara's Barber Shop"
+          address="22 Bakery Avenue"
+          phone="617-617-6176"
+          day="Sat"
+          date="January 1st"
+          time="11:00 AM"
+          activity="Haircut with Barbara's Son"
+        />
       <div>
 
       </div>

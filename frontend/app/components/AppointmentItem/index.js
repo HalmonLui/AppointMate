@@ -1,28 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import quokka from './quokka.png';
+import squirrel from './squirrel.jpg';
 import star from './star.png'
 import './AppointmentItem.css';
 
 function AppointmentItem(props) {
   var progress_percent = props.points / props.totalpoints * 100
   return (
-    <div id="saveditem-container">
+    <div id="appointmentitem-container">
       <div id="appointmentitem-top-container">
-          <img id="loyaltyimage" src={quokka} alt="react-boilerplate - Logo"/>
+          <img id="appointmentimage" src={squirrel} alt="react-boilerplate - Logo"/>
           <div id="appointmentitem-store-info">
-              <p>Sally</p>
-              <p>123 st</p>
-              <p>111-111-1111</p>
-              <p>Get directions</p>
+              <p class="appointment-title">{props.title}</p>
+              <p class="appointment-info">{props.address}</p>
+              <p class="appointment-info">{props.phone}</p>
+              <p class="get-directions">Get directions</p>
           </div>
       </div>
       <div id="appointmentitem-bottom-container">
-        <div>
-          <p>Wed July 1 at 4:00PM</p>
-          <p>Haircut with joemama</p>
+        <div id="appointmentitem-bottom-left-container">
+          <p class="appointment-time">{props.day} {props.date} at {props.time}</p>
+          <p class="appointment-activity">{props.activity}</p>
         </div>
-        <div>View details</div>
+        <div class="get-directions">View details</div>
       </div>
     </div>
   );

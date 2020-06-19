@@ -1,35 +1,51 @@
 @import url('https://fonts.googleapis.com/css?family=Inter');
 
-#saveditem-container {
+#appointmentitem-container {
   display: flex;
+  flex-direction: column;
   width: 95%;
   margin: auto;
   padding: 0.5em;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
   border-bottom: 1px solid #E8E8E8;
   font-family: Inter;
 }
-#loyaltyimage {
-  width: 100px;
-  height: 100px;
+#appointmentitem-top-container {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  margin: 0px;
+  margin-bottom: 1em;
+  padding: 0px;
+  justify-content: space-around;
+  font-family: Inter;
+}
+#appointmentitem-bottom-container {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+  margin: 0px;
+  margin-bottom: 0.5em;
+  padding: 0px;
+  justify-content: space-around;
+  font-family: Inter;
+}
+
+#appointmentimage {
+  width: 10em;
+  height: 7em;
   border-radius: .5em;
   border: .25em solid #E8E8E8;
 }
-#starimage {
-  width: 20px;
-  height: 20px;
-}
-
-#loyalty-container-right{
-  display: flex;
-  flex-direction: column;
-  width: 100%;
+#appointmentitem-store-info {
+  flex: 1;
   font-family: Inter;
-  padding: 1em;
+  margin: 1em;
 }
 
-.loyalty-title{
+.appointment-title{
   font-weight: bold;
   margin: 0px;
   padding: 0px;
@@ -37,49 +53,44 @@
   font-family: Inter;
 }
 
-#rating-container {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  justify-content: space-between;
-}
-
-#points-container {
-  display: flex;
-  flex-direction: row;
-}
-
-.loyalty-points{
+.get-directions{
   color: #67B57D;
-  font-size: 1.5em;
+  font-size: 1em;
+  width: 100%;
   margin: 0px;
+  margin-right: 1em;
   padding: 0px;
   text-align: right;
   font-family: Inter;
 }
-.saveditem-rating{
-  margin: 1em;
-  font-size: 1.15em;
-  font-family: Inter;
-}
-.green-points-text {
-  color: #67B57D;
-  font-family: Inter;
-}
-.points-text {
+
+.appointment-info {
   color: #BDBDBD;
-  font-size: .75em;
+  font-size: 1em;
+  margin-bottom: 0px;
+  margin-top: .2em;
+  padding: 0px;
   font-family: Inter;
 }
-.progress-bar-container{
-  background-color: #E8E8E8;
+
+#appointmentitem-bottom-left-container{
   width: 100%;
-  border-radius: 1em;
-  height: .5em;
+  margin: 0px;
+  padding: 0px;
+  font-family: Inter;
 }
-.progress-bar{
-  background-color: #67B57D;
-  border-radius: 1em;
-  height: .5em;
+.appointment-time {
+  font-weight: bold;
+  font-family: Inter;
   width: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+.appointment-activity {
+  color: #BDBDBD;
+  font-size: .9em;
+  margin: 0px;
+  padding: 0px;
+  font-family: Inter;
 }
