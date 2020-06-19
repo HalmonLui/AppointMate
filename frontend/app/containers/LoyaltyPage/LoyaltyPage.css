@@ -145,13 +145,22 @@
   font-family: Inter;
 }
 
+#form {
+  display: flex;
+  flex-direction: column;
+}
+
+#form div {
+  margin: .5em;
+}
 input[type=submit] {
-  background-color: #4CAF50;
+  background-color: #67B57D;
   color: white;
   padding: 12px 30px;
   border: none;
   border-radius: 40px;
   cursor: pointer;
-  width: 30%;
-  margin: 0 35%;
+  margin: 1em;
+  width: 50%;
+  align-self: center;
 }
