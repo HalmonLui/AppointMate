@@ -176,6 +176,11 @@ class SyntheticDataCreation(object):
 
         self.output_data = data_dict
 
+    def save_data(self):
+        if self.output_data:
+            with open('sample_' + self.theme + '_data.json', 'w', encoding='utf-8') as f:
+                json.dump(self.output_data, f, ensure_ascii=False, indent=4)
+
 
 if __name__ == "__main__":
     print('Hello World')
@@ -185,7 +190,8 @@ if __name__ == "__main__":
     names = a.business_name_generator()
     data_dict = a.gen_empty_dict(d_r)
     a.create_dataset(data_dict, names, d_r)
-    print(json.dumps(a.output_data, indent=4))
+    #print(json.dumps(a.output_data, indent=4))
+    a.save_data()
 
     # Yelp API testing
     """
