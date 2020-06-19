@@ -4,6 +4,7 @@
  * List all the loyalties
  */
 import React from 'react';
+import ReactDOM from 'react-dom';
 import { Helmet } from 'react-helmet';
 import { FormattedMessage } from 'react-intl';
 import { Link } from 'react-router-dom';
@@ -16,9 +17,14 @@ import ListItem from './ListItem';
 import ListItemTitle from './ListItemTitle';
 import LoyaltyItem from 'components/LoyaltyItem';
 import Bellicon from './appointmentpage.png';
-import './LoyaltyPage.css'
+import './LoyaltyPage.css';
+import Modal from 'react-modal';
+
 
 export default function LoyaltyPage() {
+  function LoyaltyModal() {
+    alert("Modal!");
+  }
   return (
     <div id="loyaltypage">
       <Helmet>
@@ -45,10 +51,11 @@ export default function LoyaltyPage() {
       </div>
 
       <div>
-        <LoyaltyItem
+        <LoyaltyItem 
           title='Sallys Salon'
           totalpoints='20'
           points='5'
+          LoyaltyModal={LoyaltyModal}
         />
         <LoyaltyItem
           title='Haair Shop'
@@ -66,6 +73,10 @@ export default function LoyaltyPage() {
           points='25'
         />
       </div>
+      <Modal isOpen={true}>
+        <h2>Modal Title</h2>
+        <p>Modal Body</p>
+      </Modal>
 
       <Footer activepage="loyalty"/>
     </div>
