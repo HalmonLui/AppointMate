@@ -19,6 +19,7 @@ import LoyaltyItem from 'components/LoyaltyItem';
 import Bellicon from './appointmentpage.png';
 import './LoyaltyPage.css';
 import Modal from 'react-modal';
+import quokka from './quokka.png';
 
 class LoyaltyPage extends React.Component {
   constructor () {
@@ -90,11 +91,32 @@ class LoyaltyPage extends React.Component {
           />
         </div>
         <Modal isOpen={this.state.showModal}>
-          <h2>Modal Title</h2>
-          <p>Modal Body</p>
-          <button onClick={this.handleCloseModal}>Close</button>
+        <button onClick={this.handleCloseModal}>x</button>
+          <div class="center">
+            <h2>Sally's Salon</h2>
+            <img id="store-image" src={quokka}/>
+            <p class="points-text-big">Accured Loyalty Points:</p>
+            <h1 class="green-points-text">85 Points</h1>
+            <div class="progress-bar-container">
+              <div class="progress-bar" style={{width: '60' + '%'}}></div>
+            </div>
+            <div id="points-container">
+              <p class="points-text"><span class="green-points-text">5 more points </span>until your next reward!</p>
+            </div>
+          </div>
+          <p class="regular-text">Details</p>
+          <p class="points-text-large">Earn 5 points each time you visit Sally's Salon</p>
+          <p class="regular-text">Rewards</p>
+          <form>
+            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike"/>
+            <label for="vehicle1"> 30 points = $5 off haircut</label><br/>
+            <input type="checkbox" id="vehicle2" name="vehicle2" value="Car"/>
+            <label for="vehicle2"> 60 points = $12 off haircut</label><br/>
+            <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat"/>
+            <label for="vehicle3"> 90 points = $20 off haircut</label><br/><br/>
+            <input type="submit" value="Redeem"/>
+          </form>
         </Modal>
-  
         <Footer activepage="loyalty"/>
       </div>
     );
