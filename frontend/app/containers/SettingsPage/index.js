@@ -21,6 +21,16 @@ import Banner from './coolcat.jpg';
 import Ccicon from './creditcardicon.png'
 import './SettingsPage.css';
 
+import 'react-square-payment-form/lib/default.css'
+import {
+  SquarePaymentForm,
+  CreditCardNumberInput,
+  CreditCardExpirationDateInput,
+  CreditCardPostalCodeInput,
+  CreditCardCVVInput,
+  CreditCardSubmitButton
+} from 'react-square-payment-form'
+
 const CheckBoxWrapper = styled.div`
   position: relative;
 `;
@@ -65,6 +75,34 @@ const CheckBox = styled.input`
   }
 `;
 
+function cardNonceResponseReceived(errors, nonce, cardData, buyerVerificationToken) {
+  if (errors) {
+    // this.setState({ errorMessages: errors.map(error => error.message) })
+    return
+  }
+
+  // this.setState({ errorMessages: [] })
+  alert("nonce created: " + nonce + ", buyerVerificationToken: " + buyerVerificationToken)
+}
+
+function createVerificationDetails() {
+  return {
+    amount: '100.00',
+    currencyCode: "USD",
+    intent: "CHARGE",
+    billingContact: {
+      familyName: "Smith",
+      givenName: "John",
+      email: "jsmith@example.com",
+      country: "GB",
+      city: "London",
+      addressLines: ["1235 Emperor's Gate"],
+      postalCode: "SW7 4JA",
+      phone: "020 7946 0532"
+    }
+  }
+}
+
 export default function SettingsPage() {
   return (
     <div>
@@ -83,51 +121,47 @@ export default function SettingsPage() {
           <Img id="profilepicture" src={Banner} alt="react-boilerplate - Logo" />
         </div>
         <H2>Snam Ghosh</H2>
-        <div id="toggleswitch">
-          <p id="toggle-profile">Profile</p>
-          <p id="toggle-saved">Saved</p>
-        </div>
       </div>
       <div id="bot-container">
-        <div class="bot-info-container">
-          <p class="info-title">
+        <div className="bot-info-container">
+          <p className="info-title">
             Mobile phone
           </p>
           <p class="info-text">
             888-888-8888
           </p>
         </div>
-        <div class="bot-info-container">
-          <p class="info-title">
+        <div className="bot-info-container">
+          <p className="info-title">
             Email
           </p>
-          <p class="info-text">
+          <p className="info-text">
             email@email.email
           </p>
         </div>
-        <div class="bot-info-container">
-          <p class="info-title">
+        <div className="bot-info-container">
+          <p className="info-title">
             Payment Methods
           </p>
           <div id="payment-container">
             <img id="creditcardicon" src={Ccicon} alt="credit card icon" />
             <div>
-              <p class="info-text">
+              <p className="info-text">
                 Bank of America
               </p>
-              <p class="info-text" id="creditnumber">
+              <p className="info-text" id="creditnumber">
                 Credit ** 8888
               </p>
             </div>
             <a id="addcard">Add a card</a>
           </div>
         </div>
-        <div class="bot-info-container">
-          <p class="info-title">
+        <div className="bot-info-container">
+          <p className="info-title">
             Notifications
           </p>
           <div id="payment-container">
-            <p class="info-text" id="creditnumber">
+            <p className="info-text" id="creditnumber">
               Get texts for appointment reminders
             </p>
             <CheckBoxWrapper>
@@ -136,7 +170,32 @@ export default function SettingsPage() {
             </CheckBoxWrapper>
           </div>
         </div>
+        <SquarePaymentForm
+          sandbox={true}
+          applicationId='sandbox-sq0idb-NHDZ0bT8K4bKVzHkYecrZw'
+          locationId='D6S6TV84CCGTM'
+          cardNonceResponseReceived={cardNonceResponseReceived}
+          createVerificationDetails={createVerificationDetails}
+        >
+        <fieldset className="sq-fieldset">
+          <CreditCardNumberInput />
+          <div className="sq-form-third">
+            <CreditCardExpirationDateInput />
+          </div>
 
+          <div className="sq-form-third">
+            <CreditCardPostalCodeInput />
+          </div>
+
+          <div className="sq-form-third">
+            <CreditCardCVVInput />
+          </div>
+        </fieldset>
+
+        <CreditCardSubmitButton>
+            Pay $1.00
+        </CreditCardSubmitButton>
+        </SquarePaymentForm>
       </div>
       <Footer activepage="settings"/>
     </div>
