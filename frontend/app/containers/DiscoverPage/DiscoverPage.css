@@ -33,6 +33,12 @@
     padding: 15px;
   }
 
+  /* Create five equal columns that sits next to eachother */
+  .column-five {
+    flex: 20%;
+    padding: 15px
+  }
+
   /* STARS */
   .checked {
     color: orange;

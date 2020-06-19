@@ -17,7 +17,11 @@ import ListItem from './ListItem';
 import ListItemTitle from './ListItemTitle';
 import './DiscoverPage.css';
 import Card from './Card'
-
+import BarberImg from './barberbg.png'
+import HairSalonImg from './hairsalonbg.png'
+import NailSalonImg from './nailsalonbg.png'
+import PiercingImg from './piercingbg.png'
+import SpaImg from './spabg.png'
 
 export default class DiscoverPage extends Component {
   data = [
@@ -58,6 +62,30 @@ export default class DiscoverPage extends Component {
           <FormattedMessage {...messages.scaffoldingHeader}/>
         </H2>
         <Card/>
+        <br/>
+        <div class="row">
+          <div class="column-five">
+            <img src={HairSalonImg} width="50%"/>
+            <p>Hair Salon</p>
+          </div>
+          <div class="column-five">
+            <img src={NailSalonImg} width="50%"/>
+            <p>Nail Salon</p>
+          </div>
+          <div class="column-five">
+            <img src={BarberImg} width="50%"/>
+            <p>Barbershop</p>
+          </div>
+          <div class="column-five">
+            <img src={SpaImg} width="50%"/>
+            <p>Spa Center</p>
+          </div>
+          <div class="column-five">
+            <img src={PiercingImg} width="50%"/>
+            <p>Piercing Palor</p>
+          </div>
+        </div>
+        <br/>
         <H3>
           <FormattedMessage {...messages.scaffoldingHeader2}/>
         </H3>
