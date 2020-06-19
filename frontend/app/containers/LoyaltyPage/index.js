@@ -27,14 +27,14 @@ class LoyaltyPage extends React.Component {
     this.state = {
       showModal: false
     };
-    
+
     this.handleOpenModal = this.handleOpenModal.bind(this);
     this.handleCloseModal = this.handleCloseModal.bind(this);
   }
   handleOpenModal () {
     this.setState({ showModal: true });
   }
-  
+
   handleCloseModal () {
     this.setState({ showModal: false });
   }
@@ -63,9 +63,9 @@ class LoyaltyPage extends React.Component {
           <p id="loyalty-text">Rack up loyalty points with your favorite places to redeem rewards!</p>
           <h2 id="loyalty-title">Active Loyalty Programs</h2>
         </div>
-  
+
         <div>
-          <LoyaltyItem 
+          <LoyaltyItem
             title='Sallys Salon'
             totalpoints='20'
             points='5'
@@ -107,13 +107,19 @@ class LoyaltyPage extends React.Component {
           <p class="regular-text">Details</p>
           <p class="points-text-large">Earn 5 points each time you visit Sally's Salon</p>
           <p class="regular-text">Rewards</p>
-          <form>
-            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike"/>
-            <label for="vehicle1"> 30 points = $5 off haircut</label><br/>
-            <input type="checkbox" id="vehicle2" name="vehicle2" value="Car"/>
-            <label for="vehicle2"> 60 points = $12 off haircut</label><br/>
-            <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat"/>
-            <label for="vehicle3"> 90 points = $20 off haircut</label><br/><br/>
+          <form id="form">
+            <div>
+              <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike"/>
+              <label for="vehicle1"> 30 points = $5 off haircut</label>
+            </div>
+            <div>
+              <input type="checkbox" id="vehicle2" name="vehicle2" value="Car"/>
+              <label for="vehicle2"> 60 points = $12 off haircut</label>
+            </div>
+            <div>
+              <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat"/>
+              <label for="vehicle3"> 90 points = $20 off haircut</label>
+            </div>
             <input type="submit" value="Redeem"/>
           </form>
         </Modal>
