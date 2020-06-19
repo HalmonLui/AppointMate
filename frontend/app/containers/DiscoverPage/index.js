@@ -41,7 +41,7 @@ export default class DiscoverPage extends Component {
   ]
   render(){
     return (
-      <div>
+      <div class="gen_padding"> 
         <Helmet>
           <title>Discover Page</title>
           <meta
