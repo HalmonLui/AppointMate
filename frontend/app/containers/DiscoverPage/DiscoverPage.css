@@ -19,10 +19,6 @@
   }
 
   /* CSS FLEXBOX */
-  /* * {
-    box-sizing: border-box;
-  }
-   */
   .row {
     display: flex;
   }
@@ -52,3 +48,8 @@
     color: #BDBDBD;
     
 }
+  /* General Padding */
+  .gen_padding {
+    padding-left: 50px;
+    padding-right: 50px
+  }

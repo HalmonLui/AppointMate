@@ -41,7 +41,7 @@ export default class DiscoverPage extends Component {
   ]
   render(){
     return (
-      <div>
+      <div class="gen_padding"> 
         <Helmet>
           <title>Discover Page</title>
           <meta
@@ -91,6 +91,7 @@ export default class DiscoverPage extends Component {
           <FormattedMessage {...messages.scaffoldingHeader2}/>
         </H3>
         <Card/>
+        <br/>
         <H3>
           <FormattedMessage {...messages.scaffoldingHeader3}/>
         </H3>
