@@ -172,8 +172,8 @@ export default function SettingsPage() {
         </div>
         <SquarePaymentForm
           sandbox={true}
-          applicationId='sandbox-sq0idb-NHDZ0bT8K4bKVzHkYecrZw'
-          locationId='D6S6TV84CCGTM'
+          applicationId=''
+          locationId=''
           cardNonceResponseReceived={cardNonceResponseReceived}
           createVerificationDetails={createVerificationDetails}
         >
