@@ -1,0 +1,11 @@
+.icon {
+  width: 2em;
+}
+
+.link {
+  display: flex;
+  width: 100%;
+  padding: 1em;
+  align-items: center;
+  justify-content: center;
+}
