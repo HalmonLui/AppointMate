@@ -91,6 +91,7 @@ export default class DiscoverPage extends Component {
           <FormattedMessage {...messages.scaffoldingHeader2}/>
         </H3>
         <Card/>
+        <br/>
         <H3>
           <FormattedMessage {...messages.scaffoldingHeader3}/>
         </H3>
