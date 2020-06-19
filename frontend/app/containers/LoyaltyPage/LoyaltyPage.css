@@ -148,7 +148,6 @@
 #form {
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
 #form div {
@@ -162,4 +161,6 @@ input[type=submit] {
   border-radius: 40px;
   cursor: pointer;
   margin: 1em;
+  width: 50%;
+  align-self: center;
 }
