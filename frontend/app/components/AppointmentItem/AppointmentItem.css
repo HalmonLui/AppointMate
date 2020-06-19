@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css?family=Inter');
+
+#appointmentitem-container {
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+  margin: auto;
+  padding: 0.5em;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #E8E8E8;
+  font-family: Inter;
+}
+#appointmentitem-top-container {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  margin: 0px;
+  margin-bottom: 1em;
+  padding: 0px;
+  justify-content: space-around;
+  font-family: Inter;
+}
+#appointmentitem-bottom-container {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+  margin: 0px;
+  margin-bottom: 0.5em;
+  padding: 0px;
+  justify-content: space-around;
+  font-family: Inter;
+}
+
+#appointmentimage {
+  width: 10em;
+  height: 7em;
+  border-radius: .5em;
+  border: .25em solid #E8E8E8;
+}
+#appointmentitem-store-info {
+  flex: 1;
+  font-family: Inter;
+  margin: 1em;
+}
+
+.appointment-title{
+  font-weight: bold;
+  margin: 0px;
+  padding: 0px;
+  font-size: 1.25em;
+  font-family: Inter;
+}
+
+.get-directions{
+  color: #67B57D;
+  font-size: 1em;
+  width: 100%;
+  margin: 0px;
+  margin-right: 1em;
+  padding: 0px;
+  text-align: right;
+  font-family: Inter;
+}
+
+.appointment-info {
+  color: #BDBDBD;
+  font-size: 1em;
+  margin-bottom: 0px;
+  margin-top: .2em;
+  padding: 0px;
+  font-family: Inter;
+}
+
+#appointmentitem-bottom-left-container{
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+  font-family: Inter;
+}
+.appointment-time {
+  font-weight: bold;
+  font-family: Inter;
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+.appointment-activity {
+  color: #BDBDBD;
+  font-size: .9em;
+  margin: 0px;
+  padding: 0px;
+  font-family: Inter;
+}

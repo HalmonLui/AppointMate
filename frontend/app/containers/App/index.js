@@ -16,6 +16,7 @@ import RegisterPage from 'containers/RegisterPage/Loadable';
 import DiscoverPage from 'containers/DiscoverPage/Loadable';
 import BookingsPage from 'containers/BookingsPage/Loadable';
 import LoyaltyPage from 'containers/LoyaltyPage/Loadable';
+import AppointmentsPage from 'containers/AppointmentsPage/Loadable';
 import SettingsPage from 'containers/SettingsPage/Loadable';
 import SavedPage from 'containers/SavedPage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
@@ -48,6 +49,7 @@ export default function App() {
         <Route path="/register" component={RegisterPage} />
         <Route path="/discover" component={DiscoverPage} />
         <Route path="/bookings" component={BookingsPage} />
+        <Route path="/appointments" component={AppointmentsPage} />
         <Route path="/loyalty" component={LoyaltyPage} />
         <Route path="/saved" component={SavedPage} />
         <Route path="/settings" component={SettingsPage} />

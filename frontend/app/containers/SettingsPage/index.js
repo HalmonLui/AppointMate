@@ -138,7 +138,7 @@ export default function SettingsPage() {
         </div>
 
       </div>
-      <Footer/>
+      <Footer activepage="settings"/>
     </div>
   );
 }

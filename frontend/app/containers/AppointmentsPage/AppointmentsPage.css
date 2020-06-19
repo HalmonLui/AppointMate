@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Inter');
-#loyaltypage {
+#appointmentspage {
   font-family: Inter;
 }
 
@@ -56,6 +56,7 @@
   text-align: center;
   padding: .5em;
   margin: .1em;
+  font-size: .9em;
   color: #67B57D;
   background-color: #fafafa;
   width: 50%;
@@ -74,12 +75,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: .9em;
+  padding: .5em;
+  margin: .1em;
   text-align: center;
   width: 50%;
-  color: #C1C1C1;
   border-radius: 10%/50%;
   font-weight: bold;
   font-family: Inter;
+  color: #C1C1C1;
   text-decoration: none;
 }
 
