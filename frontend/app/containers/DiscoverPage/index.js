@@ -215,8 +215,7 @@ export default class DiscoverPage extends Component {
           </H1>
           <div id="search-container">
             <ReactSearchBox
-            placeholder="Placeholder"
-            value="Search for a service or venue"
+            placeholder="Search for a service or venue"
             data={this.data}
             callback={record => console.log(record)}
             />
