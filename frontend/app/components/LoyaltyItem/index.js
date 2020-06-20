@@ -7,8 +7,7 @@ import './LoyaltyItem.css';
 function LoyaltyItem(props) {
   var progress_percent = props.points / props.totalpoints * 100
   return (
-    <div id="saveditem-container">
-
+    <div onClick={props.LoyaltyModal} id="saveditem-container">
       <img id="loyaltyimage" src={quokka} alt="react-boilerplate - Logo"/>
       <div id="loyalty-container-right">
         <div>

@@ -10,7 +10,7 @@ export default class Card extends Component{
             <div class="row">
                 <div class="column">
                     <div class="card">
-                        <img src={HairSalon} width="100%" height="130"/>
+                        <img src={HairSalon} width="100%" height="15%"/>
                         <div class="container">
                             <h4><b>Beauty Paradise</b></h4> 
                             <p class="text-muted">Haircuts, Balayage etc.</p> 
@@ -20,7 +20,7 @@ export default class Card extends Component{
                 </div>
                 <div class="column">
                     <div class="card">
-                        <img src={HairSalon} width="100%" height="130"/>
+                        <img src={HairSalon} width="100%" height="15%"/>
                         <div class="container">
                             <h4><b>Beauty Paradise</b></h4> 
                             <p class="text-muted">Haircuts, Balayage etc.</p> 
@@ -30,7 +30,7 @@ export default class Card extends Component{
                 </div>
                 <div class="column">
                     <div class="card">
-                        <img src={HairSalon} width="100%" height="130"/>
+                        <img src={HairSalon} width="100%" height="15%"/>
                         <div class="container">
                             <h4><b>Beauty Paradise</b></h4> 
                             <p class="text-muted">Haircuts, Balayage etc.</p> 
