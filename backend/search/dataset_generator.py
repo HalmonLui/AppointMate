@@ -8,17 +8,19 @@ from datetime import date, datetime, timedelta
 from typing import Sequence
 import pandas as pd
 from pandasql import *
+from utils import address_to_latlong, find_distance
 # @TODO: add yelp api
 
 
 class SyntheticDataCreation(object):
-    def __init__(self, theme):
+    def __init__(self, theme, location=None):
         self.theme = theme
         if self.theme not in ('yelp', 'names'):
             raise ValueError("invalid dataset theme")
 
         self.output_data = {}
-
+        self.location = location
+    
     def gen_data_range(self, start, end):
         start = datetime.strptime(start, '%Y-%m-%d')
         end = datetime.strptime(end, '%Y-%m-%d')
@@ -229,6 +231,8 @@ class SyntheticDataCreation(object):
             for i in range(len(data_dict[date])):
                 data_dict[date][i]["image_url"] = image_urls[i]
                 data_dict[date][i]["location"] = addresses[i]
+                latlong_coords = address_to_latlong(data_dict[date][i]["location"])
+                data_dict[date][i]["distance"] = find_distance(self.location, latlong_coords, unit='mi')
 
         self.output_data = data_dict
 
@@ -240,7 +244,7 @@ class SyntheticDataCreation(object):
 
 if __name__ == "__main__":
     print('Hello World')
-    a = SyntheticDataCreation(theme='names')
+    a = SyntheticDataCreation(theme='names', location="754 Post St, San Francisco, CA, 94109")
     d_r = a.gen_data_range(start='2020-06-15', end='2020-06-20')
     print(d_r)
     names = a.business_name_generator()
