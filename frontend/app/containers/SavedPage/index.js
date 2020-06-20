@@ -106,7 +106,6 @@ export default class SavedPage extends Component {
       .then(res => res.json())
       .then(
         (result) => {
-          console.log(result)
           this.setState({
             isLoaded: true,
             saved_items: result

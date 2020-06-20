@@ -5,14 +5,14 @@ import FiveStars from './FiveStars'
 import FourStars from './FourStars'
 import './DiscoverPage.css'
 
-export default class Card extends Component{
+export default class SmallCard extends Component{
     render(){
         return (
-            <div class="card">
-                <div class="card-image-container">
-                    <img src={HairSalon} className='card-image'/>
+            <div class="smallcard">
+                <div class="smallcard-image-container">
+                    <img src={HairSalon} className='smallcard-image'/>
                 </div>
-                <div class="card-text">
+                <div class="smallcard-text">
                     <h4>Beauty Paradise</h4>
                     <p class="text-muted">Haircuts, Balayage etc.</p>
                     <FiveStars/>

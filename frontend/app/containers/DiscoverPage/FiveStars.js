@@ -4,14 +4,13 @@ import './DiscoverPage.css';
 export default class Stars extends Component{
     render(){
         return(
-            <div>
+            <div id="fivestars">
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="text-muted"> 154 ratings</span>
+                <div id="star-container">
+                  <span id='star' class="fa fa-star checked"></span>
+                  <p class="discover-rating">5.0</p>
+                </div>
+                <span class="discover-num-ratings"> 154 ratings</span>
             </div>
         )
     }

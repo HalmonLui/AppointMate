@@ -1,55 +1,202 @@
+@import url('https://fonts.googleapis.com/css?family=Inter');
+
+#discoverpage {
+  font-family: inter;
+}
+
+#hi {
+  background-color: #78DBE1;
+  color: #fafafa;
+  position: absolute;
+  padding-top: 2em;
+  padding-left: 1em;
+  padding-bottom: 1em;
+  padding-right: 40%;
+  margin-top: -4em;
+  margin-left: -1em;
+  border-bottom-right-radius: 80px;
+  z-index: 1;
+}
+
+#discover-top-container {
+  margin: 1em;
+}
+#search-container {
+  margin-top: 7em;
+  z-index: 2;
+  position: relative;
+}
+
+#discover-selection-container {
+  display: flex;
+  margin-left: 1em;
+  margin-right: 1em;
+  margin-top: .5em;
+  margin-bottom: .5em;
+  padding: 0px;
+}
+.discover-selection-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.discover-selection-item img {
+  width: 90%;
+}
+
+.discover-selection-item p {
+  font-size: .8em;
+  font-family: inter;
+}
+
+#discover-trending-container {
+  padding-left: 1em;
+  padding-right: 1em;
+  margin-top: .5em;
+  margin-bottom: .5em;
+  margin: 0px;
+}
+#discover-trending-card-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#discover-recommendations-header {
+  margin: 0px;
+  margin: 0px;
+}
+#discover-recommendations-container {
+  padding-left: 1em;
+  padding-right: 1em;
+  margin-top: .5em;
+  margin-bottom: .5em;
+  margin: 0px;
+}
+#discover-recommendations-card-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+#discover-recommendations-card-container Card {
+  width: 10px;
+}
+
+/* STARS */
+#fivestars {
+  display: flex;
+}
+#star-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+.checked {
+  color: orange;
+}
+.not-checked {
+  color: white;
+}
+.discover-rating {
+  width: 60%;
+}
+.discover-num-ratings {
+  color: #BDBDBD;
+  width: 100%;
+  text-align: right;
+  font-size: .7em;
+}
+
+
 /* CARD */
 .card {
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    transition: 0.3s;
-    width: 100%;
-    border-radius: 5px;
-  }
-  
-  .card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-  }
-  
-  img {
-    border-radius: 5px 5px 0 0;
-  }
-  
-  .container {
-    padding: 2px 16px;
-  }
-
-  /* CSS FLEXBOX */
-  .row {
-    display: flex;
-  }
-  
-  /* Create three equal columns that sits next to each other */
-  .column {
-    flex: 33.33%;
-    padding: 15px;
-  }
-
-  /* Create five equal columns that sits next to eachother */
-  .column-five {
-    flex: 20%;
-    padding: 15px
-  }
-
-  /* STARS */
-  .checked {
-    color: orange;
-  }
-  .not-checked {
-      color: white;
-  }
-
-  /* GREY TEXT*/
-  .text-muted {
-    color: #BDBDBD;
-    
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: left;
+  margin: 1em;
 }
-  /* General Padding */
-  .gen_padding {
-    padding-left: 50px;
-    padding-right: 50px
-  }
+
+.card-image-container {
+  width: 8em;
+  height: 8em;
+}
+.card-image {
+  object-fit: cover;
+  border-radius: 1em;
+  width: 100%;
+  height: 100%;
+}
+
+.card-text {
+  display: flex;
+  flex-direction: column;
+  margin: 0px;
+  padding: 0px;
+}
+
+.card-text h4{
+  font-weight: bold;
+  padding: 0px;
+  margin: 0px;
+  font-family: inter;
+}
+
+.card-text p {
+  padding: 0px;
+  margin: 0px;
+  color: #BDBDBD;
+  font-size: .7em;
+  font-family: Inter;
+}
+
+
+/* SMALLCARD */
+.smallcard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: left;
+  margin: .8em;
+}
+
+.smallcard-image-container {
+  width: 6em;
+  height: 6em;
+}
+.smallcard-image {
+  object-fit: cover;
+  border-radius: 1em;
+  width: 100%;
+  height: 100%;
+}
+
+.smallcard-text {
+  display: flex;
+  flex-direction: column;
+  margin: 0px;
+  padding: 0px;
+}
+
+.smallcard-text h4{
+  font-weight: bold;
+  font-size: .7em;
+  padding: 0px;
+  margin: 0px;
+  font-family: inter;
+}
+
+.smallcard-text p {
+  padding: 0px;
+  margin: 0px;
+  color: #BDBDBD;
+  font-size: .5em;
+  font-family: Inter;
+}
