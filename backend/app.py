@@ -1,6 +1,8 @@
 from flask import Flask
 app = Flask(__name__)
 
+# import declared routes
+import frontenddata
 
 @app.route('/')
 def hello():
