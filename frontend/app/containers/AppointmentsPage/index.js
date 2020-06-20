@@ -21,9 +21,9 @@ import './AppointmentsPage.css'
 import Modal from 'react-modal';
 import quokka from './quokka.png';
 // These imports giving errors
-//import calendarImg from './calendar.PNG'
-// import locationImg from './location.png'
-// import phoneImg from './phone.png'
+import calendarImg from './calendar.png';
+import locationImg from './location.png';
+import phoneImg from './phone.png';
 
 class AppointmentsPage extends React.Component {
   constructor () {
@@ -106,7 +106,9 @@ class AppointmentsPage extends React.Component {
           <div class="center">
             <h2>Spa Center</h2>
             <img id="store-image" src={quokka}/>
-            {/* <img src={phoneImg}/> */}
+            <img id="store-images" src={locationImg}/>
+            <img id="store-images" src={phoneImg}/>
+            <img id="store-images" src={calendarImg}/>
           </div>
         </Modal>
         <Footer activepage="appointments"/>
