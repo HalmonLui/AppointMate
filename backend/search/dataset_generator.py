@@ -6,6 +6,8 @@ import requests
 from faker import Faker
 from datetime import date, datetime, timedelta
 from typing import Sequence
+import pandas as pd
+from pandasql import *
 # @TODO: add yelp api
 
 
@@ -169,9 +171,38 @@ class SyntheticDataCreation(object):
         }
         response = requests.get(url, headers=headers)
         res_dict = json.loads(response.text)
-        photo_urls = [x["urls"]["small"] for x in res_dict["photos"]["results"]]
+        photo_urls = [x["urls"]["small"]
+                      for x in res_dict["photos"]["results"]]
 
         return photo_urls
+
+    def gen_random_addresses(self, num, city, state):
+        if city == "San Francisco" and state == "CA":
+            df = pd.read_csv(
+                "/Users/sonamghosh/Downloads/Photos Library/us/ca/san_francisco.csv")
+            max_rows = df.shape[0]
+
+        # Randomly select num number of rows
+        query = f"""
+        SELECT
+            LON,
+            LAT,
+            NUMBER,
+            STREET,
+            POSTCODE
+        FROM df
+        WHERE abs(CAST(random() AS REAL))/9223372036854775808 < 0.5
+        LIMIT {num};
+        """
+
+        output = sqldf(query, locals())
+        address_lst = []
+        for index, row in output.iterrows():
+            address = row["NUMBER"] + " " + row["STREET"] + ", " + \
+                city + ", " + state + " " + str(int(row["POSTCODE"]))
+            address_lst.append(address)
+
+        return address_lst
 
     def create_dataset(self, data_dict, business_names, date_range):
         for name in business_names:
@@ -189,13 +220,15 @@ class SyntheticDataCreation(object):
                     for key, value in data_dict[date][i]["stylists"][j]["availability"].items():
                         data_dict[date][i]["stylists"][j]["availability"][key] = random.randint(
                             0, 1)
-        
+
         image_urls = self.query_photos(num=20, query='salon')
+        addresses = self.gen_random_addresses(
+            num=20, city="San Francisco", state="CA")
 
         for date in date_range:
             for i in range(len(data_dict[date])):
                 data_dict[date][i]["image_url"] = image_urls[i]
-        
+                data_dict[date][i]["location"] = addresses[i]
 
         self.output_data = data_dict
 
@@ -231,4 +264,6 @@ if __name__ == "__main__":
     req = requests.get(url, params=params, headers=headers)
     parsed = json.loads(req.text)
     print(json.dumps(parsed, indent=4))
+    with open('sample_' + 'yelp_data.json', 'w', encoding='utf-8') as f:
+            json.dump(parsed, f, ensure_ascii=False, indent=4)
     """
