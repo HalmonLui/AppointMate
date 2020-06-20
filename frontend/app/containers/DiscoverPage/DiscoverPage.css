@@ -89,6 +89,8 @@
 /* STARS */
 #fivestars {
   display: flex;
+  width: 100%;
+  margin-top: .2em;
 }
 #star-container {
   display: flex;
@@ -96,6 +98,7 @@
   width: 100%;
   align-items: center;
   justify-content: space-between;
+  flex: 1;
 }
 .checked {
   color: orange;
@@ -113,6 +116,7 @@
   text-align: right;
   font-size: .7em;
   font-family: inter;
+  flex: 2;
 }
 
 /* SMALLSTARS */
@@ -173,6 +177,7 @@
   flex-direction: column;
   margin: 0px;
   padding: 0px;
+  width: 100%;
 }
 
 .card-text h4{

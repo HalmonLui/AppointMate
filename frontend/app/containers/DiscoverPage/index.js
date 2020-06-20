@@ -40,7 +40,165 @@ export default class DiscoverPage extends Component {
       value: 'Nail Salon',
     },
   ]
+  constructor(props) {
+    super(props);
+    this.state = {businesses:
+      {
+        'trending': [],
+        'recommendations': [],
+        'hot': []
+      }
+    };
+  }
+
+  componentDidMount() {
+    // For testing without fetching from localhost
+    this.setState({
+      businesses:
+        {
+          trending: [
+            {
+              'title': 'Sallys Salooon',
+              'imageurl': 'https://garboasalon.com/img/HP_SLIDER1_garbo_aveda_hair_salon_spa_best_austin_hair_color_nails_top_hair_stylist_men_hair_cut_austin_78757_atx_78741_hair_salon_near_me_austin_hairdress.jpg',
+              'services': 'Cut ur hair, wash',
+              'rating': '1.1',
+              'numratings': '10'
+            },
+            {
+              'title': 'Sallys Nails',
+              'services': 'cut nails, gel',
+              'imageurl': 'https://img.grouponcdn.com/deal/4CXB3CXmmbxHiNCBfqnMhsoPkv3G/4C-901x596/v1/c700x420.jpg',
+              'rating': '1.5',
+              'numratings': '13'
+            },
+            {
+              'title': 'Sallys Eyes',
+              'services': 'makeup, eyes',
+              'imageurl': 'https://i.pinimg.com/originals/cc/34/f2/cc34f2389c1d1fe9355fd774b369df93.jpg',
+              'rating': '4.1',
+              'numratings': '222'
+            },
+            // {
+            //   'title': 'Sallys Salon',
+            //   'services': 'haircuts',
+            //   'imageurl': 'https://diana-cdn.naturallycurly.com/Articles/BP_NY-Salons-.jpg',
+            //   'rating': '2.1',
+            //   'numratings': '123'
+            // }
+          ],
+          recommendations: [
+            {
+              'title': 'Sallys Salooon',
+              'imageurl': 'https://garboasalon.com/img/HP_SLIDER1_garbo_aveda_hair_salon_spa_best_austin_hair_color_nails_top_hair_stylist_men_hair_cut_austin_78757_atx_78741_hair_salon_near_me_austin_hairdress.jpg',
+              'services': 'Cut ur hair, wash',
+              'rating': '1.1',
+              'numratings': '10'
+            },
+            {
+              'title': 'Sallys Nails',
+              'services': 'cut nails, gel',
+              'imageurl': 'https://img.grouponcdn.com/deal/4CXB3CXmmbxHiNCBfqnMhsoPkv3G/4C-901x596/v1/c700x420.jpg',
+              'rating': '1.5',
+              'numratings': '13'
+            },
+            {
+              'title': 'Sallys Eyes',
+              'services': 'makeup, eyes',
+              'imageurl': 'https://i.pinimg.com/originals/cc/34/f2/cc34f2389c1d1fe9355fd774b369df93.jpg',
+              'rating': '4.1',
+              'numratings': '222'
+            },
+            {
+              'title': 'Sallys Salon',
+              'services': 'haircuts',
+              'imageurl': 'https://diana-cdn.naturallycurly.com/Articles/BP_NY-Salons-.jpg',
+              'rating': '2.1',
+              'numratings': '123'
+            }
+          ],
+          hot: [
+            {
+              'title': 'Sallys Salooon',
+              'imageurl': 'https://garboasalon.com/img/HP_SLIDER1_garbo_aveda_hair_salon_spa_best_austin_hair_color_nails_top_hair_stylist_men_hair_cut_austin_78757_atx_78741_hair_salon_near_me_austin_hairdress.jpg',
+              'services': 'Cut ur hair, wash',
+              'rating': '1.1',
+              'numratings': '10'
+            },
+            {
+              'title': 'Sallys Nails',
+              'services': 'cut nails, gel',
+              'imageurl': 'https://img.grouponcdn.com/deal/4CXB3CXmmbxHiNCBfqnMhsoPkv3G/4C-901x596/v1/c700x420.jpg',
+              'rating': '1.5',
+              'numratings': '13'
+            },
+            {
+              'title': 'Sallys Eyes',
+              'services': 'makeup, eyes',
+              'imageurl': 'https://i.pinimg.com/originals/cc/34/f2/cc34f2389c1d1fe9355fd774b369df93.jpg',
+              'rating': '4.1',
+              'numratings': '222'
+            },
+            {
+              'title': 'Sallys Salon',
+              'services': 'haircuts',
+              'imageurl': 'https://diana-cdn.naturallycurly.com/Articles/BP_NY-Salons-.jpg',
+              'rating': '2.1',
+              'numratings': '123'
+            }
+          ]
+        }
+    })
+
+    // fetch("http://localhost:5000/businesses")
+    //   .then(res => res.json())
+    //   .then(
+    //     (result) => {
+    //       this.setState({
+    //         isLoaded: true,
+    //         businesses: result
+    //       });
+    //     },
+    //     // Note: it's important to handle errors here
+    //     // instead of a catch() block so that we don't swallow
+    //     // exceptions from actual bugs in components.
+    //     (error) => {
+    //       this.setState({
+    //         isLoaded: true,
+    //         error
+    //       });
+    //     }
+    //   )
+  }
+
   render(){
+    const trendingItems = this.state.businesses.trending.map((item) =>
+      <Card
+        imageurl={item.imageurl}
+        title={item.title}
+        services={item.services}
+        rating={item.rating}
+        numratings={item.numratings}
+      />
+    )
+    const recommendationItems = this.state.businesses.recommendations.map((item) =>
+      <SmallCard
+        imageurl={item.imageurl}
+        title={item.title}
+        services={item.services}
+        rating={item.rating}
+        numratings={item.numratings}
+      />
+    )
+    const hotItems = this.state.businesses.hot.map((item) =>
+      <SmallCard
+        imageurl={item.imageurl}
+        title={item.title}
+        services={item.services}
+        rating={item.rating}
+        numratings={item.numratings}
+      />
+    )
+
     return (
       <div id="discoverpage">
         <Helmet>
@@ -70,9 +228,7 @@ export default class DiscoverPage extends Component {
             <FormattedMessage {...messages.scaffoldingHeader}/>
           </H2>
           <div id="discover-trending-card-container">
-            <Card/>
-            <Card/>
-            <Card/>
+            {trendingItems}
           </div>
         </div>
 
@@ -104,10 +260,7 @@ export default class DiscoverPage extends Component {
             <FormattedMessage {...messages.scaffoldingHeader2}/>
           </H3>
           <div id="discover-recommendations-card-container">
-            <SmallCard/>
-            <SmallCard/>
-            <SmallCard/>
-            <SmallCard/>
+            {recommendationItems}
           </div>
         </div>
 
@@ -116,10 +269,7 @@ export default class DiscoverPage extends Component {
             <FormattedMessage {...messages.scaffoldingHeader3}/>
           </H3>
           <div id="discover-recommendations-card-container">
-            <SmallCard/>
-            <SmallCard/>
-            <SmallCard/>
-            <SmallCard/>
+            {hotItems}
           </div>
         </div>
         <Footer activepage="discover"/>
