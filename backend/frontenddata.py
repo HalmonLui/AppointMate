@@ -31,7 +31,7 @@ def loyaltiesAPI():
 def savedAPI():
     if request.method == 'GET':
         return controllers.getSaved()
-    elif request.method == 'PUT':
+    elif request.method == 'POST':
         return controllers.addSaved()
     elif request.method == 'DELETE':
         return controllers.removeSaved()
@@ -51,7 +51,7 @@ def businessesAPI():
 def creditcardAPI():
     if request.method == 'GET':
         return controllers.getCards()
-    elif request.method == 'PUT':
+    elif request.method == 'POST':
         return controllers.addCard()
     elif request.method == 'DELETE':
         return controllers.removeCard()
