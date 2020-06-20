@@ -3,7 +3,7 @@
  *
  * List all the settings
  */
-import React from 'react';
+import React, { Component } from 'react';
 import styled from "styled-components";
 import { Helmet } from 'react-helmet';
 import { FormattedMessage } from 'react-intl';
@@ -65,49 +65,74 @@ const CheckBox = styled.input`
   }
 `;
 
-export default function SavedPage() {
-  return (
-    <div>
-      <Helmet>
-        <title>Saved Page</title>
-        <meta
-          name="description"
-          content="Feature page of React.js Boilerplate application"
-        />
-      </Helmet>
-      <div id="top-save-container">
-        <div id="hearticon-container">
-          <Img id="hearticon" src={Heart} alt="heart icon" />
-        </div>
-        <p id="save-venues-text">Save venues to get alerts for promotions and deals from your favorite places!</p>
-      </div>
+
+export default class SavedPage extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {saved_items: []};
+  }
+  componentDidMount() {
+    this.setState({
+      saved_items: [
+        {
+          'title': 'Sallys Salooon',
+          'location': '123 Streat',
+          'rating': '1.1',
+          'numratings': '123'
+        },
+        {
+          'title': 'Sallys Salooon',
+          'location': '123 Streat',
+          'rating': '1.1',
+          'numratings': '123'
+        },
+        {
+          'title': 'Sallys Salooon',
+          'location': '123 Streat',
+          'rating': '1.1',
+          'numratings': '123'
+        },
+        {
+          'title': 'Sallys Salooon',
+          'location': '123 Streat',
+          'rating': '1.1',
+          'numratings': '123'
+        }
+      ]
+    })
+  }
+
+
+  render() {
+    const savedItems = this.state.saved_items.map((item) =>
+      <SavedItem
+        title={item.title}
+        location={item.location}
+        rating={item.rating}
+        numratings={item.numratings}
+      />
+    )
+
+    return (
       <div>
-        <SavedItem
-          title='Sallys Salon'
-          location='123 Street'
-          rating='5.0'
-          numratings='222'
-        />
-        <SavedItem
-          title='Haair Shop'
-          location='2 Washington Road'
-          rating='2.1'
-          numratings='1529'
-        />
-        <SavedItem
-          title='What is Hair'
-          location='38 Boyce Avenue'
-          rating='5.0'
-          numratings='8237'
-        />
-        <SavedItem
-          title='Sample Store'
-          location='18 And Up'
-          rating='2.4'
-          numratings='68'
-        />
+        <Helmet>
+          <title>Saved Page</title>
+          <meta
+            name="description"
+            content="Saved venues"
+          />
+        </Helmet>
+        <div id="top-save-container">
+          <div id="hearticon-container">
+            <Img id="hearticon" src={Heart} alt="heart icon" />
+          </div>
+          <p id="save-venues-text">Save venues to get alerts for promotions and deals from your favorite places!</p>
+        </div>
+        <div>
+          {savedItems}
+        </div>
+        <Footer activepage="saved"/>
       </div>
-      <Footer activepage="saved"/>
-    </div>
-  );
+    );
+  }
 }
