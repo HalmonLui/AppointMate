@@ -8,6 +8,7 @@ import ReactSearchBox from 'react-search-box'
 import { Helmet } from 'react-helmet';
 import { FormattedMessage } from 'react-intl';
 import Header from 'components/Header';
+import Footer from 'components/Footer';
 import H1 from 'components/H1';
 import H2 from 'components/H2';
 import H3 from 'components/H3';
@@ -40,7 +41,7 @@ export default class DiscoverPage extends Component {
   ]
   render(){
     return (
-      <div>
+      <div class="gen_padding"> 
         <Helmet>
           <title>Discover Page</title>
           <meta
@@ -90,10 +91,12 @@ export default class DiscoverPage extends Component {
           <FormattedMessage {...messages.scaffoldingHeader2}/>
         </H3>
         <Card/>
+        <br/>
         <H3>
           <FormattedMessage {...messages.scaffoldingHeader3}/>
         </H3>
         <Card/>
+        <Footer activepage="discover"/>
       </div>
     );
   }
