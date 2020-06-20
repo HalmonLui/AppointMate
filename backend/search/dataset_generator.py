@@ -148,6 +148,7 @@ class SyntheticDataCreation(object):
             "name": name,
             "type": list(set([random.choice(types) for i in range(random.randint(1, 3))])),
             "location": "",
+            "image_url": "",
             "opening-hours": self.gen_opening_hours_dict(times, num_of_op_days),
             "rating": round(random.uniform(3.49, 5.00), 2),
             "price": {},
@@ -156,6 +157,21 @@ class SyntheticDataCreation(object):
         }
 
         return business_dict
+
+    def query_photos(self, num, query):
+        f = open('keys.json')
+        keys_data = json.load(f)
+        client_id = keys_data["unsplash"]["clientID"]
+
+        url = f"https://unsplash.com/napi/search?query={query}&xp=&per_page={num}"
+        headers = {
+            'authorization': f"Client-ID {client_id}"
+        }
+        response = requests.get(url, headers=headers)
+        res_dict = json.loads(response.text)
+        photo_urls = [x["urls"]["small"] for x in res_dict["photos"]["results"]]
+
+        return photo_urls
 
     def create_dataset(self, data_dict, business_names, date_range):
         for name in business_names:
@@ -173,6 +189,13 @@ class SyntheticDataCreation(object):
                     for key, value in data_dict[date][i]["stylists"][j]["availability"].items():
                         data_dict[date][i]["stylists"][j]["availability"][key] = random.randint(
                             0, 1)
+        
+        image_urls = self.query_photos(num=20, query='salon')
+
+        for date in date_range:
+            for i in range(len(data_dict[date])):
+                data_dict[date][i]["image_url"] = image_urls[i]
+        
 
         self.output_data = data_dict
 
