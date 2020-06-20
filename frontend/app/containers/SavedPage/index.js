@@ -72,44 +72,67 @@ export default class SavedPage extends Component {
     this.state = {saved_items: []};
   }
   componentDidMount() {
-    this.setState({
-      saved_items: [
-        {
-          'title': 'Sallys Salooon',
-          'location': '123 Streat',
-          'rating': '1.1',
-          'numratings': '123'
+    // For testing without fetching from localhost
+    // this.setState({
+    //   saved_items: [
+    //     {
+    //       'title': 'Sallys Salooon',
+    //       'location': '123 Streat',
+    //       'rating': '1.1',
+    //       'numratings': '123'
+    //     },
+    //     {
+    //       'title': 'Sallys Salooon',
+    //       'location': '123 Streat',
+    //       'rating': '1.1',
+    //       'numratings': '123'
+    //     },
+    //     {
+    //       'title': 'Sallys Salooon',
+    //       'location': '123 Streat',
+    //       'rating': '1.1',
+    //       'numratings': '123'
+    //     },
+    //     {
+    //       'title': 'Sallys Salooon',
+    //       'location': '123 Streat',
+    //       'rating': '1.1',
+    //       'numratings': '123'
+    //     }
+    //   ]
+    // })
+
+    fetch("http://localhost:5000/saved")
+      .then(res => res.json())
+      .then(
+        (result) => {
+          console.log(result)
+          this.setState({
+            isLoaded: true,
+            saved_items: result
+          });
         },
-        {
-          'title': 'Sallys Salooon',
-          'location': '123 Streat',
-          'rating': '1.1',
-          'numratings': '123'
-        },
-        {
-          'title': 'Sallys Salooon',
-          'location': '123 Streat',
-          'rating': '1.1',
-          'numratings': '123'
-        },
-        {
-          'title': 'Sallys Salooon',
-          'location': '123 Streat',
-          'rating': '1.1',
-          'numratings': '123'
+        // Note: it's important to handle errors here
+        // instead of a catch() block so that we don't swallow
+        // exceptions from actual bugs in components.
+        (error) => {
+          this.setState({
+            isLoaded: true,
+            error
+          });
         }
-      ]
-    })
+      )
   }
 
 
   render() {
     const savedItems = this.state.saved_items.map((item) =>
       <SavedItem
+        imageurl={item.image_url}
         title={item.title}
-        location={item.location}
+        location={item.address}
         rating={item.rating}
-        numratings={item.numratings}
+        numratings={item.num_ratings}
       />
     )
 

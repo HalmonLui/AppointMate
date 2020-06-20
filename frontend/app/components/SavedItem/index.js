@@ -7,7 +7,7 @@ import './SavedItem.css';
 function SavedItem(props) {
   return (
     <div id="saveditem-container">
-      <img id="storeimage" src={coolcat} alt="react-boilerplate - Logo"/>
+      <img id="storeimage" src={props.imageurl} alt="react-boilerplate - Logo"/>
       <div id="saveditem-container-right">
         <div>
             <p class="saveditem-title">

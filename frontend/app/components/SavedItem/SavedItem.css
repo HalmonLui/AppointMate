@@ -12,6 +12,7 @@
 }
 #storeimage {
   width: 150px;
+  height: 100px;
   border-radius: .5em;
   border: .25em solid #E8E8E8;
 }
