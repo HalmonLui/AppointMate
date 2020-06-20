@@ -83,10 +83,6 @@ export default function SettingsPage() {
           <Img id="profilepicture" src={Banner} alt="react-boilerplate - Logo" />
         </div>
         <H2>Snam Ghosh</H2>
-        <div id="toggleswitch">
-          <p id="toggle-profile">Profile</p>
-          <p id="toggle-saved">Saved</p>
-        </div>
       </div>
       <div id="bot-container">
         <div class="bot-info-container">
