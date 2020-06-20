@@ -20,7 +20,6 @@ import Bellicon from './appointmentpage.png';
 import './AppointmentsPage.css'
 import Modal from 'react-modal';
 import quokka from './quokka.png';
-// These imports giving errors
 import calendarImg from './calendar.png';
 import locationImg from './location.png';
 import phoneImg from './phone.png';
@@ -103,12 +102,55 @@ class AppointmentsPage extends React.Component {
         <div class="bg">
         </div>
         <button onClick={this.handleCloseModal}>x</button>
+        <div class="modal-top-container">
           <div class="center">
-            <h2>Spa Center</h2>
-            <img id="store-image" src={quokka}/>
-            <img id="store-images" src={locationImg}/>
-            <img id="store-images" src={phoneImg}/>
-            <img id="store-images" src={calendarImg}/>
+              <h2>Spa Center</h2>
+              <img id="store-image" src={quokka}/>
+            </div>
+            <div id="store-icons-align">
+              <img id="store-icons" src={calendarImg}/>
+            </div>
+            <div id="store-icons-align">
+                <h4 id="line-height-zero">Jul 21, 2020</h4>
+                <p id="line-height-zero-muted">1:00 pm - 2:30 pm</p>
+            </div> 
+            <div class="row" >
+              <div class="column">
+                <img id="store-icons" src={locationImg}/> 
+                <p id="line-height-zero-muted"> 87-11 10th Street</p>
+              </div>
+              <div class="column">
+                <img id="store-icons" src={phoneImg}/>
+                <p id="line-height-zero-muted">718-222-3333</p>
+              </div>
+            </div>
+            <p id="line-height-zero"><b>Status: </b>Pay in Store</p>
+          </div>
+          <div class='card'>
+          <p><b>Summary</b></p>
+            <div class="summary-container">
+              <div class="summary-left-align">
+                <h4 id="summary-container-text">Sweedish Massage</h4>
+                <p id="summary-container-text-green">with Bob</p>
+                <p id="summary-container-text">Duration: 1hr</p>
+              </div>
+              <div class="summary-right-align">
+                <h4 id="summary-container-text">$75</h4>
+              </div>
+            </div>
+            <div class="summary-container">
+              <div class="summary-left-align">
+                <h4 id="summary-container-text">Deep Tissue Massage</h4>
+                <p id="summary-container-text-green">with Sasha</p>
+                <p id="summary-container-text">Duration: 30 mins</p>
+              </div>
+              <div class="summary-right-align">
+                <h4 id="summary-container-text">$40</h4>
+              </div>
+            </div>
+            <div class="summary-container">
+              <h4 id="summary-container-text">Total: $115</h4>
+            </div>
           </div>
         </Modal>
         <Footer activepage="appointments"/>
