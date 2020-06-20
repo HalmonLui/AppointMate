@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import './DiscoverPage.css';
 import HairSalon from './hair_salon.jpg'
 import FiveStars from './FiveStars'
-import FourStars from './FourStars'
 import './DiscoverPage.css'
 
 export default class Card extends Component{

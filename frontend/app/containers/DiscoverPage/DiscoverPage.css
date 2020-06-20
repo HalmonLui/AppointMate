@@ -16,6 +16,7 @@
   margin-left: -1em;
   border-bottom-right-radius: 80px;
   z-index: 1;
+  font-family: inter;
 }
 
 #discover-top-container {
@@ -104,12 +105,45 @@
 }
 .discover-rating {
   width: 60%;
+  font-family: inter;
 }
 .discover-num-ratings {
   color: #BDBDBD;
   width: 100%;
   text-align: right;
   font-size: .7em;
+  font-family: inter;
+}
+
+/* SMALLSTARS */
+#small-fivestars {
+  display: flex;
+}
+#small-star-container {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+.small-checked {
+  color: orange;
+}
+.small-not-checked {
+  color: white;
+}
+.small-discover-rating {
+  text-align: center;
+  font-family: inter;
+}
+.small-discover-num-ratings {
+  color: #BDBDBD;
+  flex: 2;
+  width: 100%;
+  text-align: right;
+  font-size: .6em;
+  font-family: inter;
 }
 
 

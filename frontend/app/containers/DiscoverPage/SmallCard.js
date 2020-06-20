@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import './DiscoverPage.css';
 import HairSalon from './hair_salon.jpg'
-import FiveStars from './FiveStars'
-import FourStars from './FourStars'
+import SmallFiveStars from './SmallFiveStars'
 import './DiscoverPage.css'
 
 export default class SmallCard extends Component{
@@ -15,7 +14,7 @@ export default class SmallCard extends Component{
                 <div class="smallcard-text">
                     <h4>Beauty Paradise</h4>
                     <p class="text-muted">Haircuts, Balayage etc.</p>
-                    <FiveStars/>
+                    <SmallFiveStars/>
                 </div>
             </div>
         )
