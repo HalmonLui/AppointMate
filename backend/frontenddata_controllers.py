@@ -1,7 +1,8 @@
+import json
 # APPOINTMENTS
 def getAppointments():
-    appointments = {}
-    return appointments, 200
+    appointments = []
+    return json.dumps(appointments), 200
 
 def addAppointment():
     return {'success': 'appointment successfully created'}, 200
@@ -9,8 +10,8 @@ def addAppointment():
 
 # LOYALTIES
 def getLoyalties():
-    loyalties = {}
-    return loyalties, 200
+    loyalties = []
+    return json.dumps(loyalties), 200
 
 def updateLoyalty():
     return {'success': 'loyalty successfully updated'}, 200
@@ -18,8 +19,8 @@ def updateLoyalty():
 
 # SAVED
 def getSaved():
-    saved = {}
-    return saved, 200
+    saved = []
+    return json.dumps(saved), 200
 
 def addSaved():
     return {'success': 'saved item successfully created'}, 200
@@ -30,14 +31,14 @@ def removeSaved():
 
 # BUSINESSES
 def getBusinesses():
-    businesses = {}
-    return businesses, 200
+    businesses = []
+    return json.dumps(businesses), 200
 
 
 # CREDITCARD
 def getCards():
-    cards = {}
-    return cards, 200
+    cards = []
+    return json.dumps(cards), 200
 
 def addCard():
     return {'success': 'card successfully created'}, 200

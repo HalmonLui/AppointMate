@@ -1,5 +1,5 @@
 from app import app
-from flask_restful import Resource, reqparse
+from flask import request
 import frontenddata_controllers as controllers
 
 @app.route('/test', methods=['GET', 'POST'])
@@ -13,7 +13,7 @@ def appointmentsAPI():
         return controllers.getAppointments()
     elif request.method == 'POST':
         return controllers.addAppointment()
-    else
+    else:
         return {'error': 'Not a valid endpoint'}, 400
 
 
@@ -23,37 +23,37 @@ def loyaltiesAPI():
         return controllers.getLoyalties()
     elif request.method == 'PUT':
         return controllers.updateLoyalty()
-    else
+    else:
         return {'error': 'Not a valid endpoint'}, 400
 
 
 @app.route('/saved',methods=['GET', 'POST', 'DELETE'])
-def loyaltiesAPI():
+def savedAPI():
     if request.method == 'GET':
         return controllers.getSaved()
     elif request.method == 'PUT':
         return controllers.addSaved()
     elif request.method == 'DELETE':
         return controllers.removeSaved()
-    else
+    else:
         return {'error': 'Not a valid endpoint'}, 400
 
 
 @app.route('/businesses',methods=['GET'])
-def loyaltiesAPI():
+def businessesAPI():
     if request.method == 'GET':
         return controllers.getBusinesses()
-    else
+    else:
         return {'error': 'Not a valid endpoint'}, 400
 
 
 @app.route('/creditcard',methods=['GET', 'POST', 'DELETE'])
-def loyaltiesAPI():
+def creditcardAPI():
     if request.method == 'GET':
         return controllers.getCards()
     elif request.method == 'PUT':
         return controllers.addCard()
     elif request.method == 'DELETE':
         return controllers.removeCard()
-    else
+    else:
         return {'error': 'Not a valid endpoint'}, 400
