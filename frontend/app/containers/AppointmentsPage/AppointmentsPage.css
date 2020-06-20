@@ -92,3 +92,12 @@
   padding-left: 1em;
   text-align: left;
 }
+
+/* MODAL */
+#store-image {
+  width: 100px;
+  height: 100px;
+  border-radius: .5em;
+  border: .25em solid #E8E8E8;
+}
+
