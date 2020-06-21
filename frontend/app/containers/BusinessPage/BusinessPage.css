@@ -123,6 +123,54 @@
   font-family: Inter;
 }
 
+/* SERVICES SECTION */
+#business-section-service-card {
+  padding: 0px;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+#business-section-service-card h3 {
+  padding-left: 1em;
+}
+#business-section-service-card p {
+  padding-right: 1em;
+}
+#business-service-item-container {
+
+}
+.service-item-container {
+  display: flex;
+  border-bottom: 1px solid #E8E8E8;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+.service-card-text {
+  font-family: Inter;
+  padding: 0px;
+  margin: 0px;
+}
+.service-card-text h4 {
+  font-family: Inter;
+  padding: 0px;
+  margin: 0px;
+  margin-left: 1em;
+  margin-top: .5em;
+}
+.service-card-text p {
+  font-family: Inter;
+  padding: 0px;
+  margin: 0px;
+  margin-left: 1em;
+  margin-bottom: .5em;
+}
+.service-item-price {
+  font-family: Inter;
+  width: 100%;
+  margin: 0px;
+  font-size: 1.2em;
+  padding: 0px;
+}
 
 /* LOYALTY SECTION */
 #business-loyalty-you-text {

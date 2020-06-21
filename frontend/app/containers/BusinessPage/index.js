@@ -17,7 +17,7 @@ import List from './List';
 import ListItem from './ListItem';
 import ListItemTitle from './ListItemTitle';
 import './BusinessPage.css';
-import Card from './Card';
+import ServiceItem from './ServiceItem';
 import SmallCard from './SmallCard';
 import BarberImg from './barberbg.png';
 import HairSalonImg from './hairsalonbg.png';
@@ -120,9 +120,25 @@ export default class BusinessPage extends Component {
 
         <div id="business-section">
           <h2 id="business-section-title">Book Services</h2>
-          <div className="business-section-card">
+          <div className="business-section-card" id="business-section-service-card">
               <h3>Most Popular</h3>
-              <p>service item here</p>
+              <div id="business-service-item-container">
+                <ServiceItem
+                  service="Women's Haircut"
+                  duration="45 mins"
+                  price="100"
+                />
+                <ServiceItem
+                  service="Men's Haircut"
+                  duration="30 mins"
+                  price="80"
+                />
+                <ServiceItem
+                  service="Full Highlights"
+                  duration="4 hrs"
+                  price="180"
+                />
+              </div>
               <p id="business-section-more">See more services</p>
           </div>
         </div>
