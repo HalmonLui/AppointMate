@@ -91,6 +91,10 @@ class LoyaltyPage extends React.Component {
           />
         </div>
         <Modal isOpen={this.state.showModal}>
+        <div class="container">
+        </div>
+        <div class="bg">
+        </div>
         <button onClick={this.handleCloseModal}>x</button>
           <div class="center">
             <h2>Sally's Salon</h2>
