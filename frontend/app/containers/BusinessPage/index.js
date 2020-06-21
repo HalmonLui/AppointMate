@@ -7,6 +7,7 @@ import React, { Component } from 'react'
 import ReactSearchBox from 'react-search-box'
 import { Helmet } from 'react-helmet';
 import { FormattedMessage } from 'react-intl';
+import { Link } from 'react-router-dom';
 import Header from 'components/Header';
 import Footer from 'components/Footer';
 import H1 from 'components/H1';
@@ -75,7 +76,9 @@ export default class BusinessPage extends Component {
             content="Business Profile"
           />
         </Helmet>
-        <div id="business-back-button">&#12296; Back</div>
+        <Link to="/discover" id="back-button">
+          <div id="business-back-button">&#12296; Back</div>
+        </Link>
         {/*<img id="business-image" src="https://img.grouponcdn.com/deal/4CXB3CXmmbxHiNCBfqnMhsoPkv3G/4C-901x596/v1/c700x420.jpg" alt="store image"/>*/}
         <img id="business-image" src="https://cutewallpaper.org/21/one-punch-man-wallpaper-hd/Wallpaper-of-Anime,-One-Punch-Man,-Season-2,-Saitama-.jpg"/>
         <div id="business-info-container">

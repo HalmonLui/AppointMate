@@ -7,6 +7,7 @@ import React, { Component } from 'react'
 import ReactSearchBox from 'react-search-box'
 import { Helmet } from 'react-helmet';
 import { FormattedMessage } from 'react-intl';
+import { Link } from 'react-router-dom';
 import Header from 'components/Header';
 import Footer from 'components/Footer';
 import H1 from 'components/H1';
@@ -172,6 +173,7 @@ export default class DiscoverPage extends Component {
 
   render(){
     const trendingItems = this.state.businesses.trending.map((item) =>
+    <Link to='/business' class="discover-trending-link">
       <Card
         imageurl={item.imageurl}
         title={item.title}
@@ -179,6 +181,7 @@ export default class DiscoverPage extends Component {
         rating={item.rating}
         numratings={item.numratings}
       />
+    </Link>
     )
     const recommendationItems = this.state.businesses.recommendations.map((item) =>
       <SmallCard
@@ -250,7 +253,7 @@ export default class DiscoverPage extends Component {
           </div>
           <div class="discover-selection-item">
             <img src={PiercingImg} />
-            <p>Piercing Palor</p>
+            <p>Piercing Parlor</p>
           </div>
         </div>
 

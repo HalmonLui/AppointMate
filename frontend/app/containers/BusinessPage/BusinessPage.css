@@ -4,6 +4,9 @@
   font-family: inter;
 }
 
+#back-button {
+  text-decoration: none;
+}
 #business-back-button {
   color: #BDBDBD;
   font-size: 1em;
@@ -274,6 +277,9 @@
 .review-item-top-container h4 {
   padding: 0px;
   margin: 0px;
+  font-family: Inter;
+}
+.review-item-top-container p{
   font-family: Inter;
 }
 .review-image-container {
