@@ -153,6 +153,7 @@
 #form div {
   margin: .5em;
 }
+
 input[type=submit] {
   background-color: #67B57D;
   color: white;
@@ -163,4 +164,15 @@ input[type=submit] {
   margin: 1em;
   width: 50%;
   align-self: center;
+}
+
+.container {
+  overflow: hidden;
+}
+.bg {
+  width: 100%;
+  height: 150px;
+  border-radius: 0 0 100% 100%;
+  background-color: #67B57D;
+  margin-top:-130px;
 }
