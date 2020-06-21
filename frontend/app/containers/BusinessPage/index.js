@@ -18,6 +18,7 @@ import ListItem from './ListItem';
 import ListItemTitle from './ListItemTitle';
 import './BusinessPage.css';
 import Card from './Card';
+import SmallCard from './SmallCard';
 import BarberImg from './barberbg.png';
 import HairSalonImg from './hairsalonbg.png';
 import NailSalonImg from './nailsalonbg.png';
@@ -112,14 +113,14 @@ export default class BusinessPage extends Component {
 
         <div id="business-section">
           <h2 id="business-section-title">Location</h2>
-          <div id="business-section-card">
+          <div className="business-section-card">
             <p>MAP IMA MAP</p>
           </div>
         </div>
 
         <div id="business-section">
           <h2 id="business-section-title">Book Services</h2>
-          <div id="business-section-card">
+          <div className="business-section-card">
               <h3>Most Popular</h3>
               <p>service item here</p>
               <p id="business-section-more">See more services</p>
@@ -128,7 +129,7 @@ export default class BusinessPage extends Component {
 
         <div id="business-section">
           <h2 id="business-section-title">Book with Staff</h2>
-          <div id="business-section-card">
+          <div className="business-section-card">
               <div>
                   <p>Staff component here</p>
               </div>
@@ -138,17 +139,17 @@ export default class BusinessPage extends Component {
 
         <div id="business-section">
           <h2 id="business-section-title">Loyalty Program Policy</h2>
-          <div id="business-section-card">
-            <p>You currently have:</p>
-            <p>0 points</p>
-            <p>Earn 10 points each time you visit and spend over $50 in products or services</p>
+          <div className="business-section-card">
+            <p id="business-loyalty-you-text">You currently have:</p>
+            <p id="business-loyalty-points">0 points</p>
+            <p id="business-loyalty-earn-text">Earn 10 points each time you visit and spend over $50 in products or services</p>
             <p id="business-section-more">Learn more</p>
           </div>
         </div>
 
         <div id="business-section">
           <h2 id="business-section-title">Top Reviews</h2>
-          <div id="business-section-card">
+          <div className="business-section-card">
             <div>
               5* 85 ratings
             </div>
@@ -160,10 +161,31 @@ export default class BusinessPage extends Component {
 
         <div id="business-section">
           <h2 id="business-section-title">Other Suggestions</h2>
-          <div id="business-section-card">
-            <p>Suggestion COmponent Here</p>
+          <div className="business-section-card" id="business-suggestion-container">
+            <SmallCard
+              title="Sallys Salon"
+              imageurl="https://garboasalon.com/img/HP_SLIDER1_garbo_aveda_hair_salon_spa_best_austin_hair_color_nails_top_hair_stylist_men_hair_cut_austin_78757_atx_78741_hair_salon_near_me_austin_hairdress.jpg"
+              services="Cut ur hair, wash"
+              rating="4.2"
+              numratings="251"
+              />
+            <SmallCard
+              title="Johns Nails"
+              imageurl="https://img.grouponcdn.com/deal/4CXB3CXmmbxHiNCBfqnMhsoPkv3G/4C-901x596/v1/c700x420.jpg"
+              services="Trim, Gel"
+              rating="4.5"
+              numratings="51"
+              />
+            <SmallCard
+              title="Beauty Salon"
+              imageurl="https://i.pinimg.com/originals/cc/34/f2/cc34f2389c1d1fe9355fd774b369df93.jpg"
+              services="Makeup, Eyes"
+              rating="4.7"
+              numratings="652"
+              />
           </div>
         </div>
+
 
 
         <Footer activepage="discover"/>

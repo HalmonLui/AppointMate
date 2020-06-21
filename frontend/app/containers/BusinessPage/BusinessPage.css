@@ -61,6 +61,7 @@
   font-size: 1em;
   margin: 0px;
   padding: .3em;
+  text-align: right;
 }
 #business-rating-container {
   display: flex;
@@ -109,12 +110,44 @@
 #business-section-title {
   font-family: Inter;
 }
-#business-section-card {
+.business-section-card {
   box-shadow: 2px 2px 8px 1px rgba(0,0,0,0.1);
   padding: 1em;
 }
 #business-section-more {
   color: #5DB075;
   text-align: right;
-  padding: 1em;
+  padding: 0px;
+  margin: 0px;
+  margin-top: 1em;
+  font-family: Inter;
+}
+
+
+/* LOYALTY SECTION */
+#business-loyalty-you-text {
+  color: #BDBDBD;
+  margin: 0px;
+  padding: 0px;
+  text-align: center;
+  font-family: Inter;
+}
+#business-loyalty-points {
+  color: #5DB075;
+  font-size: 3em;
+  margin: .2em;
+  padding: 0px;
+  text-align: center;
+  font-family: Inter;
+}
+#business-loyalty-earn-text {
+  margin: 0px;
+  padding: 0px;
+  text-align: center;
+  font-family: Inter;
+}
+
+/* SUGGESTIONS SECTION */
+#business-suggestion-container {
+  display: flex;
 }
