@@ -14,6 +14,7 @@ import { Switch, Route } from 'react-router-dom';
 import HomePage from 'containers/HomePage/Loadable';
 import RegisterPage from 'containers/RegisterPage/Loadable';
 import DiscoverPage from 'containers/DiscoverPage/Loadable';
+import BusinessPage from 'containers/BusinessPage/Loadable';
 import BookingsPage from 'containers/BookingsPage/Loadable';
 import LoyaltyPage from 'containers/LoyaltyPage/Loadable';
 import AppointmentsPage from 'containers/AppointmentsPage/Loadable';
@@ -47,6 +48,7 @@ export default function App() {
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/register" component={RegisterPage} />
+        <Route path="/business" component={BusinessPage} />
         <Route path="/discover" component={DiscoverPage} />
         <Route path="/bookings" component={BookingsPage} />
         <Route path="/appointments" component={AppointmentsPage} />

@@ -1,12 +1,10 @@
 import React, { Component } from 'react'
-import './DiscoverPage.css';
 import HairSalon from './hair_salon.jpg'
-import FiveStars from './FiveStars'
-import './DiscoverPage.css'
+import './BusinessPage.css'
 
 function Card(props){
     return (
-        <div class="discover-card">
+        <div class="card">
             <div class="card-image-container">
                 <img src={props.imageurl} className='card-image'/>
             </div>

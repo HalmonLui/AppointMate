@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Inter');
+
+#businesspage {
+  font-family: inter;
+}
+
+#business-image {
+  height: 20vh;
+  width: 100%;
+  object-fit: cover;
+}
