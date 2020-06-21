@@ -72,89 +72,95 @@ export default class BusinessPage extends Component {
             content="Business Profile"
           />
         </Helmet>
-        <div>Back</div>
+        <div id="business-back-button">&#12296; Back</div>
         {/*<img id="business-image" src="https://img.grouponcdn.com/deal/4CXB3CXmmbxHiNCBfqnMhsoPkv3G/4C-901x596/v1/c700x420.jpg" alt="store image"/>*/}
         <img id="business-image" src="https://cutewallpaper.org/21/one-punch-man-wallpaper-hd/Wallpaper-of-Anime,-One-Punch-Man,-Season-2,-Saitama-.jpg"/>
-        <div>
-          <div>
+        <div id="business-info-container">
+          <div id="title-container">
             <h2>Hair No More</h2>
             <div>
-              <img src={heartIcon} />
+              <img id="heart" src={heartIcon} alt="heart" />
             </div>
           </div>
-          <div>
-            <div>
-              <img src={star} />
-              <p>85 ratings</p>
+          <div id="business-info-text-container">
+            <div id="business-info-text-left-container">
+              <div id="business-rating-container">
+                <img id="star" src={star} alt="star"/>
+                <p>5.0</p>
+                <p>85 ratings</p>
+              </div>
+              <p>120 Oscar Street</p>
+              <p>212-888-0000</p>
             </div>
-            <p>120 Oscar Street</p>
-            <p>212-888-0000</p>
-          </div>
-          <div>
-            <p>0.8 mi</p>
-            <p>$$$</p>
+            <div id="business-info-text-right-container">
+              <p>0.8 mi</p>
+              <p>$$$</p>
+            </div>
           </div>
         </div>
 
-        <div>
-          <div>
-            <img src={lightning} alt="lightning"/>
+        <div id="business-icon-section">
+          <div id="business-icon-container">
+            <img id="icon" src={lightning} alt="lightning"/>
             <p>Instant booking</p>
           </div>
-          <div>
-            <img src={money} alt="money"/>
-            <p>In-app payment</p>
+          <div id="business-icon-container">
+            <img id="icon" src={money} alt="money"/>
+            <p id="business-cash-text">In-app payment</p>
           </div>
         </div>
 
-        <div>
-          <h2>Location</h2>
-          <p>MAP IMA MAP</p>
+        <div id="business-section">
+          <h2 id="business-section-title">Location</h2>
+          <div id="business-section-card">
+            <p>MAP IMA MAP</p>
+          </div>
         </div>
 
-        <div>
-          <h2>Book Services</h2>
-          <div>
+        <div id="business-section">
+          <h2 id="business-section-title">Book Services</h2>
+          <div id="business-section-card">
               <h3>Most Popular</h3>
               <p>service item here</p>
+              <p id="business-section-more">See more services</p>
           </div>
         </div>
 
-        <div>
-          <h2>Book with Staff</h2>
-          <div>
+        <div id="business-section">
+          <h2 id="business-section-title">Book with Staff</h2>
+          <div id="business-section-card">
               <div>
                   <p>Staff component here</p>
               </div>
-              <p>See all staff</p>
+              <p id="business-section-more">See all staff</p>
           </div>
         </div>
 
-        <div>
-          <h2>Loyalty Program Policy</h2>
-          <div>
+        <div id="business-section">
+          <h2 id="business-section-title">Loyalty Program Policy</h2>
+          <div id="business-section-card">
             <p>You currently have:</p>
             <p>0 points</p>
             <p>Earn 10 points each time you visit and spend over $50 in products or services</p>
-            <p>Learn more</p>
+            <p id="business-section-more">Learn more</p>
           </div>
         </div>
 
-        <div>
-          <h2>Top Reviews</h2>
-          <div>
+        <div id="business-section">
+          <h2 id="business-section-title">Top Reviews</h2>
+          <div id="business-section-card">
             <div>
               5* 85 ratings
             </div>
             <p>Review COmponent Here</p>
             <p>Review COmponent Here</p>
-            <p>See more reviews</p>
+            <p id="business-section-more">See more reviews</p>
           </div>
         </div>
 
-        <div>
-          <h2>Other Suggestions</h2>
-          <div>
+        <div id="business-section">
+          <h2 id="business-section-title">Other Suggestions</h2>
+          <div id="business-section-card">
             <p>Suggestion COmponent Here</p>
           </div>
         </div>

@@ -4,8 +4,117 @@
   font-family: inter;
 }
 
+#business-back-button {
+  color: #BDBDBD;
+  font-size: 1em;
+  margin: 1em;
+  margin-left: 3em;
+}
+
 #business-image {
   height: 20vh;
   width: 100%;
   object-fit: cover;
+}
+
+/* BUSINESS INFO SECTION */
+#business-info-container {
+  margin-left: 2em;
+  margin-right: 2em;
+}
+#title-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#heart {
+  width: 2em;
+}
+#star {
+  width: 1em;
+  height: 1em;
+  margin: 0px;
+  padding: 0px;
+  margin-right: 1em;
+}
+#business-info-text-container {
+  display: flex;
+  justify-content: space-between;
+  font-family: Inter;
+}
+#business-info-text-left-container {
+  flex: 2;
+  padding: 0px;
+  margin: 0px;
+}
+#business-info-text-left-container p {
+  margin: 0px;
+  font-family: Inter;
+  padding-top: .5em;
+}
+#business-info-text-right-container {
+  flex: 1;
+  font-family: Inter;
+}
+#business-info-text-right-container p{
+  font-family: Inter;
+  font-size: 1em;
+  margin: 0px;
+  padding: .3em;
+}
+#business-rating-container {
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+#business-rating-container p {
+  margin: 0px;
+  margin-right: 2em;
+  padding: 0px;
+  font-family: Inter;
+}
+
+/* LIGHTNING MONEY SECTION */
+#business-icon-section {
+  display: flex;
+  width: 100%;
+  margin-top: 1.2em;
+}
+#business-icon-container {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+#business-icon-container p{
+  color: #5DB075;
+  font-size: 1.2em;
+  font-family: Inter;
+}
+#business-cash-text {
+  padding-left: 1em;
+}
+#icon {
+  width: 3em;
+  height: 2em;
+}
+
+
+/* BUSINESS SECTION */
+#business-section {
+  margin-left: 2em;
+  margin-right: 2em;
+  margin-top: 4em;
+}
+#business-section-title {
+  font-family: Inter;
+}
+#business-section-card {
+  box-shadow: 2px 2px 8px 1px rgba(0,0,0,0.1);
+  padding: 1em;
+}
+#business-section-more {
+  color: #5DB075;
+  text-align: right;
+  padding: 1em;
 }
