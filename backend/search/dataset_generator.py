@@ -20,6 +20,23 @@ class SyntheticDataCreation(object):
 
         self.output_data = {}
         self.location = location
+        if self.location:
+            self.location = address_to_latlong(self.location)
+        self.types = ["Hair Salon", "Nail Salon",
+                      "Barbershop", "Spa Center", "Piercing Parlor"]
+
+        self.services = {}
+        for t in self.types:
+            if t == "Hair Salon":
+                self.services[t] = [("Haircut", 50, 120), ("Wash&BlowDry", 70, 130), ("Haircolor", 100, 200)]
+            if t == "Nail Salon":
+                self.services[t] = [("Manicure", 30, 70), ("Pedicure", 40, 100)]
+            if t == "Barbershop":
+                self.services[t] = [("Haircut", 60, 140), ("Shave", 60, 80)]
+            if t == "Spa Center":
+                self.services[t] = [("Facial", 50, 120), ("Massage Therapy", 60, 120), ("Waxing", 50, 80), ("Body Treatment", 80, 110)]
+            if t == "Piercing Parlor":
+                self.services[t] = [("Ear Piercing", 40, 60), ("Body Piercing", 30, 65), ("Tattoo", 100, 250)]
     
     def gen_data_range(self, start, end):
         start = datetime.strptime(start, '%Y-%m-%d')
@@ -124,9 +141,15 @@ class SyntheticDataCreation(object):
 
         return stylist_dict
 
+    def gen_pricing_dict(self, biz_type):
+        pricing_dict = {}
+        for t in self.services[biz_type]:
+            pricing_dict[t[0]] = 5 * round(random.randint(t[1], t[2]) / 5)
+        
+        return pricing_dict
+
+
     def gen_json_data(self, name):
-        types = ["Hair Salon", "Nail Salon",
-                 "Barbershop", "Spa Center", "Piercing Parlor"]
         # Whether this business has a break in between
         num_of_op_times = random.randint(1, 2)
 
@@ -150,7 +173,7 @@ class SyntheticDataCreation(object):
 
         business_dict = {
             "name": name,
-            "type": list(set([random.choice(types) for i in range(random.randint(1, 3))])),
+            "type": random.sample(self.types, 1)[0],
             "location": "",
             "image_url": "",
             "opening-hours": self.gen_opening_hours_dict(times, num_of_op_days),
@@ -159,6 +182,8 @@ class SyntheticDataCreation(object):
             "stylists": self.gen_stylists(num_of_stylists, times),
             "distance": 0.0
         }
+
+        business_dict["price"] = self.gen_pricing_dict(business_dict["type"])
 
         return business_dict
 
@@ -244,7 +269,7 @@ class SyntheticDataCreation(object):
 
 if __name__ == "__main__":
     print('Hello World')
-    a = SyntheticDataCreation(theme='names', location="754 Post St, San Francisco, CA, 94109")
+    a = SyntheticDataCreation(theme='names', location="754 Post St, San Francisco, CA 94109")
     d_r = a.gen_data_range(start='2020-06-15', end='2020-06-20')
     print(d_r)
     names = a.business_name_generator()
@@ -252,6 +277,8 @@ if __name__ == "__main__":
     a.create_dataset(data_dict, names, d_r)
     #print(json.dumps(a.output_data, indent=4))
     a.save_data()
+    
+    #a.gen_pricing_dict("Hair Salon")
 
     # Yelp API testing
     """
