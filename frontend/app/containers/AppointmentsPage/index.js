@@ -106,7 +106,7 @@ class AppointmentsPage extends React.Component {
           <div class="center">
               <h2>Spa Center</h2>
               <img id="store-image" src={quokka}/>
-            </div>
+          </div>
             <div id="store-icons-align">
               <img id="store-icons" src={calendarImg}/>
             </div>
@@ -151,6 +151,7 @@ class AppointmentsPage extends React.Component {
             <div class="summary-container">
               <h4 id="summary-container-text">Total: $115</h4>
             </div>
+            <button class="modify-button">Modify</button>
           </div>
         </Modal>
         <Footer activepage="appointments"/>

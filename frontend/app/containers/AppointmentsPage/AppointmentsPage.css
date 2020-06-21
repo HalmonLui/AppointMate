@@ -158,7 +158,7 @@
   }
   
   .column {
-    flex: 33%;
+    flex: 50%;
     padding: 0px;
   }
 
@@ -177,8 +177,8 @@
   .card {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
-    width: 90%;
-    margin: 10% 5% 0 5%;
+    width: 100%;
+    margin: 10% 0% 0% 0%;
     padding: .5em 0em .5em 2em;
   }
   
@@ -204,4 +204,15 @@
     padding-left: 2.5em;
   }
 
+  .modify-button {
+    background-color: #67B57D;
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    margin: 10% 25% 10% 25%;
+    width: 50%;
+    align-self: center;
+  }
 
