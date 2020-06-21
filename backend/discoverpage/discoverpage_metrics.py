@@ -1,6 +1,7 @@
 import json
-import ast
 from heapq import nlargest, nsmallest
+import pandas as pd
+import numpy as np
 # Recommended, Hot Deals, Trending Near you
 
 """
@@ -42,26 +43,43 @@ def get_trending_posts(data, date, n):
     output = [min10_dist[i] for i in arg_maxs]
 
     return output[::-1]
+
+def get_hot_deals(data, date):
+    salon_types = ["Hair Salon", "Nail Salon",
+                    "Barbershop", "Spa Center", "Piercing Parlor"]
     
+    df = pd.DataFrame(data[date])
+    output = []
+    for st in salon_types:
+        salon_df = df[df.type == st]
+        salon_df['sum_of_services'] = salon_df.apply(lambda row: sum(row.price.values()), axis=1)
+        min_salon = salon_df.iloc[salon_df["sum_of_services"].values.argmin()].to_dict()
+        min_salon.pop('sum_of_services', None)
+        output.append(min_salon)
+
+    return output
 
 
 if __name__ == "__main__":
     f = open('/Users/sonamghosh/Desktop/square_hacks_2020/square-hackathon/backend/search/sample_names_data.json')
     data = json.load(f)
-    ratings = []
-    for d in data['2020-06-15']:
-        ratings.append(d["rating"])
-    
-    print(sorted(ratings))
 
     top5 = nlargest(5, data['2020-06-15'], key=lambda i: i["rating"])
     print(len(top5))
     print([i['rating'] for i in top5])
 
-    min10_dist = nsmallest(10, data['2020-06-15'], key=lambda i: i["distance"])
-    print(len(min10_dist))
-    print([i["distance"] for i in min10_dist])
-    print([i["location"] for i in min10_dist])
-
     print(get_trending_posts(data, '2020-06-15', 4))
 
+    df = pd.DataFrame(data['2020-06-15'])
+    print(df.head(10))
+
+    df2 = df[df.type == 'Hair Salon']
+
+    df2['sum_of_services'] = df2.apply(lambda row: sum(row.price.values()), axis=1)
+
+    print(df2.head(5))
+
+    import numpy as np
+    print(df2.iloc[df2["sum_of_services"].values.argmin()].to_dict())
+    #print(df.groupby('type').count())
+    print(get_hot_deals(data, '2020-06-15'))
