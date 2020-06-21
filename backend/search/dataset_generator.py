@@ -178,6 +178,7 @@ class SyntheticDataCreation(object):
             "image_url": "",
             "opening-hours": self.gen_opening_hours_dict(times, num_of_op_days),
             "rating": round(random.uniform(3.49, 5.00), 2),
+            "num_of_ratings": random.randint(300, 1000),
             "price": {},
             "stylists": self.gen_stylists(num_of_stylists, times),
             "distance": 0.0
