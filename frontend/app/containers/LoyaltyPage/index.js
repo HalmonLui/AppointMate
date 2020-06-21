@@ -25,17 +25,19 @@ class LoyaltyPage extends React.Component {
   constructor () {
     super();
     this.state = {
-      showModal: false
+      showModal: false,
+      activeTitle: '',
+      activePoints: '',
+      activeTotalPoints: ''
     };
 
-    this.handleOpenModal = this.handleOpenModal.bind(this);
-    this.handleCloseModal = this.handleCloseModal.bind(this);
   }
-  handleOpenModal () {
-    this.setState({ showModal: true });
+  handleOpenModal = (title, points, totalpoints) => {
+    var progress_percent = points / totalpoints * 100
+    this.setState({ showModal: true, activeTitle: title, activePoints: points, activeTotalPoints: totalpoints, activeProgressPercent:  progress_percent});
   }
 
-  handleCloseModal () {
+  handleCloseModal = () => {
     this.setState({ showModal: false });
   }
   render() {
@@ -97,19 +99,19 @@ class LoyaltyPage extends React.Component {
         </div>
         <button onClick={this.handleCloseModal}>x</button>
           <div class="center">
-            <h2>Sally's Salon</h2>
+            <h2>{this.state.activeTitle}</h2>
             <img id="store-image" src={quokka}/>
             <p class="points-text-big">Accured Loyalty Points:</p>
-            <h1 class="green-points-text">85 Points</h1>
+            <h1 class="green-points-text">{this.state.activePoints} Points</h1>
             <div class="progress-bar-container">
-              <div class="progress-bar" style={{width: '60' + '%'}}></div>
+              <div class="progress-bar" style={{width: this.state.activeProgressPercent + '%'}}></div>
             </div>
             <div id="points-container">
-              <p class="points-text"><span class="green-points-text">5 more points </span>until your next reward!</p>
+              <p class="points-text"><span class="green-points-text">{this.state.activeTotalPoints - this.state.activePoints} more points </span>until your next reward!</p>
             </div>
           </div>
           <p class="regular-text">Details</p>
-          <p class="points-text-large">Earn 5 points each time you visit Sally's Salon</p>
+          <p class="points-text-large">Earn 5 points each time you visit {this.state.activeTitle}</p>
           <p class="regular-text">Rewards</p>
           <form id="form">
             <div>
