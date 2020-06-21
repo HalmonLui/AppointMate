@@ -26,15 +26,16 @@ class LoyaltyPage extends React.Component {
     super();
     this.state = {
       showModal: false,
+      activeImageUrl: '',
       activeTitle: '',
       activePoints: '',
       activeTotalPoints: ''
     };
 
   }
-  handleOpenModal = (title, points, totalpoints) => {
+  handleOpenModal = (title, points, totalpoints, imageurl) => {
     var progress_percent = points / totalpoints * 100
-    this.setState({ showModal: true, activeTitle: title, activePoints: points, activeTotalPoints: totalpoints, activeProgressPercent:  progress_percent});
+    this.setState({ showModal: true, activeImageUrl: imageurl, activeTitle: title, activePoints: points, activeTotalPoints: totalpoints, activeProgressPercent:  progress_percent});
   }
 
   handleCloseModal = () => {
@@ -68,24 +69,28 @@ class LoyaltyPage extends React.Component {
 
         <div>
           <LoyaltyItem
+            imageurl='https://garboasalon.com/img/HP_SLIDER1_garbo_aveda_hair_salon_spa_best_austin_hair_color_nails_top_hair_stylist_men_hair_cut_austin_78757_atx_78741_hair_salon_near_me_austin_hairdress.jpg'
             title='Sallys Salon'
             totalpoints='20'
             points='5'
             LoyaltyModal={this.handleOpenModal}
           />
           <LoyaltyItem
+            imageurl='https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80'
             title='Haair Shop'
             totalpoints='20'
             points='15'
             LoyaltyModal={this.handleOpenModal}
           />
           <LoyaltyItem
+            imageurl='https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQwOTrW1_BwLDStRVfYdQIVkNfT0nq6A_RPXA&usqp=CAU'
             title='What is Hair'
             totalpoints='30'
             points='3'
             LoyaltyModal={this.handleOpenModal}
           />
           <LoyaltyItem
+            imageurl='https://lh3.googleusercontent.com/proxy/Fq1F8znwQgu3Ne3B_T1KbtpoVBTFLf2VxbbSTj1JBJjnxtf5IFDJw2ev9MxtX0E0khZiayNXagEYO5a0Qhwgz_0GT1xnuq25adLI2_eRU4iY-FLtHlB2dWQ0WDlFkg'
             title='Sample Store'
             totalpoints='50'
             points='25'
@@ -93,15 +98,13 @@ class LoyaltyPage extends React.Component {
           />
         </div>
         <Modal isOpen={this.state.showModal}>
-        <div class="container">
+        <div class="modal-green-background">
         </div>
-        <div class="bg">
-        </div>
-        <button onClick={this.handleCloseModal}>x</button>
+        <button id="close-modal-button" onClick={this.handleCloseModal}>&times;</button>
           <div class="center">
-            <h2>{this.state.activeTitle}</h2>
-            <img id="store-image" src={quokka}/>
-            <p class="points-text-big">Accured Loyalty Points:</p>
+            <h2 id="modal-title">{this.state.activeTitle}</h2>
+            <img id="modal-store-image" src={this.state.activeImageUrl} alt="store-image"/>
+            <p class="points-text-big">Accrued Loyalty Points:</p>
             <h1 class="green-points-text">{this.state.activePoints} Points</h1>
             <div class="progress-bar-container">
               <div class="progress-bar" style={{width: this.state.activeProgressPercent + '%'}}></div>
@@ -116,15 +119,15 @@ class LoyaltyPage extends React.Component {
           <form id="form">
             <div>
               <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike"/>
-              <label for="vehicle1"> 30 points = $5 off haircut</label>
+              <label for="vehicle1" id="modal-point-label"> 30 points = $5 off haircut</label>
             </div>
             <div>
               <input type="checkbox" id="vehicle2" name="vehicle2" value="Car"/>
-              <label for="vehicle2"> 60 points = $12 off haircut</label>
+              <label for="vehicle2" id="modal-point-label"> 60 points = $12 off haircut</label>
             </div>
             <div>
               <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat"/>
-              <label for="vehicle3"> 90 points = $20 off haircut</label>
+              <label for="vehicle3" id="modal-point-label"> 90 points = $20 off haircut</label>
             </div>
             <input type="submit" value="Redeem"/>
           </form>
