@@ -12,7 +12,7 @@ from utils import address_to_latlong, find_distance
 # @TODO: add yelp api
 
 
-class SyntheticDataCreation(object):
+class SyntheticBusinessDataCreation(object):
     def __init__(self, theme, location=None):
         self.theme = theme
         if self.theme not in ('yelp', 'names'):
@@ -268,8 +268,35 @@ class SyntheticDataCreation(object):
                 json.dump(self.output_data, f, ensure_ascii=False, indent=4)
 
 
+class SyntheticUserDataCreation(object):
+    def __init__(self, name):
+        self.name = name
+    
+    def gen_data_dict(self):
+        Faker.seed(0)
+        fake = Faker()
+        self.data_dict = {
+            "users": [
+                {
+                    "name": self.name,
+                    "phone-number": fake.phone_number().split('x')[0],
+                    "email": self.name.split(' ')[0].lower() + self.name.split(' ')[1].lower() + "@gmail.com",
+                    "payment-methods": ["VISA", "GOOGLE PAY", "APPLE PAY"],
+                    "notifications": 1,
+                    "location": "",
+                    "saved-businesses": []
+                }
+            ]
+        }
+
+
+
 if __name__ == "__main__":
     print('Hello World')
+    b = SyntheticUserDataCreation("Sasuke Uchiha")
+    b.gen_data_dict()
+    print(b.data_dict)
+    """
     a = SyntheticDataCreation(theme='names', location="754 Post St, San Francisco, CA 94109")
     d_r = a.gen_data_range(start='2020-06-15', end='2020-06-20')
     print(d_r)
@@ -280,6 +307,7 @@ if __name__ == "__main__":
     a.save_data()
     
     #a.gen_pricing_dict("Hair Salon")
+    """
 
     # Yelp API testing
     """
