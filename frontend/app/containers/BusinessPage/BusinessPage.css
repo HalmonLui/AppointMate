@@ -114,7 +114,7 @@
   box-shadow: 2px 2px 8px 1px rgba(0,0,0,0.1);
   padding: 1em;
 }
-#business-section-more {
+.business-section-more {
   color: #5DB075;
   text-align: right;
   padding: 0px;
@@ -172,6 +172,44 @@
   padding: 0px;
 }
 
+/* STAFF SECTION */
+#business-staff-item-container {
+  display: flex;
+  margin-top: 1em;
+}
+.staff-item-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+}
+.staff-image-container {
+  width: 5em;
+  height: 5em;
+  overflow: hidden;
+  border-radius: 50%;
+}
+.staff-image-container img {
+  height: 5em;
+  width: 5em;
+  object-fit: cover;
+}
+.staff-item-name {
+  font-family: Inter;
+  padding: 0px;
+  margin: 0px;
+  text-align: center;
+}
+.staff-item-role {
+  color: #BDBDBD;
+  font-family: Inter;
+  padding: 0px;
+  margin: 0px;
+  text-align: center;
+}
+
+
 /* LOYALTY SECTION */
 #business-loyalty-you-text {
   color: #BDBDBD;
@@ -193,6 +231,87 @@
   padding: 0px;
   text-align: center;
   font-family: Inter;
+}
+
+
+/* REVIEWS SECTION */
+#business-section-reviews-card {
+  padding: 0px;
+}
+#business-review-star {
+  width: 1.5em;
+  height: 1.5em;
+  margin: 0px;
+  padding: 0px;
+  margin-right: 1em;
+  margin-left: 1em;
+}
+#business-review-top-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding-top: 1em;
+}
+#business-review-rating {
+  flex: 1;
+  font-family: Inter;
+}
+#business-review-num-ratings {
+  flex: 2;
+  font-family: Inter;
+}
+.review-item-container {
+  border-bottom: 1px solid #E8E8E8;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1em;
+}
+.review-item-top-container {
+  display: flex;
+  align-items: center;
+}
+.review-item-top-container h4 {
+  padding: 0px;
+  margin: 0px;
+  font-family: Inter;
+}
+.review-image-container {
+  width: 3em;
+  height: 3em;
+  overflow: hidden;
+  border-radius: 50%;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+.review-image-container img {
+  height: 3em;
+  width: 3em;
+  object-fit: cover;
+}
+.review-item-name-container {
+  margin-right: 7em;
+}
+.review-item-date {
+  color: #BDBDBD;
+  padding: 0px;
+  margin: 0px;
+  font-family: Inter;
+  font-size: .8em;
+}
+.review-item-text {
+  font-size: .9em;
+  margin: 0px;
+  padding: 0px;
+  margin-top: .5em;
+  margin-bottom: 1em;
+  margin-left: 1em;
+  margin-right: 1em;
+  font-family: Inter;
+}
+#business-review-more {
+  margin-right: 1em;
+  padding-bottom: 1em;
 }
 
 /* SUGGESTIONS SECTION */

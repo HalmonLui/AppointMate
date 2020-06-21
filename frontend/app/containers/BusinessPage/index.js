@@ -18,6 +18,8 @@ import ListItem from './ListItem';
 import ListItemTitle from './ListItemTitle';
 import './BusinessPage.css';
 import ServiceItem from './ServiceItem';
+import StaffItem from './StaffItem';
+import ReviewItem from './ReviewItem';
 import SmallCard from './SmallCard';
 import BarberImg from './barberbg.png';
 import HairSalonImg from './hairsalonbg.png';
@@ -139,17 +141,31 @@ export default class BusinessPage extends Component {
                   price="180"
                 />
               </div>
-              <p id="business-section-more">See more services</p>
+              <p class="business-section-more">See more services</p>
           </div>
         </div>
 
         <div id="business-section">
           <h2 id="business-section-title">Book with Staff</h2>
           <div className="business-section-card">
-              <div>
-                  <p>Staff component here</p>
+              <div id="business-staff-item-container">
+                  <StaffItem
+                    imageurl="https://i.quotev.com/img/q/u/19/10/3/hos6ugmrdu.jpg"
+                    name="Bob Smith"
+                    role="Lead stylist"
+                  />
+                  <StaffItem
+                    imageurl="https://www.shareitnow.net/wp-content/uploads/2020/04/Kimetsu-no-Yaiba-Demon-slayer-chapter-201.jpg"
+                    name="Bobby Heck"
+                    role="Stylist"
+                  />
+                  <StaffItem
+                    imageurl="https://www.funimation.com/blog/wp-content/uploads/2019/10/Screen-Shot-2019-10-21-at-1.11.27-PM.png"
+                    name="Bobber Hak"
+                    role="Stylist"
+                  />
               </div>
-              <p id="business-section-more">See all staff</p>
+              <p class="business-section-more">See all staff</p>
           </div>
         </div>
 
@@ -159,19 +175,35 @@ export default class BusinessPage extends Component {
             <p id="business-loyalty-you-text">You currently have:</p>
             <p id="business-loyalty-points">0 points</p>
             <p id="business-loyalty-earn-text">Earn 10 points each time you visit and spend over $50 in products or services</p>
-            <p id="business-section-more">Learn more</p>
+            <p class="business-section-more">Learn more</p>
           </div>
         </div>
 
         <div id="business-section">
           <h2 id="business-section-title">Top Reviews</h2>
-          <div className="business-section-card">
-            <div>
-              5* 85 ratings
+          <div className="business-section-card" id="business-section-reviews-card">
+            <div id="business-review-top-container">
+              <img id="business-review-star" src={star} alt="star" />
+              <p id="business-review-rating">5.0</p>
+              <p id="business-review-num-ratings">85 ratings</p>
             </div>
-            <p>Review COmponent Here</p>
-            <p>Review COmponent Here</p>
-            <p id="business-section-more">See more reviews</p>
+            <div>
+              <ReviewItem
+                imageurl="https://www.funimation.com/blog/wp-content/uploads/2019/10/Screen-Shot-2019-10-21-at-1.11.27-PM.png"
+                name="Customer One"
+                rating="5.0"
+                date="Jan 1, 2020"
+                review="lorem ipsum joe vestibulum ornare nec risus mama. Aliquam eget cursus massa, ligma quis henderit urna. Nam figma euismod mi at sugma sagittis fringilla"
+              />
+              <ReviewItem
+                imageurl="https://i.quotev.com/img/q/u/19/10/3/hos6ugmrdu.jpg"
+                name="Customer Two"
+                rating="5.0"
+                date="Feb 2, 2020"
+                review="lorem ipsum joe vestibulum ornare nec risus mama. Aliquam eget cursus massa, ligma quis henderit urna. Nam figma euismod mi at sugma sagittis fringilla"
+              />
+            </div>
+            <p class="business-section-more" id="business-review-more">See more reviews</p>
           </div>
         </div>
 
