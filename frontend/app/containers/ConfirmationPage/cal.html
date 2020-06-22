@@ -1,0 +1,22 @@
+<html>
+<head>
+
+<!-- AddEvent script -->
+<script type="text/javascript" src="https://addevent.com/libs/atc/1.6.1/atc.min.js" async defer></script>
+
+</head>
+<body>
+
+<!-- Button code -->
+<div title="Add to Calendar" class="addeventatc">
+    Add to Calendar
+    <span class="start">{{appoint.starttime}}</span>
+    <span class="end">{{appoint.endtime}}</span>
+    <span class="timezone">America/Los_Angeles</span>
+    <span class="title">Appointment at {{appoint.salon}}</span>
+    <span class="description">{{appoint.event}} with {{appoint.stylist}}</span>
+    <span class="location">{{appoint.location}}</span>
+</div>
+
+</body>
+</html>

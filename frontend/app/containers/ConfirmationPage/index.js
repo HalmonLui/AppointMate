@@ -66,7 +66,14 @@ export default class ConfirmationPage extends Component {
   //   //     }
   //   //   )
   // }
+    componentDidMount () {
+        const script = document.createElement("script");
 
+        script.src = "https://addevent.com/libs/atc/1.6.1/atc.min.js";
+        script.async = true;
+
+        document.body.appendChild(script);
+    }
   render(){
     return (
       <div id="businesspage">
@@ -84,6 +91,15 @@ export default class ConfirmationPage extends Component {
         <div id="confirmation-top-container">
           <img src={check} alt="checkmark" id="checkmark"/>
           <h2>Thank you for booking!</h2>
+          <div title="Add to Calendar" class="addeventatc" id="addevent">
+              Add to Calendar
+              <span class="start">2:45</span>
+              <span class="end">3:30</span>
+              <span class="timezone">America/Los_Angeles</span>
+              <span class="title">Appointment at Sally's Salon</span>
+              <span class="description">Men's Haircut with Sally</span>
+              <span class="location">Sally's Salon</span>
+          </div>
         </div>
 
         <div id="business-section">
