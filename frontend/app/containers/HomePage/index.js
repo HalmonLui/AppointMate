@@ -35,7 +35,7 @@ import { changeUsername } from './actions';
 import { makeSelectUsername } from './selectors';
 import reducer from './reducer';
 import saga from './saga';
-import Banner from './barber_logo.png';
+import logo from './full-logo.png';
 import './HomePage.css';
 
 const key = 'home';
@@ -76,10 +76,13 @@ export function HomePage({
       </Helmet>
       <div>
         <Section>
-          <Img src={Banner} alt="react-boilerplate - Logo" />
-          <H2 id="logintext">
-            Log In
-          </H2>
+          <img src={logo} alt="logo" id="logo"/>
+          <div id="signup-container">
+            <H2 id="logintext">
+              Log In
+            </H2>
+            <a href="/register" id="login-link">Register</a>
+          </div>
           <Form onSubmit={onSubmitForm}>
               <Input
                 id="email"
@@ -105,7 +108,7 @@ export function HomePage({
               />
               Remember Me
               </div>
-            <StyledButton href="/bookings">Log In</StyledButton>
+            <StyledButton href="/discover">Log In</StyledButton>
           </Form>
           <a id="forgotpassword">Forgot your password?</a>
         </Section>

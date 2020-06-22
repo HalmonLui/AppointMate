@@ -90,11 +90,29 @@
 }
 
 /* MODAL */
-#store-image {
-  width: 100px;
-  height: 100px;
+#close-modal-button {
+  background: none;
+  border: none;
+  font-size: 1.5em;
+  color: #fafafa;
+  position: relative;
+}
+#modal-title {
+  position: relative;
+  color: #fafafa;
+  font-family: Inter;
+}
+#modal-store-image {
+  width: 18em;
+  height: 10em;
   border-radius: .5em;
   border: .25em solid #E8E8E8;
+  object-fit: cover;
+  box-shadow: 2px 2px 8px 1px rgba(0,0,0,0.1);
+  position: relative;
+}
+#modal-point-label {
+  font-family: Inter;
 }
 
 .center {
@@ -151,8 +169,10 @@
 }
 
 #form div {
-  margin: .5em;
+  margin-left: 5em;
+  margin-bottom: 1em;
 }
+
 input[type=submit] {
   background-color: #67B57D;
   color: white;
@@ -163,4 +183,16 @@ input[type=submit] {
   margin: 1em;
   width: 50%;
   align-self: center;
+}
+
+.modal-green-background {
+  width: 100%;
+  position: absolute;
+  height: 13em;
+  border-radius: 0 0 50px 50px;
+  background-color: #67B57D;
+  margin: none;
+  padding: none;
+  margin-top: -2em;
+  margin-left: -1.25em;
 }
