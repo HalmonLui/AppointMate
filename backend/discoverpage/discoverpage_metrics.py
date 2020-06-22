@@ -60,7 +60,7 @@ def get_hot_deals(data, date):
         df = pd.DataFrame(data[date])
     output = []
     for st in salon_types:
-        salon_df = df[df.type == st]
+        salon_df = df[df.services == st]
         salon_df['sum_of_services'] = salon_df.apply(lambda row: sum(row.price.values()), axis=1)
         min_salon = salon_df.iloc[salon_df["sum_of_services"].values.argmin()].to_dict()
         min_salon.pop('sum_of_services', None)
@@ -73,22 +73,22 @@ if __name__ == "__main__":
     f = open('/Users/sonamghosh/Desktop/square_hacks_2020/square-hackathon/backend/search/sample_names_data.json')
     data = json.load(f)
 
-    top5 = nlargest(5, data['2020-06-15'], key=lambda i: i["rating"])
-    print(len(top5))
-    print([i['rating'] for i in top5])
+    #top5 = nlargest(5, data['2020-06-15'], key=lambda i: i["rating"])
+    #print(len(top5))
+    #print([i['rating'] for i in top5])
 
-    print(get_trending_posts(data, '2020-06-15', 4))
+    #print(get_trending_posts(data, '2020-06-15', 4))
 
-    df = pd.DataFrame(data['2020-06-15'])
-    print(df.head(10))
+    #df = pd.DataFrame(data['2020-06-15'])
+    #print(df.head(10))
 
-    df2 = df[df.type == 'Hair Salon']
+    #df2 = df[df.type == 'Hair Salon']
 
-    df2['sum_of_services'] = df2.apply(lambda row: sum(row.price.values()), axis=1)
+    #df2['sum_of_services'] = df2.apply(lambda row: sum(row.price.values()), axis=1)
 
-    print(df2.head(5))
+    #print(df2.head(5))
 
-    import numpy as np
-    print(df2.iloc[df2["sum_of_services"].values.argmin()].to_dict())
+    #import numpy as np
+    #print(df2.iloc[df2["sum_of_services"].values.argmin()].to_dict())
     #print(df.groupby('type').count())
-    print(get_hot_deals(data, '2020-06-15'))
+    #print(get_hot_deals(data, '2020-06-15'))
