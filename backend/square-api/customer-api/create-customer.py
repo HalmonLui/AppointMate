@@ -1,9 +1,11 @@
 from square.client import Client
 from dotenv import load_dotenv
 import pymongo
+import json
 import os
 from faker import Faker
 from faker_e164.providers import E164Provider
+import random
 
 class CustomerCreation(object):
     def __init__(self, name=None, address=None, phone_number=None, email_address=None, note='A note'):
@@ -69,14 +71,76 @@ class CustomerCreation(object):
         self.body["phone_number"] = self.phone_number
         self.body["note"] = self.note
 
+    def create_customer_dict(self):
+        load_dotenv()
+        square_client = Client(
+            access_token=os.getenv("SQUARE_ACCESS_TOKEN"),
+            environment="sandbox"
+        )
+        customers_api = square_client.customers
+        result = customers_api.create_customer(self.body)
+
+        if result.is_success():
+            print(result.body)
+            self.result = result.body
+        elif result.is_error():
+            print(result.errors)
+    
+    def add_to_db(self):
+        load_dotenv()
+
+        square_client = Client(
+            access_token=os.getenv("SQUARE_ACCESS_TOKEN"),
+            environment="sandbox"
+        )
+
+        customers_api = square_client.customers
+        result = customers_api.list_customers()
+
+        if result.is_error():
+            raise ValueError("Cannot get customer")
+
+        data = result.body
+        print(json.dumps(data, indent=4))
+
+        mongo_client = pymongo.MongoClient(os.getenv("MONGO_NORM_USER"))
+        for customer in data:
+            db = mongo_client["customer"][customer]
+            for d in data[customer]:
+                if "saved_business" not in data[customer]:
+                    db2 = mongo_client["business"]["2020-06-29"]
+                    mongo_data = list(db2.find({}))
+                    d["saved_business"] = random.sample(mongo_data, 5)
+            db.insert_many(data[customer])
+        
+        
+    def add_customer_card(self):
+        print('Hello World')
+
 if __name__ == "__main__":
+    test = CustomerCreation(name="Tanjirou Kamado",\
+                address="754 Post St, San Francisco, CA 94109", note="Test user")
+    test.gen_body()
+    #test.create_customer_dict()
+    test.add_to_db()
+    """
     load_dotenv()
     print(os.getenv("SQUARE_ACCESS_TOKEN"))
     square_client = Client(
         access_token=os.getenv("SQUARE_ACCESS_TOKEN"),
         environment="sandbox"
     )
+    
+    customers_api = square_client.customers
+    result = customers_api.list_customers()
+    if result.is_success():
+        print(json.dumps(result.body, indent=4))
+        print(type(result.body))
+    elif result.is_error():
+        print(result.errors)
+    """
 
+    """
     # Get customer api
     body = {}
     body['given_name'] = 'Amelia'
@@ -100,16 +164,39 @@ if __name__ == "__main__":
         print(result.body)
     elif result.is_error():
         print(result.errors)
+    """
 
-    customer_id = 'customer_id8'
+
+    #customers_api = square_client.customers
+
+
+    #customer_id = '11MVK1PCRRVY1D9QB72HVT64PM'
+    """
     body = {}
-    body['card_nonce'] = 'YOUR_CARD_NONCE'
+    body['email_address'] = 'New.Amelia.Earhart@example.com'
+    body['phone_number'] = ''
+    body['note'] = 'updated customer note'
+    body['customer_id'] = customer_id
+
+    result = customers_api.update_customer(customer_id, body)
+
+    if result.is_success():
+        print(result.body)
+    elif result.is_error():
+        print(result.errors)
+    """
+    
+    
+    """
+    
+    body = {}
+    body['card_nonce'] = 'cnon:CBASEH8_sI-8kIMraf38ezPEkzw'
     body['billing_address'] = {}
     body['billing_address']['address_line_1'] = '500 Electric Ave'
     body['billing_address']['address_line_2'] = 'Suite 600'
     body['billing_address']['locality'] = 'New York'
     body['billing_address']['administrative_district_level_1'] = 'NY'
-    body['billing_address']['postal_code'] = '10003'
+    body['billing_address']['postal_code'] = '12345'
     body['billing_address']['country'] = 'US'
     body['cardholder_name'] = 'Amelia Earhart'
 
@@ -119,3 +206,4 @@ if __name__ == "__main__":
         print(result.body)
     elif result.is_error():
         print(result.errors)
+    """
