@@ -112,7 +112,7 @@ export default class SettingsPage extends Component {
         country: "GB",
         city: "London",
         addressLines: ["1235 Emperor's Gate"],
-        postalCode: "SW7 4JA",
+        postalCode: "12345",
         phone: "020 7946 0532"
       }
     }
