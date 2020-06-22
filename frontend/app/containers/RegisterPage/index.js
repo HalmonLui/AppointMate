@@ -35,7 +35,7 @@ import { changeUsername } from './actions';
 import { makeSelectUsername } from './selectors';
 import reducer from './reducer';
 import saga from './saga';
-import Banner from './barber_logo.png';
+import logo from './full-logo.png';
 import './RegisterPage.css';
 
 const key = 'home';
@@ -77,13 +77,12 @@ export function RegisterPage({
       </Helmet>
       <div>
         <Section>
-          <Img src={Banner} alt="react-boilerplate - Logo" />
+          <img src={logo} alt="Logo" id="logo"/>
           <div id="signup-container">
-            <div></div>
             <H2 id="logintext">
               Sign Up
             </H2>
-            <a href="/">Login</a>
+            <a href="/" id="login-link">Login</a>
           </div>
           <Form onSubmit={onSubmitForm}>
               <Input

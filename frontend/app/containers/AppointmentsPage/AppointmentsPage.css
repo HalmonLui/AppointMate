@@ -92,3 +92,202 @@
   padding-left: 1em;
   text-align: left;
 }
+
+/* MODAL */
+#close-modal-button {
+  background: none;
+  border: none;
+  font-size: 1.5em;
+  color: #fafafa;
+  position: relative;
+}
+#store-image {
+  width: 100px;
+  height: 100px;
+  border-radius: .5em;
+  border: .25em solid #E8E8E8;
+}
+
+#store-icons {
+  width: 2em;
+  height: 2em;
+  margin: 0px;
+  padding: 0px;
+}
+
+#store-icons-align {
+  display:flex;
+  margin: 0px;
+  margin-top: 1.5em;
+  margin-bottom: .5em;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+#line-height-zero {
+  padding: 0px;
+  margin: 0px;
+  font-family: Inter;
+}
+
+#summary-container-text {
+  padding: 0px;
+  margin: 0px;
+  font-family: Inter;
+}
+
+#summary-container-text-green {
+  font-family: Inter;
+  color: #67B57D;
+}
+#modal-summary {
+  font-family: Inter;
+  margin-bottom: 1.5em;
+  margin-left: 1em;
+}
+#modal-summary-title-container {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+#modal-summary-title {
+  font-family: Inter;
+  margin: 0px;
+  padding: 0px;
+}
+#modal-summary-price {
+  font-family: Inter;
+  text-align: right;
+  margin: 0px;
+  padding: 0px;
+  margin-right: 2em;
+}
+#modal-summary-text-container {
+  border-bottom: 1px solid #E8E8E8;
+}
+#modal-with {
+  color: #67B57D;
+  padding: 0px;
+  margin: 0px;
+  font-size: .9em;
+  margin-left: 1em;
+  font-family: Inter;
+}
+#modal-duration {
+  color: #BDBDBD;
+  padding: 0px;
+  margin: 0px;
+  margin-left: 1em;
+  font-size: .9em;
+  font-family: Inter;
+  margin-bottom: 1em;
+}
+#modal-total-container {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 1em;
+}
+#modal-total {
+  font-size: 1.2em;
+}
+#modal-total-price {
+  font-size: 1.2em;
+  margin-right: 2em;
+}
+
+#line-height-zero-muted {
+  margin: 0px;
+  padding: 0px;
+  text-align: center;
+  font-size: .8em;
+  font-family: Inter;
+  color: #BDBDBD;
+}
+
+.center {
+  text-align: center;
+}
+
+.modal-green-background {
+  width: 100%;
+  position: absolute;
+  height: 13em;
+  border-radius: 0 0 50px 50px;
+  background-color: #67B57D;
+  margin: none;
+  padding: none;
+  margin-top: -2em;
+  margin-left: -1.25em;
+}
+
+  /* CSS FLEXBOX */
+  .modal-row-container {
+    display: flex;
+    margin-bottom: 2em;
+    margin-top: 1em;
+    justify-content: space-between;
+  }
+
+  .modal-column-container {
+    padding: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .summary-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: auto;
+    /* padding: 0.5em; */
+    border-bottom: 1px solid #E8E8E8;
+    font-family: Inter;
+    line-height: 0em;
+  }
+
+  /* CARD */
+  .modal-appointment-card {
+    box-shadow: 2px 2px 8px 1px rgba(0,0,0,0.1);
+    padding-top: 1em;
+    padding-bottom: 1em;
+    margin-top: 1em;
+    width: 100%;
+  }
+
+
+  .container {
+    padding: 2px 16px;
+  }
+
+  .summary-left-align {
+    float: left;
+    width: 50%;
+  }
+
+  .summary-right-align {
+    float: left;
+    width: 50%;
+  }
+
+  .modal-top-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .modify-button {
+    background-color: #67B57D;
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    margin: 10% 25% 10% 25%;
+    width: 50%;
+    align-self: center;
+  }
