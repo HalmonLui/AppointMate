@@ -20,6 +20,7 @@ import SchedulePage from 'containers/SchedulePage/Loadable';
 import LoyaltyPage from 'containers/LoyaltyPage/Loadable';
 import AppointmentsPage from 'containers/AppointmentsPage/Loadable';
 import BookingPage from 'containers/BookingPage/Loadable';
+import ConfirmationPage from 'containers/ConfirmationPage/Loadable';
 import SettingsPage from 'containers/SettingsPage/Loadable';
 import SavedPage from 'containers/SavedPage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
@@ -55,6 +56,7 @@ export default function App() {
         <Route path="/bookings" component={BookingsPage} />
         <Route path="/schedule" component={SchedulePage} />
         <Route path="/booking" component={BookingPage} />
+        <Route path="/confirmation" component={ConfirmationPage} />
         <Route path="/appointments" component={AppointmentsPage} />
         <Route path="/loyalty" component={LoyaltyPage} />
         <Route path="/saved" component={SavedPage} />

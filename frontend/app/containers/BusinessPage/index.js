@@ -8,6 +8,7 @@ import ReactSearchBox from 'react-search-box'
 import { Helmet } from 'react-helmet';
 import { FormattedMessage } from 'react-intl';
 import { Link } from 'react-router-dom';
+import Iframe from 'react-iframe';
 import Header from 'components/Header';
 import Footer from 'components/Footer';
 import H1 from 'components/H1';
@@ -119,7 +120,11 @@ export default class BusinessPage extends Component {
         <div id="business-section">
           <h2 id="business-section-title">Location</h2>
           <div className="business-section-card" id="business-map-container">
-            <img id="business-map" src="https://scottsdalehairstylist.net/wp-content/uploads/map-salon-suites.png" alt="map"/>
+            {/*<img id="business-map" src="https://scottsdalehairstylist.net/wp-content/uploads/map-salon-suites.png" alt="map"/>*/}
+            <Iframe
+              width="100%"
+              url="https://www.google.com/maps/embed/v1/place?key=AIzaSyAivJD4AnACirkXM3_SRsrPxYVXllcXHMM&q=Space+Needle,Seattle+WA"
+            />
           </div>
         </div>
 

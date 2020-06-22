@@ -113,27 +113,13 @@
 
 
 /* BUSINESS SECTION */
-#book-salon-title {
-  font-size: 2em;
-}
-#book-top-time {
-  margin: 0px;
-  margin-top: -2em;
-  padding: 0px;
-  font-family: Inter;
-  color: #5DB075;
-}
-#booking-section {
+#business-section {
   margin-left: 2em;
   margin-right: 2em;
-  margin-top: 2em;
+  margin-top: 4em;
 }
-#business-section p{
+#business-section-title {
   font-family: Inter;
-}
-#booking-section-title {
-  font-family: Inter;
-  font-size: 1.2em;
 }
 .business-section-card {
   box-shadow: 2px 2px 8px 1px rgba(0,0,0,0.1);
@@ -348,28 +334,66 @@
   display: flex;
 }
 
-#payment-preference-container {
-  margin: 2em;
-  margin-top: 4em;
+#confirmation-top-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
-#payment-preference-text{
-  color: #BDBDBD;
-  margin-bottom: 2em;
+#confirmation-top-container h2{
+  color: #5DB075;
   font-family: Inter;
+  font-size: 2em;
 }
-#book-now-link {
+#checkmark {
+  width: 10em;
+  height: 10em;
+}
+
+#confirmation-text-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 2em;
+}
+.confirmation-text {
+  padding: 0px;
+  margin: 0px;
+  font-family: Inter;
+  font-size: 1.2em;
+  margin: 0.2em;
+}
+#confirmation-date-text {
+  color: #5DB075;
+}
+
+#view-details-link{
   text-decoration: none;
-  color: #fafafa;
+  margin-top: 2em;
 }
-#book-now-button {
+#view-details-link p{
+  color: #5DB075;
+  border-radius: 2em;
+  border: 1px solid #5DB075;
+  width: 10em;
+  text-align: center;
+  padding-top: .25em;
+  padding-bottom: .25em;
+  box-shadow: 2px 2px 8px 1px rgba(0,0,0,0.1);
+}
+
+#return-link{
+  text-decoration: none;
+  margin-bottom: 1em;
+}
+#return-link p{
   color: #fafafa;
   background-color: #5DB075;
-  text-align: center;
-  width: 30%;
-  margin: auto;
-  padding-top: .5em;
-  padding-bottom: .5em;
   border-radius: 2em;
+  width: 10em;
+  text-align: center;
+  padding-top: .25em;
+  padding-bottom: .25em;
   box-shadow: 2px 2px 8px 1px rgba(0,0,0,0.1);
-  font-family: Inter;
 }
