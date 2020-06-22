@@ -1,4 +1,11 @@
 import json
+from dotenv import load_dotenv
+import pymongo
+import os
+import sys
+from frontend_utils import JSONEncoder
+sys.path.insert(1, '/Users/sonamghosh/Desktop/square_hacks_2020/square-hackathon/backend/discoverpage/')
+from discoverpage_metrics import get_recommended_posts, get_trending_posts, get_hot_deals
 # APPOINTMENTS
 def getAppointments():
     appointments = []
@@ -69,6 +76,7 @@ def removeSaved():
 
 # BUSINESSES
 def getBusinesses():
+    """
     businesses = {}
     test = {
       'trending': [
@@ -157,7 +165,25 @@ def getBusinesses():
     }
 
     businesses = test
-    return json.dumps(businesses), 200
+    """
+    load_dotenv()
+    client = pymongo.MongoClient(os.getenv("MONGO_NORM_USER"))
+    db = client["business"]
+    col = db["2020-06-15"]
+    data = list(col.find({}))
+    test = {
+      "trending": get_trending_posts(data, 'n/a', 3),
+      "recommendations": get_recommended_posts(data, 'n/a', 4),
+      "hot": get_hot_deals(data, 'n/a')
+    }
+    return json.dumps(test, default=str), 200
+    #query = {"name": "Nicole Salon A"}
+    #t = col.find(query)
+    #for x in t:
+     # print(x)
+    #print(db.list_collection_names())
+    #return json.dumps(all_biz), 200
+    #return json.dumps(businesses), 200
 
 
 # CREDITCARD
