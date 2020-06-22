@@ -1,7 +1,7 @@
 /*
- * FeaturePage
+ * SchedulePage
  *
- * List all the features
+ * List all the schedules
  */
 import React, { Component } from 'react'
 import ReactSearchBox from 'react-search-box'
@@ -32,7 +32,7 @@ import star from './star.png';
 import lightning from './lightning.png';
 import money from './cash.png';
 
-export default class BusinessPage extends Component {
+export default class SchedulePage extends Component {
   // constructor(props) {
   //   super(props);
   //   this.state = {businesses:
@@ -211,34 +211,6 @@ export default class BusinessPage extends Component {
             <p class="business-section-more" id="business-review-more">See more reviews</p>
           </div>
         </div>
-
-        <div id="business-section">
-          <h2 id="business-section-title">Other Suggestions</h2>
-          <div className="business-section-card" id="business-suggestion-container">
-            <SmallCard
-              title="Sallys Salon"
-              imageurl="https://garboasalon.com/img/HP_SLIDER1_garbo_aveda_hair_salon_spa_best_austin_hair_color_nails_top_hair_stylist_men_hair_cut_austin_78757_atx_78741_hair_salon_near_me_austin_hairdress.jpg"
-              services="Cut ur hair, wash"
-              rating="4.2"
-              numratings="251"
-              />
-            <SmallCard
-              title="Johns Nails"
-              imageurl="https://img.grouponcdn.com/deal/4CXB3CXmmbxHiNCBfqnMhsoPkv3G/4C-901x596/v1/c700x420.jpg"
-              services="Trim, Gel"
-              rating="4.5"
-              numratings="51"
-              />
-            <SmallCard
-              title="Beauty Salon"
-              imageurl="https://i.pinimg.com/originals/cc/34/f2/cc34f2389c1d1fe9355fd774b369df93.jpg"
-              services="Makeup, Eyes"
-              rating="4.7"
-              numratings="652"
-              />
-          </div>
-        </div>
-
 
 
         <Footer activepage="discover"/>

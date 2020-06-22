@@ -77,28 +77,28 @@ class LoyaltyPage extends React.Component {
         <div>
           <LoyaltyItem
             imageurl='https://garboasalon.com/img/HP_SLIDER1_garbo_aveda_hair_salon_spa_best_austin_hair_color_nails_top_hair_stylist_men_hair_cut_austin_78757_atx_78741_hair_salon_near_me_austin_hairdress.jpg'
-            title='Sallys Salon'
+            title="Sally's Salon"
             totalpoints='20'
             points='5'
             LoyaltyModal={this.handleOpenModal}
           />
           <LoyaltyItem
             imageurl='https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80'
-            title='Haair Shop'
+            title="Nancy's Salon"
             totalpoints='20'
             points='15'
             LoyaltyModal={this.handleOpenModal}
           />
           <LoyaltyItem
             imageurl='https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQwOTrW1_BwLDStRVfYdQIVkNfT0nq6A_RPXA&usqp=CAU'
-            title='What is Hair'
+            title="Barbara's Barber Shop"
             totalpoints='30'
             points='3'
             LoyaltyModal={this.handleOpenModal}
           />
           <LoyaltyItem
             imageurl='https://lh3.googleusercontent.com/proxy/Fq1F8znwQgu3Ne3B_T1KbtpoVBTFLf2VxbbSTj1JBJjnxtf5IFDJw2ev9MxtX0E0khZiayNXagEYO5a0Qhwgz_0GT1xnuq25adLI2_eRU4iY-FLtHlB2dWQ0WDlFkg'
-            title='Sample Store'
+            title='Main Hair Shoppe'
             totalpoints='50'
             points='25'
             LoyaltyModal={this.handleOpenModal}
