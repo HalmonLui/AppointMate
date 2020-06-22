@@ -29,10 +29,63 @@ class LoyaltyPage extends React.Component {
       activeImageUrl: '',
       activeTitle: '',
       activePoints: '',
-      activeTotalPoints: ''
+      activeTotalPoints: '',
+      loyalty_items: []
     };
-
   }
+
+  componentDidMount() {
+    // For testing without fetching from localhost
+    this.setState({
+      loyalty_items: [
+        {
+          'title': "Sally's Salooon",
+          'imageurl': 'https://garboasalon.com/img/HP_SLIDER1_garbo_aveda_hair_salon_spa_best_austin_hair_color_nails_top_hair_stylist_men_hair_cut_austin_78757_atx_78741_hair_salon_near_me_austin_hairdress.jpg',
+          'totalpoints': '20',
+          'points': '5',
+        },
+        {
+          'title': "Nancy's Salon",
+          'imageurl': 'https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80',
+          'totalpoints': '20',
+          'points': '15'
+        },
+        {
+          'title': "Barbara's Barber Shop",
+          'imageurl': 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQwOTrW1_BwLDStRVfYdQIVkNfT0nq6A_RPXA&usqp=CAU',
+          'totalpoints': '30',
+          'points': '10'
+        },
+        {
+          'title': 'Main Hair Shoppe',
+          'imageurl': 'https://lh3.googleusercontent.com/proxy/Fq1F8znwQgu3Ne3B_T1KbtpoVBTFLf2VxbbSTj1JBJjnxtf5IFDJw2ev9MxtX0E0khZiayNXagEYO5a0Qhwgz_0GT1xnuq25adLI2_eRU4iY-FLtHlB2dWQ0WDlFkg',
+          'totalpoints': '50',
+          'points': '25'
+        }
+      ]
+    })
+
+  //   fetch("http://localhost:5000/loyalty")
+  //     .then(res => res.json())
+  //     .then(
+  //       (result) => {
+  //         this.setState({
+  //           isLoaded: true,
+  //           loyalty_items: result
+  //         });
+  //       },
+  //       // Note: it's important to handle errors here
+  //       // instead of a catch() block so that we don't swallow
+  //       // exceptions from actual bugs in components.
+  //       (error) => {
+  //         this.setState({
+  //           isLoaded: true,
+  //           error
+  //         });
+  //       }
+  //     )
+  }
+
   handleOpenModal = (title, points, totalpoints, imageurl) => {
     var progress_percent = points / totalpoints * 100
     this.setState({
@@ -49,6 +102,16 @@ class LoyaltyPage extends React.Component {
     this.setState({ showModal: false });
   }
   render() {
+    const loyaltyItems = this.state.loyalty_items.map((item) =>
+      <LoyaltyItem
+        imageurl={item.imageurl}
+        title={item.title}
+        points={item.points}
+        totalpoints={item.totalpoints}
+        LoyaltyModal={this.handleOpenModal}
+      />
+    )
+
     return (
       <div id="loyaltypage">
         <Helmet>
@@ -75,34 +138,7 @@ class LoyaltyPage extends React.Component {
         </div>
 
         <div>
-          <LoyaltyItem
-            imageurl='https://garboasalon.com/img/HP_SLIDER1_garbo_aveda_hair_salon_spa_best_austin_hair_color_nails_top_hair_stylist_men_hair_cut_austin_78757_atx_78741_hair_salon_near_me_austin_hairdress.jpg'
-            title="Sally's Salon"
-            totalpoints='20'
-            points='5'
-            LoyaltyModal={this.handleOpenModal}
-          />
-          <LoyaltyItem
-            imageurl='https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80'
-            title="Nancy's Salon"
-            totalpoints='20'
-            points='15'
-            LoyaltyModal={this.handleOpenModal}
-          />
-          <LoyaltyItem
-            imageurl='https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQwOTrW1_BwLDStRVfYdQIVkNfT0nq6A_RPXA&usqp=CAU'
-            title="Barbara's Barber Shop"
-            totalpoints='30'
-            points='3'
-            LoyaltyModal={this.handleOpenModal}
-          />
-          <LoyaltyItem
-            imageurl='https://lh3.googleusercontent.com/proxy/Fq1F8znwQgu3Ne3B_T1KbtpoVBTFLf2VxbbSTj1JBJjnxtf5IFDJw2ev9MxtX0E0khZiayNXagEYO5a0Qhwgz_0GT1xnuq25adLI2_eRU4iY-FLtHlB2dWQ0WDlFkg'
-            title='Main Hair Shoppe'
-            totalpoints='50'
-            points='25'
-            LoyaltyModal={this.handleOpenModal}
-          />
+          {loyaltyItems}
         </div>
         <Modal isOpen={this.state.showModal}>
         <div class="modal-green-background">
