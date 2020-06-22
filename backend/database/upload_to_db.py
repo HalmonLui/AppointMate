@@ -18,6 +18,6 @@ def test_upload(data, dbname):
 if __name__ == "__main__":
     f = open("/Users/sonamghosh/Desktop/square_hacks_2020/square-hackathon/backend/search/sample_names_data.json")
     data = json.load(f)
-    print(type(data))
-    print(type(data["2020-06-15"]))
+   # print(type(data))
+    #print(type(data["2020-06-15"]))
     test_upload(data, "business")
