@@ -108,7 +108,7 @@ class SyntheticBusinessDataCreation(object):
         faker = Faker(['en_US'])
         for _ in range(num_of_stylists):
             stylist_dict.append(
-                {"name": faker.name(), "type": [], "availability": {}})
+                {"name": faker.name(), "service": [], "availability": {}})
 
         # pre fill in times as available for now and keep schedules consistent for now
         if len(times) == 1:
@@ -172,19 +172,19 @@ class SyntheticBusinessDataCreation(object):
         num_of_stylists = random.randint(2, 3)
 
         business_dict = {
-            "name": name,
-            "type": random.sample(self.types, 1)[0],
+            "title": name,
+            "services": random.sample(self.types, 1)[0],
             "location": "",
-            "image_url": "",
+            "imageurl": "",
             "opening-hours": self.gen_opening_hours_dict(times, num_of_op_days),
             "rating": round(random.uniform(3.49, 5.00), 2),
-            "num_of_ratings": random.randint(300, 1000),
+            "numratings": random.randint(300, 1000),
             "price": {},
             "stylists": self.gen_stylists(num_of_stylists, times),
             "distance": 0.0
         }
 
-        business_dict["price"] = self.gen_pricing_dict(business_dict["type"])
+        business_dict["price"] = self.gen_pricing_dict(business_dict["services"])
 
         return business_dict
 
@@ -255,7 +255,7 @@ class SyntheticBusinessDataCreation(object):
 
         for date in date_range:
             for i in range(len(data_dict[date])):
-                data_dict[date][i]["image_url"] = image_urls[i]
+                data_dict[date][i]["imageurl"] = image_urls[i]
                 data_dict[date][i]["location"] = addresses[i]
                 latlong_coords = address_to_latlong(data_dict[date][i]["location"])
                 data_dict[date][i]["distance"] = find_distance(self.location, latlong_coords, unit='mi')
@@ -293,12 +293,11 @@ class SyntheticUserDataCreation(object):
 
 if __name__ == "__main__":
     print('Hello World')
-    b = SyntheticUserDataCreation("Sasuke Uchiha")
-    b.gen_data_dict()
-    print(b.data_dict)
-    """
-    a = SyntheticDataCreation(theme='names', location="754 Post St, San Francisco, CA 94109")
-    d_r = a.gen_data_range(start='2020-06-15', end='2020-06-20')
+    #b = SyntheticUserDataCreation("Sasuke Uchiha")
+    #b.gen_data_dict()
+    #print(b.data_dict)
+    a = SyntheticBusinessDataCreation(theme='names', location="754 Post St, San Francisco, CA 94109")
+    d_r = a.gen_data_range(start='2020-06-29', end='2020-07-05')
     print(d_r)
     names = a.business_name_generator()
     data_dict = a.gen_empty_dict(d_r)
@@ -307,7 +306,7 @@ if __name__ == "__main__":
     a.save_data()
     
     #a.gen_pricing_dict("Hair Salon")
-    """
+    
 
     # Yelp API testing
     """
