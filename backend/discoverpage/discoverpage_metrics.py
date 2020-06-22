@@ -15,7 +15,10 @@ Hot Deals ---> top 5 smallest price for some service
 
 def get_recommended_posts(data, date, n):
     # Brute Force recommendation based on ratings
-    topN = nlargest(n, data[date], key=lambda i: i["rating"])
+    if date == 'n/a':
+        topN = nlargest(n, data, key=lambda i: i["rating"])
+    else:
+        topN = nlargest(n, data[date], key=lambda i: i["rating"])
 
     return topN
 
@@ -25,7 +28,10 @@ def get_trending_posts(data, date, n):
     # brute force
     if n > 9:
         raise ValueError("n must be 1 to 9")
-    min10_dist = nsmallest(10, data[date], key=lambda i: i["distance"])
+    if date == 'n/a':
+        min10_dist = nsmallest(10, data, key=lambda i: i["distance"])
+    else:
+        min10_dist = nsmallest(10, data[date], key=lambda i: i["distance"])
     avail_pcts = []
     for d in min10_dist:
         num_1s = 0.
@@ -46,9 +52,12 @@ def get_trending_posts(data, date, n):
 
 def get_hot_deals(data, date):
     salon_types = ["Hair Salon", "Nail Salon",
-                    "Barbershop", "Spa Center", "Piercing Parlor"]
+                   "Spa Center", "Piercing Parlor"]
     
-    df = pd.DataFrame(data[date])
+    if date == 'n/a':
+        df = pd.DataFrame(data)
+    else:
+        df = pd.DataFrame(data[date])
     output = []
     for st in salon_types:
         salon_df = df[df.type == st]
