@@ -76,7 +76,17 @@ def removeCard():
     return {'success': 'card successfully removed'}, 200
 
 # Customer Creation
-
+def createCustomer():
+    customer = cc.CustomerCreation(
+      name="Ai Hayasaka",
+      address="750 Post St, San Francisco, CA 94109",
+      note="User input user"
+    )
+    customer.gen_body()
+    customer.create_payment_dict()
+    customer.add_to_db()
+    
+    return json.dumps(customer.result, default=str), 200
 
 # PAYMENTS
 def sendPayment():
@@ -87,7 +97,7 @@ def sendPayment():
     payment.gen_body()
     payment.create_payment_dict()
 
-    return json.dumps(payment.body, default=str), 200
+    return json.dumps(payment.result, default=str), 200
 
 
 #if __name__ == "__main__":
