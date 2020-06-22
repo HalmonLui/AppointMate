@@ -4,7 +4,7 @@ from flask_cors import CORS
 
 # import custom helpers
 from maplib import generate_embed
-from callib import generate_ics
+import loyaltylib as ll
 
 app = Flask(__name__)
 CORS(app)
@@ -12,6 +12,12 @@ CORS(app)
 # import declared routes
 import frontenddata
 
+
+@app.route('/ll')
+def llfn():
+    ll.create_loyalty_account()
+    ll.retrieve_loyalty_account()
+    return
 
 @app.route('/map')
 def map():
