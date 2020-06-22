@@ -112,14 +112,14 @@ export default class SchedulePage extends Component {
               <h3 id="service-title">Hair Coloring</h3>
               <div id="business-service-item-container">
                 <ServiceItem
-                  service="Women's Haircut"
-                  duration="45 mins"
-                  price="100"
+                  service="Balayage"
+                  duration="5 hrs"
+                  price="200"
                 />
                 <ServiceItem
-                  service="Men's Haircut"
-                  duration="30 mins"
-                  price="80"
+                  service="Ombre"
+                  duration="5 hrs"
+                  price="280"
                 />
                 <ServiceItem
                   service="Full Highlights"
