@@ -59,6 +59,7 @@ class PaymentCreation(object):
 
         if result.is_success():
             print(result.body)
+            self.result = result.body
         elif result.is_error():
             raise ValueError("payment failed")
 

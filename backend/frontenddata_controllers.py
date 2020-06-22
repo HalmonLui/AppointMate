@@ -1,11 +1,19 @@
 import json
 from dotenv import load_dotenv
+from square.client import Client
 import pymongo
 import os
 import sys
-#sys.path.insert(1, '/Users/sonamghosh/Desktop/square_hacks_2020/square-hackathon/backend/discoverpage/')
+import random
 sys.path.insert(1, './discoverpage/')
+sys.path.insert(2, './square-api/customer-api/')
+sys.path.insert(3, './square-api/payments-api/')
+
 from discoverpage_metrics import get_recommended_posts, get_trending_posts, get_hot_deals
+from create_customercard import CustomerCardCreation
+cc = __import__("create-customer")
+pc = __import__("create-payment")
+
 # APPOINTMENTS
 def getAppointments():
     appointments = []
@@ -26,53 +34,45 @@ def updateLoyalty():
 
 # SAVED
 def getSaved():
-    saved = []
-
-    # Test data, comment out and add real logic to get saved info
-    test = [
-        {
-            'business_id': '123abc',
-            'image_url': 'https://ca-times.brightspotcdn.com/dims4/default/babe98a/2147483647/strip/true/crop/599x399+0+0/resize/840x560!/quality/90/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2Fc8%2F55%2F50b320f03f09f5e2757bf1dc1c5c%2Fla-xpm-photo-2012-jul-12-la-sci-sn-banana-genome-evolution-20120712',
-            'title': 'Sallys Gone Bananas!',
-            'address': '123 Washington Street',
-            'rating': '4.9',
-            'num_ratings': '222'
-        },
-        {
-            'business_id': '222yes',
-            'image_url': 'https://i0.wp.com/images-prod.healthline.com/hlcmsresource/images/AN_images/coconut-nutrition-correct-1296x728-feature.jpg?w=1155&h=1528',
-            'title': 'Sallys Loco Cocos!',
-            'address': '5 1st Street',
-            'rating': '2.4',
-            'num_ratings': '5892'
-        },
-        {
-            'business_id': 'theEyeDee',
-            'image_url': 'https://images.indianexpress.com/2020/02/strawberry-1200.jpg',
-            'title': 'Straw Hat Sally!',
-            'address': '22 Gomugomu Street',
-            'rating': '5.0',
-            'num_ratings': '14'
-        },
-        {
-            'business_id': 'legend27',
-            'image_url': 'https://i0.wp.com/post.healthline.com/wp-content/uploads/2019/10/pineapple-fruit-1296x728-header-1296x728.jpg?w=1155&h=1528',
-            'title': 'Porcupine Sally!',
-            'address': '66 Pointy Road',
-            'rating': '4.2',
-            'num_ratings': '666'
-        }
-    ]
-    saved = test
-
-    return json.dumps(saved), 200
+    load_dotenv()
+    client = pymongo.MongoClient(os.getenv("MONGO_NORM_USER"))
+    db = client["customer"]["customers"]
+    """
+    SELECT saved_business FROM customers
+    where id = XTGNQH10VCVVS9VBPW61218X0M
+    """
+    # id for Tanjiwou
+    saved = db.find({"id": "XTGNQH10VCVVS9VBPW61218X0M"},
+                    {"saved_business": 1, "_id": 0 })
+    
+    return json.dumps(list(saved), default=str), 200
 
 def addSaved():
+    load_dotenv()
+    client = pymongo.MongoClient(os.getenv("MONGO_NORM_USER"))
+    db = client["customer"]["customers"]
+    """
+    SELECT saved_business FROM customers
+    where id = XTGNQH10VCVVS9VBPW61218X0M
+    """
+    # id for Tanjiwou
+    db2 = client["business"]["2020-06-30"]
+    mongo_data = list(db2.find({}))
+    r_biz = random.sample(mongo_data, 1)
+    data = list(db.find({"id": "XTGNQH10VCVVS9VBPW61218X0M"}))
+    db.update_one({"_id": data[0]["_id"]},
+                   {"$push": {"saved_business": r_biz[0] }})
     return {'success': 'saved item successfully created'}, 200
 
 def removeSaved():
-    return {'success', 'saved item successfully removed'}, 200
+    load_dotenv()
+    client = pymongo.MongoClient(os.getenv("MONGO_NORM_USER"))
+    db = client["customer"]["customers"]
+    data = list(db.find({"id": "XTGNQH10VCVVS9VBPW61218X0M"}))
+    db.update_one({"_id": data[0]["_id"]},
+                    {"$pop": {"saved_business": 1}})
 
+    return {'success', 'saved item successfully removed'}, 200
 
 # BUSINESSES
 def getBusinesses():
@@ -91,14 +91,70 @@ def getBusinesses():
 
 # CREDITCARD
 def getCards():
-    cards = []
-    return json.dumps(cards), 200
+    load_dotenv()
+
+    square_client = Client(
+        access_token=os.getenv("SQUARE_ACCESS_TOKEN"),
+        environment="sandbox"
+    )
+
+    customers_api = square_client.customers
+    # id for UwU OwO
+    result = customers_api.retrieve_customer("J9XYVXV5Z4SZ77PT2NRN72XFQC")
+
+    cards = result.body["customer"]["cards"]
+    return json.dumps(cards, default=str), 200
 
 def addCard():
+    card = CustomerCardCreation(customer_id="J9XYVXV5Z4SZ77PT2NRN72XFQC")
+    card.get_customer()
+    card.gen_body("cnon:CBASEDmLIA4zG9Q1-4VtReIEmzw")
+    card.add_card_to_square()
+    card.update_db()
     return {'success': 'card successfully created'}, 200
 
 def removeCard():
+    load_dotenv()
+
+    square_client = Client(
+        access_token=os.getenv("SQUARE_ACCESS_TOKEN"),
+        environment="sandbox"
+    )
+
+    customers_api = square_client.customers
+    customer_id = "J9XYVXV5Z4SZ77PT2NRN72XFQC"
+    card_id = "ccof:8ywRmjQ3OeRVtRjT3GB"
+    result = customers_api.delete_customer_card(customer_id, card_id)
+
     return {'success': 'card successfully removed'}, 200
 
+# Customer Creation
+def createCustomer():
+    # new one
+    customer = cc.CustomerCreation(
+      name="Ai Hayasaka",
+      address="750 Post St, San Francisco, CA 94109",
+      note="User input user"
+    )
+    customer.gen_body()
+    customer.create_payment_dict()
+    customer.add_to_db()
+    
+    return json.dumps(customer.result, default=str), 200
+
+# PAYMENTS
+def sendPayment():
+    # id for Amelia
+    payment = pc.PaymentCreation(customer_id="11MVK1PCRRVY1D9QB72HVT64PM",
+                                  amount=80,
+                                  source_id="ccof:cegcXjydMLiVlDQk3GB",
+                                  tip=5)
+    payment.gen_body()
+    payment.create_payment_dict()
+
+    return json.dumps(payment.result, default=str), 200
+
+
 #if __name__ == "__main__":
- # getBusinesses()
+  #print('Hello World')
+  #getSaved()

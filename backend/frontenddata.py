@@ -2,12 +2,13 @@ from app import app
 from flask import request
 import frontenddata_controllers as controllers
 
+
 @app.route('/test', methods=['GET', 'POST'])
 def test():
     return 'it works!'
 
 
-@app.route('/appointments',methods=['GET', 'POST'])
+@app.route('/appointments', methods=['GET', 'POST'])
 def appointmentsAPI():
     if request.method == 'GET':
         return controllers.getAppointments()
@@ -17,7 +18,7 @@ def appointmentsAPI():
         return {'error': 'Not a valid endpoint'}, 400
 
 
-@app.route('/loyalties',methods=['GET', 'PUT'])
+@app.route('/loyalties', methods=['GET', 'PUT'])
 def loyaltiesAPI():
     if request.method == 'GET':
         return controllers.getLoyalties()
@@ -27,7 +28,7 @@ def loyaltiesAPI():
         return {'error': 'Not a valid endpoint'}, 400
 
 
-@app.route('/saved',methods=['GET', 'POST', 'DELETE'])
+@app.route('/saved', methods=['GET', 'POST', 'DELETE'])
 def savedAPI():
     if request.method == 'GET':
         return controllers.getSaved()
@@ -39,7 +40,7 @@ def savedAPI():
         return {'error': 'Not a valid endpoint'}, 400
 
 
-@app.route('/businesses',methods=['GET'])
+@app.route('/businesses', methods=['GET'])
 def businessesAPI():
     if request.method == 'GET':
         return controllers.getBusinesses()
@@ -47,7 +48,7 @@ def businessesAPI():
         return {'error': 'Not a valid endpoint'}, 400
 
 
-@app.route('/creditcard',methods=['GET', 'POST', 'DELETE'])
+@app.route('/creditcard', methods=['GET', 'POST', 'DELETE'])
 def creditcardAPI():
     if request.method == 'GET':
         return controllers.getCards()
@@ -55,5 +56,21 @@ def creditcardAPI():
         return controllers.addCard()
     elif request.method == 'DELETE':
         return controllers.removeCard()
+    else:
+        return {'error': 'Not a valid endpoint'}, 400
+
+
+@app.route('/sendPayment', methods=['GET'])
+def paymentAPI():
+    if request.method == 'GET':
+        return controllers.sendPayment()
+    else:
+        return {'error': 'Not a valid endpoint'}, 400
+
+
+@app.route('/createCustomer', methods=['GET'])
+def customerAPI():
+    if request.method == 'GET':
+        return controllers.createCustomer()
     else:
         return {'error': 'Not a valid endpoint'}, 400
