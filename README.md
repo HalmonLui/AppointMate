@@ -19,4 +19,4 @@ Repo for the square small business hackathon: https://devpost.com/software/salon
 ![Preview](./images/project.gif)
 
 # Stack
-![Image of Stack](./images/Square hackathon.png)
+![Image of Stack](./images/Square_Hackathon.png)
