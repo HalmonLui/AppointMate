@@ -77,13 +77,13 @@ class AppointmentsPage extends React.Component {
           <h2 id="loyalty-title">Upcoming Appointments</h2>
         </div>
           <AppointmentItem
-            title="Sally's Salon"
+            title="Nicole Salon B"
             imageurl="https://garboasalon.com/img/HP_SLIDER1_garbo_aveda_hair_salon_spa_best_austin_hair_color_nails_top_hair_stylist_men_hair_cut_austin_78757_atx_78741_hair_salon_near_me_austin_hairdress.jpg"
             address="123 Beacon Street"
             phone="617-617-6176"
-            day="Fri"
-            date="July 7th"
-            time="4:00 PM"
+            day="Mon"
+            date="August 3rd"
+            time="2:45 PM"
             activity="Haircut with Sally"
             AppointmentModal={this.handleOpenModal}
           />
@@ -142,14 +142,14 @@ class AppointmentsPage extends React.Component {
             <div id="modal-summary-text-container">
               <div id="modal-summary-title-container">
                 <h4 id="modal-summary-title">Men's Haircut</h4>
-                <h4 id="modal-summary-price">$75</h4>
+                <h4 id="modal-summary-price">$80</h4>
               </div>
-              <p id="modal-with">with Sasha</p>
+              <p id="modal-with">with Sally</p>
               <p id="modal-duration">Duration: 30 mins</p>
             </div>
             <div id="modal-total-container">
               <h4 id="modal-total">Total:</h4>
-              <h4 id="modal-total-price">$75</h4>
+              <h4 id="modal-total-price">$80</h4>
             </div>
           </div>
           <button class="modify-button">Modify</button>

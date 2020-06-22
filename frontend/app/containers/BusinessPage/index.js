@@ -84,7 +84,7 @@ export default class BusinessPage extends Component {
         <img id="business-image" src="https://garboasalon.com/img/HP_SLIDER1_garbo_aveda_hair_salon_spa_best_austin_hair_color_nails_top_hair_stylist_men_hair_cut_austin_78757_atx_78741_hair_salon_near_me_austin_hairdress.jpg"/>
         <div id="business-info-container">
           <div id="title-container">
-            <h2>Sally's Salon</h2>
+            <h2>Nicole Salon B</h2>
             <div>
               <img id="heart" src={heartIcon} alt="heart" />
             </div>
