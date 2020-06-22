@@ -34,7 +34,6 @@ def updateLoyalty():
 
 # SAVED
 def getSaved():
-<<<<<<< HEAD
     load_dotenv()
     client = pymongo.MongoClient(os.getenv("MONGO_NORM_USER"))
     db = client["customer"]["customers"]
