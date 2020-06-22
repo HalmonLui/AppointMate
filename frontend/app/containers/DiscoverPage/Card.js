@@ -6,7 +6,7 @@ import './DiscoverPage.css'
 
 function Card(props){
     return (
-        <div class="card">
+        <div class="discover-card">
             <div class="card-image-container">
                 <img src={props.imageurl} className='card-image'/>
             </div>

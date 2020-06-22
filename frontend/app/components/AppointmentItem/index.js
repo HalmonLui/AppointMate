@@ -7,9 +7,9 @@ import './AppointmentItem.css';
 function AppointmentItem(props) {
   var progress_percent = props.points / props.totalpoints * 100
   return (
-    <div onClick={props.AppointmentModal} id="appointmentitem-container">
+    <div id="appointmentitem-container">
       <div id="appointmentitem-top-container">
-          <img id="appointmentimage" src={squirrel} alt="react-boilerplate - Logo"/>
+          <img id="appointmentimage" src={props.imageurl} alt="react-boilerplate - Logo"/>
           <div id="appointmentitem-store-info">
               <p class="appointment-title">{props.title}</p>
               <p class="appointment-info">{props.address}</p>
@@ -22,7 +22,7 @@ function AppointmentItem(props) {
           <p class="appointment-time">{props.day} {props.date} at {props.time}</p>
           <p class="appointment-activity">{props.activity}</p>
         </div>
-        <div class="get-directions">View details</div>
+        <div onClick={() => props.AppointmentModal(props.title, props.imageurl, props.date, props.time, props.address, props.phone)} class="get-directions">View details</div>
       </div>
     </div>
   );
