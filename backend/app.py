@@ -1,9 +1,10 @@
 # import app
-from flask import Flask, render_template
+from flask import Flask, render_template, make_response, send_file
 from flask_cors import CORS
 
 # import custom helpers
 from maplib import generate_embed
+from callib import generate_ics
 
 app = Flask(__name__)
 CORS(app)
@@ -12,15 +13,23 @@ CORS(app)
 import frontenddata
 
 
-
-
-@app.route('/')
-def hello():
-    location = "850 FOLSOM ST, San Francisco, CA 94107"
+@app.route('/map')
+def map():
+    location = '850 FOLSOM ST, San Francisco, CA 94107'
     addresslist = {'a' : generate_embed(location)}
-    return render_template('map.html', addresslist=addresslist )
+    return render_template('map.html', addresslist=addresslist)
 
-
+@app.route('/cal')
+def cal():
+    appoint = {
+        'stylist': 'Bob Nguyen',
+        'salon': 'Salon Bobby',
+        'event': 'Men\'s Haircut',
+        'location':'850 FOLSOM ST, San Francisco, CA 94107',
+        'starttime':'2020-06-23 08:00:00',
+        'endtime':'2020-06-23 08:45:00',
+    }
+    return render_template('cal.html', appoint=appoint)
 
 # def loop_matcher(delay):
 #     while(True):
