@@ -3,9 +3,8 @@ from dotenv import load_dotenv
 import pymongo
 import os
 import sys
-from frontend_utils import JSONEncoder
 #sys.path.insert(1, '/Users/sonamghosh/Desktop/square_hacks_2020/square-hackathon/backend/discoverpage/')
-sys.path.insert(1, '~/square-hackathon/backend/discoverpage/')
+sys.path.insert(1, './discoverpage/')
 from discoverpage_metrics import get_recommended_posts, get_trending_posts, get_hot_deals
 # APPOINTMENTS
 def getAppointments():
