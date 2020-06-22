@@ -381,6 +381,7 @@
   padding-top: .25em;
   padding-bottom: .25em;
   box-shadow: 2px 2px 8px 1px rgba(0,0,0,0.1);
+  font-family: Inter;
 }
 
 #return-link{
@@ -396,4 +397,5 @@
   padding-top: .25em;
   padding-bottom: .25em;
   box-shadow: 2px 2px 8px 1px rgba(0,0,0,0.1);
+  font-family: Inter;
 }
