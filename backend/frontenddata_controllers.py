@@ -1,5 +1,6 @@
 import json
 from dotenv import load_dotenv
+from square.client import Client
 import pymongo
 import os
 import sys
@@ -8,6 +9,7 @@ sys.path.insert(2, './square-api/customer-api/')
 sys.path.insert(3, './square-api/payments-api/')
 
 from discoverpage_metrics import get_recommended_posts, get_trending_posts, get_hot_deals
+from create_customercard import CustomerCardCreation
 cc = __import__("create-customer")
 pc = __import__("create-payment")
 
@@ -66,13 +68,40 @@ def getBusinesses():
 
 # CREDITCARD
 def getCards():
-    cards = []
-    return json.dumps(cards), 200
+    load_dotenv()
+
+    square_client = Client(
+        access_token=os.getenv("SQUARE_ACCESS_TOKEN"),
+        environment="sandbox"
+    )
+
+    customers_api = square_client.customers
+    result = customers_api.retrieve_customer("J9XYVXV5Z4SZ77PT2NRN72XFQC")
+
+    cards = result.body["customer"]["cards"]
+    return json.dumps(cards, default=str), 200
 
 def addCard():
+    card = CustomerCardCreation(customer_id="J9XYVXV5Z4SZ77PT2NRN72XFQC")
+    card.get_customer()
+    card.gen_body("cnon:CBASEDmLIA4zG9Q1-4VtReIEmzw")
+    card.add_card_to_square()
+    card.update_db()
     return {'success': 'card successfully created'}, 200
 
 def removeCard():
+    load_dotenv()
+
+    square_client = Client(
+        access_token=os.getenv("SQUARE_ACCESS_TOKEN"),
+        environment="sandbox"
+    )
+
+    customers_api = square_client.customers
+    customer_id = "J9XYVXV5Z4SZ77PT2NRN72XFQC"
+    card_id = "ccof:8ywRmjQ3OeRVtRjT3GB"
+    result = customers_api.delete_customer_card(customer_id, card_id)
+    
     return {'success': 'card successfully removed'}, 200
 
 # Customer Creation
