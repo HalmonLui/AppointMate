@@ -25,6 +25,7 @@ import HairSalonImg from './hairsalonbg.png';
 import NailSalonImg from './nailsalonbg.png';
 import PiercingImg from './piercingbg.png';
 import SpaImg from './spabg.png';
+import LoadingIndicator from 'components/LoadingIndicator';
 
 export default class DiscoverPage extends Component {
   data = [
@@ -274,6 +275,7 @@ export default class DiscoverPage extends Component {
             {hotItems}
           </div>
         </div>
+        {!this.state.isLoaded && <LoadingIndicator />}
         <Footer activepage="discover"/>
       </div>
     );

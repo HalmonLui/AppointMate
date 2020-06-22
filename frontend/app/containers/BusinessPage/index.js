@@ -160,17 +160,17 @@ export default class BusinessPage extends Component {
           <div className="business-section-card">
               <div id="business-staff-item-container">
                   <StaffItem
-                    imageurl="https://i.quotev.com/img/q/u/19/10/3/hos6ugmrdu.jpg"
-                    name="Bob Smith"
+                    imageurl="https://www.saloniris.com/wp-content/uploads/2018/09/hair-stylist.jpg"
+                    name="Sally Smith"
                     role="Lead stylist"
                   />
                   <StaffItem
-                    imageurl="https://www.shareitnow.net/wp-content/uploads/2020/04/Kimetsu-no-Yaiba-Demon-slayer-chapter-201.jpg"
+                    imageurl="https://i.kinja-img.com/gawker-media/image/upload/c_scale,f_auto,fl_progressive,pg_1,q_80,w_800/efkxkwlshpek1sxrv782.jpg"
                     name="Bobby Heck"
                     role="Stylist"
                   />
                   <StaffItem
-                    imageurl="https://www.funimation.com/blog/wp-content/uploads/2019/10/Screen-Shot-2019-10-21-at-1.11.27-PM.png"
+                    imageurl="https://thekinkteam.com/wp-content/uploads/2017/01/woman-hair-stylist-1.jpg"
                     name="Bobber Hak"
                     role="Stylist"
                   />
@@ -199,15 +199,15 @@ export default class BusinessPage extends Component {
             </div>
             <div>
               <ReviewItem
-                imageurl="https://www.funimation.com/blog/wp-content/uploads/2019/10/Screen-Shot-2019-10-21-at-1.11.27-PM.png"
-                name="Customer One"
+                imageurl="https://graph.facebook.com/1956918944324376/picture?height=180&width=180"
+                name="Parker"
                 rating="5.0"
                 date="Jan 1, 2020"
                 review="lorem ipsum joe vestibulum ornare nec risus mama. Aliquam eget cursus massa, ligma quis henderit urna. Nam figma euismod mi at sugma sagittis fringilla"
               />
               <ReviewItem
-                imageurl="https://i.quotev.com/img/q/u/19/10/3/hos6ugmrdu.jpg"
-                name="Customer Two"
+                imageurl="https://graph.facebook.com/2089168601143777/picture?height=180&width=180"
+                name="Vanessa"
                 rating="5.0"
                 date="Feb 2, 2020"
                 review="lorem ipsum joe vestibulum ornare nec risus mama. Aliquam eget cursus massa, ligma quis henderit urna. Nam figma euismod mi at sugma sagittis fringilla"
