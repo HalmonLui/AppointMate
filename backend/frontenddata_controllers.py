@@ -34,6 +34,7 @@ def updateLoyalty():
 
 # SAVED
 def getSaved():
+<<<<<<< HEAD
     load_dotenv()
     client = pymongo.MongoClient(os.getenv("MONGO_NORM_USER"))
     db = client["customer"]["customers"]
@@ -44,7 +45,7 @@ def getSaved():
     # id for Tanjiwou
     saved = db.find({"id": "XTGNQH10VCVVS9VBPW61218X0M"},
                     {"saved_business": 1, "_id": 0 })
-    
+
     return json.dumps(list(saved), default=str), 200
 
 def addSaved():
@@ -139,7 +140,7 @@ def createCustomer():
     customer.gen_body()
     customer.create_payment_dict()
     customer.add_to_db()
-    
+
     return json.dumps(customer.result, default=str), 200
 
 # PAYMENTS

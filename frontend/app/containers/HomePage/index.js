@@ -32,10 +32,12 @@ import Section from './Section';
 import messages from './messages';
 import { loadRepos } from '../App/actions';
 import { changeUsername } from './actions';
+import { changePassword } from './actions';
 import { makeSelectUsername } from './selectors';
 import reducer from './reducer';
 import saga from './saga';
 import logo from './full-logo.png';
+import logosquare from './logo-with-square.png';
 import './HomePage.css';
 
 const key = 'home';
@@ -43,11 +45,13 @@ const key = 'home';
 export function HomePage({
   username,
   email,
+  password,
   loading,
   error,
   repos,
   onSubmitForm,
   onChangeUsername,
+  onChangePassword
 }) {
   useInjectReducer({ key, reducer });
   useInjectSaga({ key, saga });
@@ -76,7 +80,7 @@ export function HomePage({
       </Helmet>
       <div>
         <Section>
-          <img src={logo} alt="logo" id="logo"/>
+          <img src={logosquare} alt="logo" id="logo"/>
           <div id="signup-container">
             <H2 id="logintext">
               Log In
@@ -85,18 +89,18 @@ export function HomePage({
           </div>
           <Form onSubmit={onSubmitForm}>
               <Input
-                id="email"
+                id="xemail"
                 type="text"
                 placeholder="Email"
                 value={email}
                 onChange={onChangeUsername}
               />
               <Input
-                id="password"
-                type="text"
+                id="xpassword"
+                type="password"
                 placeholder="Password"
-                value={username}
-                onChange={onChangeUsername}
+                value={password}
+                onChange={onChangePassword}
               />
             <div id="rememberme">
               <Input
@@ -124,6 +128,7 @@ HomePage.propTypes = {
   onSubmitForm: PropTypes.func,
   username: PropTypes.string,
   onChangeUsername: PropTypes.func,
+  onChangePassword: PropTypes.func,
 };
 
 const mapStateToProps = createStructuredSelector({
@@ -136,6 +141,7 @@ const mapStateToProps = createStructuredSelector({
 export function mapDispatchToProps(dispatch) {
   return {
     onChangeUsername: evt => dispatch(changeUsername(evt.target.value)),
+    onChangePassword: evt => dispatch(changePassword(evt.target.value)),
     onSubmitForm: evt => {
       if (evt !== undefined && evt.preventDefault) evt.preventDefault();
       dispatch(loadRepos());

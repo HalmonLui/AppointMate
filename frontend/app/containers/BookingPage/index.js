@@ -82,7 +82,7 @@ export default class BookingPage extends Component {
 
         <div id="booking-section">
           <h2 id="booking-section-title">Booking Summary</h2>
-          <h3 id="book-salon-title"><b>Sally's Salon</b></h3>
+          <h3 id="book-salon-title"><b>Nicole Salon B</b></h3>
           <p id="book-top-time">Mon, Aug 3, 2020 at 2:45 pm</p>
         </div>
 
@@ -129,7 +129,7 @@ export default class BookingPage extends Component {
 
         <div id="payment-preference-container">
           <h2>Payment Preference</h2>
-          <p id="payment-preference-text">This business accepts Square payment! Pay through the app after your appointment</p>
+          <p id="payment-preference-text">This business accepts Square payment! Pay immediately upon booking</p>
           <Link to="/confirmation" id="book-now-link">
             <p id="book-now-button">Book Now</p>
           </Link>
