@@ -1,4 +1,4 @@
-# square-hackathon
+# AppointMate
 Repo for the square small business hackathon: https://devpost.com/software/salon-boi
 
 # Requirements
