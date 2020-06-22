@@ -5,8 +5,13 @@
 }
 
 #logintext {
-  margin-left: 1em;
   font-size: 32px;
+  text-align: center;
+}
+#login-link {
+  text-align: right;
+  right: 3.5em;
+  position: absolute;
 }
 
 #rememberme {
@@ -23,4 +28,8 @@
 #signup-container a {
   color: #5DB075;
   text-decoration: none;
+}
+
+#logo {
+  width: 80%;
 }

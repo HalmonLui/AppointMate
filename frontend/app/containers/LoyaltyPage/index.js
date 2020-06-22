@@ -118,16 +118,16 @@ class LoyaltyPage extends React.Component {
           <p class="regular-text">Rewards</p>
           <form id="form">
             <div>
-              <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike"/>
-              <label for="vehicle1" id="modal-point-label"> 30 points = $5 off haircut</label>
+              <input type="checkbox" id="reward1" name="reward1" value="Bike"/>
+              <label for="reward1" id="modal-point-label"> 30 points = $5 off haircut</label>
             </div>
             <div>
-              <input type="checkbox" id="vehicle2" name="vehicle2" value="Car"/>
-              <label for="vehicle2" id="modal-point-label"> 60 points = $12 off haircut</label>
+              <input type="checkbox" id="reward2" name="reward2" value="Car"/>
+              <label for="reward2" id="modal-point-label"> 60 points = $12 off haircut</label>
             </div>
             <div>
-              <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat"/>
-              <label for="vehicle3" id="modal-point-label"> 90 points = $20 off haircut</label>
+              <input type="checkbox" id="reward3" name="reward3" value="Boat"/>
+              <label for="reward3" id="modal-point-label"> 90 points = $20 off haircut</label>
             </div>
             <input type="submit" value="Redeem"/>
           </form>

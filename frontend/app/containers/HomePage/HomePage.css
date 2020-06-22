@@ -5,11 +5,31 @@
 }
 
 #logintext {
-  display: flex;
-  justify-content: center;
   font-size: 32px;
+  text-align: center;
+}
+#login-link {
+  text-align: right;
+  right: 3.5em;
+  position: absolute;
+}
+
+#signup-container {
+  display: flex;
+  text-align: center;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#signup-container a {
+  color: #5DB075;
+  text-decoration: none;
 }
 
 #rememberme {
   color: #8C8C8C;
+}
+
+#logo {
+  width: 80%;
 }
