@@ -120,7 +120,7 @@ export default function SettingsPage() {
         <div id="profilepicture-container">
           <Img id="profilepicture" src={Banner} alt="react-boilerplate - Logo" />
         </div>
-        <H2>Snam Ghosh</H2>
+        <H2>Luis Mona</H2>
       </div>
       <div id="bot-container">
         <div className="bot-info-container">
@@ -128,15 +128,15 @@ export default function SettingsPage() {
             Mobile phone
           </p>
           <p class="info-text">
-            888-888-8888
+            617-688-1298
           </p>
         </div>
         <div className="bot-info-container">
           <p className="info-title">
             Email
           </p>
-          <p className="info-text">
-            email@email.email
+          <p class="info-text">
+            luismona@gmail.com
           </p>
         </div>
         <div className="bot-info-container">
@@ -149,8 +149,9 @@ export default function SettingsPage() {
               <p className="info-text">
                 Bank of America
               </p>
-              <p className="info-text" id="creditnumber">
-                Credit ** 8888
+
+              <p class="info-text" id="creditnumber">
+                Credit ** 2298
               </p>
             </div>
             <a id="addcard">Add a card</a>

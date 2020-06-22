@@ -88,3 +88,111 @@
   padding-left: 1em;
   text-align: left;
 }
+
+/* MODAL */
+#close-modal-button {
+  background: none;
+  border: none;
+  font-size: 1.5em;
+  color: #fafafa;
+  position: relative;
+}
+#modal-title {
+  position: relative;
+  color: #fafafa;
+  font-family: Inter;
+}
+#modal-store-image {
+  width: 18em;
+  height: 10em;
+  border-radius: .5em;
+  border: .25em solid #E8E8E8;
+  object-fit: cover;
+  box-shadow: 2px 2px 8px 1px rgba(0,0,0,0.1);
+  position: relative;
+}
+#modal-point-label {
+  font-family: Inter;
+}
+
+.center {
+  text-align: center;
+}
+
+.progress-bar-container{
+  background-color: #E8E8E8;
+  width: 100%;
+  border-radius: 1em;
+  height: .5em;
+}
+.progress-bar{
+  background-color: #67B57D;
+  border-radius: 1em;
+  height: .5em;
+  width: 100%;
+}
+
+#points-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.green-points-text {
+  color: #67B57D;
+  font-family: Inter;
+}
+.points-text {
+  color: #BDBDBD;
+  font-size: .75em;
+  font-family: Inter;
+}
+
+.points-text-large {
+  color: #BDBDBD;
+  font-size: 1em;
+  font-family: Inter;
+}
+
+.points-text-big {
+  color: #BDBDBD;
+  font-size: 1.05em;
+  font-family: Inter;
+}
+
+.regular-text {
+  font-family: Inter;
+}
+
+#form {
+  display: flex;
+  flex-direction: column;
+}
+
+#form div {
+  margin-left: 5em;
+  margin-bottom: 1em;
+}
+
+input[type=submit] {
+  background-color: #67B57D;
+  color: white;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 40px;
+  cursor: pointer;
+  margin: 1em;
+  width: 50%;
+  align-self: center;
+}
+
+.modal-green-background {
+  width: 100%;
+  position: absolute;
+  height: 13em;
+  border-radius: 0 0 50px 50px;
+  background-color: #67B57D;
+  margin: none;
+  padding: none;
+  margin-top: -2em;
+  margin-left: -1.25em;
+}

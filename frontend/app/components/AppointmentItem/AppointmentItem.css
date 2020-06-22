@@ -38,6 +38,7 @@
   height: 7em;
   border-radius: .5em;
   border: .25em solid #E8E8E8;
+  object-fit: cover;
 }
 #appointmentitem-store-info {
   flex: 1;
@@ -62,6 +63,9 @@
   padding: 0px;
   text-align: right;
   font-family: Inter;
+}
+.get-directions:hover{
+  cursor: pointer;
 }
 
 .appointment-info {

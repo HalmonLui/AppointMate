@@ -1,7 +1,11 @@
 import styled from 'styled-components';
 
 const Section = styled.section`
-  margin: 3em auto;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
   &:first-child {
     margin-top: 0;
