@@ -8,7 +8,8 @@ from faker_e164.providers import E164Provider
 import random
 
 class CustomerCreation(object):
-    def __init__(self, name=None, address=None, phone_number=None, email_address=None, note='A note'):
+    def __init__(self, name=None, address=None, phone_number=None, email_address=None, note='A note',
+                 add_card=False):
         self.name = name
         if not self.name:
             Faker.seed(0)
@@ -33,8 +34,8 @@ class CustomerCreation(object):
         if not self.email_address:
             self.email_address = self.given_name + self.family_name +'@gmail.com'
         
+        self.add_card = add_card
 
-    
     def clean_address(self, address):
         split_address = address.split(',')
         split_address = [s.lstrip().rstrip() for s in split_address]
@@ -70,6 +71,21 @@ class CustomerCreation(object):
         self.body["address"] = self.address_dict
         self.body["phone_number"] = self.phone_number
         self.body["note"] = self.note
+    
+    def gen_card_dict(self, nonce):
+        self.card_dict = {
+            "card_nonce": nonce,
+            "billing_address": {
+                "address_line_1": self.body["address"]["address_line_1"],
+                "address_line_2": self.body["address"]["address_line_2"],
+                "locality": self.body["address"]["locality"],
+                "administrative_district_level_1": self.body["address"]["administrative_district_level_1"],
+                "postal_code": self.body["address"]["postal_code"],
+                "country": "US"
+            },
+            "cardholder_name": self.name
+        }
+
 
     def create_customer_dict(self):
         load_dotenv()
@@ -81,10 +97,29 @@ class CustomerCreation(object):
         result = customers_api.create_customer(self.body)
 
         if result.is_success():
-            print(result.body)
+            #print(result.body)
             self.result = result.body
+            self.customer_id = self.result["customer"]["id"]
         elif result.is_error():
             print(result.errors)
+    
+    def add_card_to_square(self):
+        load_dotenv()
+
+        square_client = Client(
+            access_token=os.getenv("SQUARE_ACCESS_TOKEN"),
+            environment="sandbox"
+        )
+
+        customers_api = square_client.customers
+
+        res = customers_api.create_customer_card(self.customer_id, self.card_dict)
+
+        if res.is_success():
+            print(res.body)
+            self.card_result = res.body
+        elif res.is_error():
+            print(res.errors)
     
     def add_to_db(self):
         load_dotenv()
@@ -95,33 +130,31 @@ class CustomerCreation(object):
         )
 
         customers_api = square_client.customers
-        result = customers_api.list_customers()
+        #result = customers_api.list_customers()
+        result = customers_api.retrieve_customer(self.customer_id)
 
         if result.is_error():
             raise ValueError("Cannot get customer")
 
         data = result.body
-        print(json.dumps(data, indent=4))
+        #print(json.dumps(data, indent=4))
 
         mongo_client = pymongo.MongoClient(os.getenv("MONGO_NORM_USER"))
-        for customer in data:
-            db = mongo_client["customer"][customer]
-            for d in data[customer]:
-                if "saved_business" not in data[customer]:
-                    db2 = mongo_client["business"]["2020-06-29"]
-                    mongo_data = list(db2.find({}))
-                    d["saved_business"] = random.sample(mongo_data, 5)
-            db.insert_many(data[customer])
+        db = mongo_client["customer"]["customers"]
+        db2 = mongo_client["business"]["2020-06-29"]
+        mongo_data = list(db2.find({}))
+        data["customer"]["saved_business"] = random.sample(mongo_data, 5)
+        db.insert_one(data["customer"])
         
-        
-    def add_customer_card(self):
-        print('Hello World')
 
 if __name__ == "__main__":
-    test = CustomerCreation(name="Tanjirou Kamado",\
-                address="754 Post St, San Francisco, CA 94109", note="Test user")
+    test = CustomerCreation(name="UwU OwO",\
+                address="754 Post St, San Francisco, CA 94109", note="Test user2")
     test.gen_body()
-    #test.create_customer_dict()
+    test.create_customer_dict()
+    #test.add_to_db()
+    #test.gen_card_dict(nonce="cnon:CBASEGP_oIDbO7qsAIyzZWOsrwk")
+    #test.add_card_to_square()
     test.add_to_db()
     """
     load_dotenv()
