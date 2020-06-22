@@ -18,6 +18,7 @@
   height: 20vh;
   width: 100%;
   object-fit: cover;
+  filter: brightness(70%);
 }
 #business-map-container {
   padding: 0px;
@@ -33,13 +34,14 @@
   margin-left: 2em;
   margin-right: 2em;
 }
-#title-container {
+#schedule-title-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
 }
-#title-container h2 {
-  margin-top: -1.2em;
+#schedule-title-container h2 {
+  margin-top: -1.5em;
   color: #fafafa;
 }
 #heart {
@@ -178,12 +180,15 @@
   border-bottom: 1px solid #E8E8E8;
   width: 100%;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 .service-card-text {
   font-family: Inter;
   padding: 0px;
   margin: 0px;
+  align-self: flex-start;
+  text-align: left;
+  width: 70%;
 }
 .service-card-text h4 {
   font-family: Inter;
@@ -357,4 +362,78 @@
 /* SUGGESTIONS SECTION */
 #business-suggestion-container {
   display: flex;
+}
+
+
+/* SCHEDULE BOOKING CONTAINER */
+#schedule-booking-container {
+  border: 1px solid #5DB075;
+  margin: .5em;
+  margin-top: 2em;
+}
+#schedule-book-top {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+#schedule-book-top p {
+  font-family: Inter;
+  margin-left: 1em;
+}
+#schedule-book-link {
+  text-decoration: none;
+  background-color: #5DB075;
+  color: #fafafa;
+  border-radius: 50px;
+  margin-right: 2em;
+  box-shadow: 2px 2px 8px 1px rgba(0,0,0,0.1);
+}
+#schedule-book-link p{
+  font-family: Inter;
+  margin: 0px;
+  padding: 0px;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+#schedule-days-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.schedule-day-container {
+  border: 1px solid #5DB075;
+  border-radius: 1em;
+  color: #5DB075;
+  font-family: Inter;
+  padding: 1em;
+  text-align: center;
+}
+.schedule-day-container p{
+  padding: 0px;
+  margin: 0px;
+  font-family: Inter;
+}
+.schedule-day {
+  font-weight: bold;
+}
+#schedule-times-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.schedule-time {
+  border: 1px solid #5DB075;
+  border-radius: 1em;
+  color: #5DB075;
+  font-family: Inter;
+  padding-left: .5em;
+  padding-right: .5em;
+  padding-top: .1em;
+  padding-bottom: .1em;
+}
+
+#schedule-selected-item {
+  background-color: #5DB075;
+  color: #fafafa;
 }

@@ -80,10 +80,10 @@ export default class SchedulePage extends Component {
           <div id="business-back-button">&#12296; Back</div>
         </Link>
         {/*<img id="business-image" src="https://img.grouponcdn.com/deal/4CXB3CXmmbxHiNCBfqnMhsoPkv3G/4C-901x596/v1/c700x420.jpg" alt="store image"/>*/}
-        <img id="business-image" src="https://cutewallpaper.org/21/one-punch-man-wallpaper-hd/Wallpaper-of-Anime,-One-Punch-Man,-Season-2,-Saitama-.jpg"/>
+        <img id="business-image" src="https://garboasalon.com/img/HP_SLIDER1_garbo_aveda_hair_salon_spa_best_austin_hair_color_nails_top_hair_stylist_men_hair_cut_austin_78757_atx_78741_hair_salon_near_me_austin_hairdress.jpg"/>
         <div id="business-info-container">
-          <div id="title-container">
-            <h2>Hair No More</h2>
+          <div id="schedule-title-container">
+            <h2>Sally's Salon</h2>
           </div>
         </div>
 
@@ -127,6 +127,43 @@ export default class SchedulePage extends Component {
                   price="180"
                 />
               </div>
+          </div>
+        </div>
+
+        <div id="schedule-booking-container">
+          <div id="schedule-book-top">
+            <p>Men's Haircut</p>
+            <Link to="/booking" id="schedule-book-link">
+              <p>Book</p>
+            </Link>
+          </div>
+          <div id="schedule-days-container">
+            <div class="schedule-day-container">
+              <p class="schedule-day">SUN</p>
+              <p>Aug 2</p>
+            </div>
+            <div class="schedule-day-container" id="schedule-selected-item">
+              <p class="schedule-day">MON</p>
+              <p>Aug 3</p>
+            </div>
+            <div class="schedule-day-container">
+              <p class="schedule-day">TUE</p>
+              <p>Aug 4</p>
+            </div>
+            <div class="schedule-day-container">
+              <p class="schedule-day">WED</p>
+              <p>Aug 5</p>
+            </div>
+            <div class="schedule-day-container">
+              <p class="schedule-day">THU</p>
+              <p>Aug 6</p>
+            </div>
+          </div>
+          <div id="schedule-times-container">
+            <p class="schedule-time" id="schedule-selected-item">2:45 pm</p>
+            <p class="schedule-time">3:00 pm</p>
+            <p class="schedule-time">3:30 pm</p>
+            <p class="schedule-time">4:00 pm</p>
           </div>
         </div>
 

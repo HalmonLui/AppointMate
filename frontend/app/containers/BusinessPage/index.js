@@ -80,10 +80,10 @@ export default class BusinessPage extends Component {
           <div id="business-back-button">&#12296; Back</div>
         </Link>
         {/*<img id="business-image" src="https://img.grouponcdn.com/deal/4CXB3CXmmbxHiNCBfqnMhsoPkv3G/4C-901x596/v1/c700x420.jpg" alt="store image"/>*/}
-        <img id="business-image" src="https://cutewallpaper.org/21/one-punch-man-wallpaper-hd/Wallpaper-of-Anime,-One-Punch-Man,-Season-2,-Saitama-.jpg"/>
+        <img id="business-image" src="https://garboasalon.com/img/HP_SLIDER1_garbo_aveda_hair_salon_spa_best_austin_hair_color_nails_top_hair_stylist_men_hair_cut_austin_78757_atx_78741_hair_salon_near_me_austin_hairdress.jpg"/>
         <div id="business-info-container">
           <div id="title-container">
-            <h2>Hair No More</h2>
+            <h2>Sally's Salon</h2>
             <div>
               <img id="heart" src={heartIcon} alt="heart" />
             </div>
