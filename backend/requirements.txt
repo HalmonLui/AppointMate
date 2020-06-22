@@ -1,0 +1,13 @@
+faker_e164==0.1.0
+Flask==1.1.2
+requests==2.22.0
+Faker==4.1.1
+squareup==5.3.0.20200528
+pandasql==0.7.3
+typing==3.6.6
+pymongo==3.10.1
+numpy==1.17.0
+pandas==0.25.3
+Flask_Cors==3.0.6
+python-dotenv==0.13.0
+square==0.0.3
