@@ -34,16 +34,10 @@ import money from './cash.png';
 import check from './check.png'
 
 export default class ConfirmationPage extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {businesses:
-  //     {
-  //       'trending': [],
-  //       'recommendations': [],
-  //       'hot': []
-  //     }
-  //   };
-  // }
+  constructor(props) {
+    super(props);
+    this.state = {receipturl: ''};
+  }
 
   // componentDidMount() {
   //   // fetch("http://localhost:5000/businesses")
@@ -73,6 +67,26 @@ export default class ConfirmationPage extends Component {
         script.async = true;
 
         document.body.appendChild(script);
+
+        fetch("http://localhost:5000/sendPayment")
+            .then(res => res.json())
+            .then(
+              (result) => {
+                this.setState({
+                  isLoaded: true,
+                  receipturl: result
+                });
+              },
+              // Note: it's important to handle errors here
+              // instead of a catch() block so that we don't swallow
+              // exceptions from actual bugs in components.
+              (error) => {
+                this.setState({
+                  isLoaded: true,
+                  error
+                });
+              }
+            )
     }
   render(){
     return (
@@ -109,8 +123,8 @@ export default class ConfirmationPage extends Component {
             <p class="confirmation-text">at <b>Sally's Salon</b> has been</p>
             <p class="confirmation-text">confirmed for Monday,</p>
             <p class="confirmation-text"><b id="confirmation-date-text">Aug 3, 2020</b> at <b id="confirmation-date-text">2:45 pm</b></p>
-            <Link to="/appointments" id="view-details-link">
-              <p>View Details</p>
+            <Link to="/confirmation" id="view-details-link">
+              {this.state.receipturl && <p onClick={()=> window.open(this.state.receipturl, "_blank")}>View Receipt</p>}
             </Link>
             <Link to="/discover" id="return-link">
               <p>Return</p>
