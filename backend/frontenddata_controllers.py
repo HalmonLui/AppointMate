@@ -1,11 +1,19 @@
 import json
 from dotenv import load_dotenv
+from square.client import Client
 import pymongo
 import os
 import sys
-#sys.path.insert(1, '/Users/sonamghosh/Desktop/square_hacks_2020/square-hackathon/backend/discoverpage/')
+import random
 sys.path.insert(1, './discoverpage/')
+sys.path.insert(2, './square-api/customer-api/')
+sys.path.insert(3, './square-api/payments-api/')
+
 from discoverpage_metrics import get_recommended_posts, get_trending_posts, get_hot_deals
+from create_customercard import CustomerCardCreation
+cc = __import__("create-customer")
+pc = __import__("create-payment")
+
 # APPOINTMENTS
 def getAppointments():
     appointments = []
@@ -26,53 +34,46 @@ def updateLoyalty():
 
 # SAVED
 def getSaved():
-    saved = []
+<<<<<<< HEAD
+    load_dotenv()
+    client = pymongo.MongoClient(os.getenv("MONGO_NORM_USER"))
+    db = client["customer"]["customers"]
+    """
+    SELECT saved_business FROM customers
+    where id = XTGNQH10VCVVS9VBPW61218X0M
+    """
+    # id for Tanjiwou
+    saved = db.find({"id": "XTGNQH10VCVVS9VBPW61218X0M"},
+                    {"saved_business": 1, "_id": 0 })
 
-    # Test data, comment out and add real logic to get saved info
-    test = [
-        {
-            'business_id': '123abc',
-            'image_url': 'https://garboasalon.com/img/HP_SLIDER1_garbo_aveda_hair_salon_spa_best_austin_hair_color_nails_top_hair_stylist_men_hair_cut_austin_78757_atx_78741_hair_salon_near_me_austin_hairdress.jpg',
-            'title': 'Nicole Salon B',
-            'address': '123 Beacon Street',
-            'rating': '4.9',
-            'num_ratings': '222'
-        },
-        {
-            'business_id': '222yes',
-            'image_url': 'https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80',
-            'title': 'Nancys Salon',
-            'address': '5 1st Street',
-            'rating': '2.4',
-            'num_ratings': '5892'
-        },
-        {
-            'business_id': 'theEyeDee',
-            'image_url': 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQwOTrW1_BwLDStRVfYdQIVkNfT0nq6A_RPXA&usqp=CAU',
-            'title': 'Barbaras Barber Shop',
-            'address': '22 Gomugomu Street',
-            'rating': '5.0',
-            'num_ratings': '14'
-        },
-        {
-            'business_id': 'legend27',
-            'image_url': 'https://lh3.googleusercontent.com/proxy/Fq1F8znwQgu3Ne3B_T1KbtpoVBTFLf2VxbbSTj1JBJjnxtf5IFDJw2ev9MxtX0E0khZiayNXagEYO5a0Qhwgz_0GT1xnuq25adLI2_eRU4iY-FLtHlB2dWQ0WDlFkg',
-            'title': 'Main Hair Shoppe',
-            'address': '66 Pointy Road',
-            'rating': '4.2',
-            'num_ratings': '666'
-        }
-    ]
-    saved = test
-
-    return json.dumps(saved), 200
+    return json.dumps(list(saved), default=str), 200
 
 def addSaved():
+    load_dotenv()
+    client = pymongo.MongoClient(os.getenv("MONGO_NORM_USER"))
+    db = client["customer"]["customers"]
+    """
+    SELECT saved_business FROM customers
+    where id = XTGNQH10VCVVS9VBPW61218X0M
+    """
+    # id for Tanjiwou
+    db2 = client["business"]["2020-06-30"]
+    mongo_data = list(db2.find({}))
+    r_biz = random.sample(mongo_data, 1)
+    data = list(db.find({"id": "XTGNQH10VCVVS9VBPW61218X0M"}))
+    db.update_one({"_id": data[0]["_id"]},
+                   {"$push": {"saved_business": r_biz[0] }})
     return {'success': 'saved item successfully created'}, 200
 
 def removeSaved():
-    return {'success', 'saved item successfully removed'}, 200
+    load_dotenv()
+    client = pymongo.MongoClient(os.getenv("MONGO_NORM_USER"))
+    db = client["customer"]["customers"]
+    data = list(db.find({"id": "XTGNQH10VCVVS9VBPW61218X0M"}))
+    db.update_one({"_id": data[0]["_id"]},
+                    {"$pop": {"saved_business": 1}})
 
+    return {'success', 'saved item successfully removed'}, 200
 
 # BUSINESSES
 def getBusinesses():
@@ -91,14 +92,70 @@ def getBusinesses():
 
 # CREDITCARD
 def getCards():
-    cards = []
-    return json.dumps(cards), 200
+    load_dotenv()
+
+    square_client = Client(
+        access_token=os.getenv("SQUARE_ACCESS_TOKEN"),
+        environment="sandbox"
+    )
+
+    customers_api = square_client.customers
+    # id for UwU OwO
+    result = customers_api.retrieve_customer("J9XYVXV5Z4SZ77PT2NRN72XFQC")
+
+    cards = result.body["customer"]["cards"]
+    return json.dumps(cards, default=str), 200
 
 def addCard():
+    card = CustomerCardCreation(customer_id="J9XYVXV5Z4SZ77PT2NRN72XFQC")
+    card.get_customer()
+    card.gen_body("cnon:CBASEDmLIA4zG9Q1-4VtReIEmzw")
+    card.add_card_to_square()
+    card.update_db()
     return {'success': 'card successfully created'}, 200
 
 def removeCard():
+    load_dotenv()
+
+    square_client = Client(
+        access_token=os.getenv("SQUARE_ACCESS_TOKEN"),
+        environment="sandbox"
+    )
+
+    customers_api = square_client.customers
+    customer_id = "J9XYVXV5Z4SZ77PT2NRN72XFQC"
+    card_id = "ccof:8ywRmjQ3OeRVtRjT3GB"
+    result = customers_api.delete_customer_card(customer_id, card_id)
+
     return {'success': 'card successfully removed'}, 200
 
+# Customer Creation
+def createCustomer():
+    # new one
+    customer = cc.CustomerCreation(
+      name="Ai Hayasaka",
+      address="750 Post St, San Francisco, CA 94109",
+      note="User input user"
+    )
+    customer.gen_body()
+    customer.create_payment_dict()
+    customer.add_to_db()
+
+    return json.dumps(customer.result, default=str), 200
+
+# PAYMENTS
+def sendPayment():
+    # id for Amelia
+    payment = pc.PaymentCreation(customer_id="11MVK1PCRRVY1D9QB72HVT64PM",
+                                  amount=80,
+                                  source_id="ccof:cegcXjydMLiVlDQk3GB",
+                                  tip=5)
+    payment.gen_body()
+    payment.create_payment_dict()
+
+    return json.dumps(payment.result, default=str), 200
+
+
 #if __name__ == "__main__":
- # getBusinesses()
+  #print('Hello World')
+  #getSaved()

@@ -32,9 +32,7 @@ class CustomerCreation(object):
         self.email_address = email_address
         if not self.email_address:
             self.email_address = self.given_name + self.family_name +'@gmail.com'
-        
 
-    
     def clean_address(self, address):
         split_address = address.split(',')
         split_address = [s.lstrip().rstrip() for s in split_address]
@@ -70,7 +68,7 @@ class CustomerCreation(object):
         self.body["address"] = self.address_dict
         self.body["phone_number"] = self.phone_number
         self.body["note"] = self.note
-
+    
     def create_customer_dict(self):
         load_dotenv()
         square_client = Client(
@@ -81,11 +79,12 @@ class CustomerCreation(object):
         result = customers_api.create_customer(self.body)
 
         if result.is_success():
-            print(result.body)
+            #print(result.body)
             self.result = result.body
+            self.customer_id = self.result["customer"]["id"]
         elif result.is_error():
             print(result.errors)
-    
+        
     def add_to_db(self):
         load_dotenv()
 
@@ -95,34 +94,29 @@ class CustomerCreation(object):
         )
 
         customers_api = square_client.customers
-        result = customers_api.list_customers()
+        result = customers_api.retrieve_customer(self.customer_id)
 
         if result.is_error():
             raise ValueError("Cannot get customer")
 
         data = result.body
-        print(json.dumps(data, indent=4))
+        #print(json.dumps(data, indent=4))
 
         mongo_client = pymongo.MongoClient(os.getenv("MONGO_NORM_USER"))
-        for customer in data:
-            db = mongo_client["customer"][customer]
-            for d in data[customer]:
-                if "saved_business" not in data[customer]:
-                    db2 = mongo_client["business"]["2020-06-29"]
-                    mongo_data = list(db2.find({}))
-                    d["saved_business"] = random.sample(mongo_data, 5)
-            db.insert_many(data[customer])
+        db = mongo_client["customer"]["customers"]
+        db2 = mongo_client["business"]["2020-06-29"]
+        mongo_data = list(db2.find({}))
+        data["customer"]["saved_business"] = random.sample(mongo_data, 5)
+        db.insert_one(data["customer"])
         
-        
-    def add_customer_card(self):
-        print('Hello World')
 
 if __name__ == "__main__":
-    test = CustomerCreation(name="Tanjirou Kamado",\
-                address="754 Post St, San Francisco, CA 94109", note="Test user")
+    test = CustomerCreation(name="UwU OwO",\
+                address="754 Post St, San Francisco, CA 94109", note="Test user2")
     test.gen_body()
-    #test.create_customer_dict()
-    test.add_to_db()
+    test.create_customer_dict()
+    #test.add_to_db()
+   # test.add_to_db()
     """
     load_dotenv()
     print(os.getenv("SQUARE_ACCESS_TOKEN"))
