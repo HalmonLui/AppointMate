@@ -1,4 +1,12 @@
 import json
+from dotenv import load_dotenv
+import pymongo
+import os
+import sys
+from frontend_utils import JSONEncoder
+#sys.path.insert(1, '/Users/sonamghosh/Desktop/square_hacks_2020/square-hackathon/backend/discoverpage/')
+sys.path.insert(1, '~/square-hackathon/backend/discoverpage/')
+from discoverpage_metrics import get_recommended_posts, get_trending_posts, get_hot_deals
 # APPOINTMENTS
 def getAppointments():
     appointments = []
@@ -69,95 +77,17 @@ def removeSaved():
 
 # BUSINESSES
 def getBusinesses():
-    businesses = {}
+    load_dotenv()
+    client = pymongo.MongoClient(os.getenv("MONGO_NORM_USER"))
+    db = client["business"]
+    col = db["2020-06-29"]
+    data = list(col.find({}))
     test = {
-      'trending': [
-        {
-          'title': 'Sallys Salooon',
-          'imageurl': 'https://garboasalon.com/img/HP_SLIDER1_garbo_aveda_hair_salon_spa_best_austin_hair_color_nails_top_hair_stylist_men_hair_cut_austin_78757_atx_78741_hair_salon_near_me_austin_hairdress.jpg',
-          'services': 'Cut ur hair, wash',
-          'rating': '1.1',
-          'numratings': '10'
-        },
-        {
-          'title': 'Sallys Nails',
-          'services': 'cut nails, gel',
-          'imageurl': 'https://img.grouponcdn.com/deal/4CXB3CXmmbxHiNCBfqnMhsoPkv3G/4C-901x596/v1/c700x420.jpg',
-          'rating': '1.5',
-          'numratings': '13'
-        },
-        {
-          'title': 'Sallys Eyes',
-          'services': 'makeup, eyes',
-          'imageurl': 'https://i.pinimg.com/originals/cc/34/f2/cc34f2389c1d1fe9355fd774b369df93.jpg',
-          'rating': '4.1',
-          'numratings': '222'
-        }
-      ],
-      'recommendations': [
-        {
-          'title': 'Sallys Salooon',
-          'imageurl': 'https://garboasalon.com/img/HP_SLIDER1_garbo_aveda_hair_salon_spa_best_austin_hair_color_nails_top_hair_stylist_men_hair_cut_austin_78757_atx_78741_hair_salon_near_me_austin_hairdress.jpg',
-          'services': 'Cut ur hair, wash',
-          'rating': '1.1',
-          'numratings': '10'
-        },
-        {
-          'title': 'Sallys Nails',
-          'services': 'cut nails, gel',
-          'imageurl': 'https://img.grouponcdn.com/deal/4CXB3CXmmbxHiNCBfqnMhsoPkv3G/4C-901x596/v1/c700x420.jpg',
-          'rating': '1.5',
-          'numratings': '13'
-        },
-        {
-          'title': 'Sallys Eyes',
-          'services': 'makeup, eyes',
-          'imageurl': 'https://i.pinimg.com/originals/cc/34/f2/cc34f2389c1d1fe9355fd774b369df93.jpg',
-          'rating': '4.1',
-          'numratings': '222'
-        },
-        {
-          'title': 'Sallys Salon',
-          'services': 'haircuts',
-          'imageurl': 'https://diana-cdn.naturallycurly.com/Articles/BP_NY-Salons-.jpg',
-          'rating': '2.1',
-          'numratings': '123'
-        }
-      ],
-      'hot': [
-        {
-          'title': 'Sallys Salooon',
-          'imageurl': 'https://garboasalon.com/img/HP_SLIDER1_garbo_aveda_hair_salon_spa_best_austin_hair_color_nails_top_hair_stylist_men_hair_cut_austin_78757_atx_78741_hair_salon_near_me_austin_hairdress.jpg',
-          'services': 'Cut ur hair, wash',
-          'rating': '1.1',
-          'numratings': '10'
-        },
-        {
-          'title': 'Sallys Nails',
-          'services': 'cut nails, gel',
-          'imageurl': 'https://img.grouponcdn.com/deal/4CXB3CXmmbxHiNCBfqnMhsoPkv3G/4C-901x596/v1/c700x420.jpg',
-          'rating': '1.5',
-          'numratings': '13'
-        },
-        {
-          'title': 'Sallys Eyes',
-          'services': 'makeup, eyes',
-          'imageurl': 'https://i.pinimg.com/originals/cc/34/f2/cc34f2389c1d1fe9355fd774b369df93.jpg',
-          'rating': '4.1',
-          'numratings': '222'
-        },
-        {
-          'title': 'Sallys Salon',
-          'services': 'haircuts',
-          'imageurl': 'https://diana-cdn.naturallycurly.com/Articles/BP_NY-Salons-.jpg',
-          'rating': '2.1',
-          'numratings': '123'
-        }
-      ]
+      "trending": get_trending_posts(data, 'n/a', 3),
+      "recommendations": get_recommended_posts(data, 'n/a', 4),
+      "hot": get_hot_deals(data, 'n/a')
     }
-
-    businesses = test
-    return json.dumps(businesses), 200
+    return json.dumps(test, default=str), 200
 
 
 # CREDITCARD
@@ -170,3 +100,6 @@ def addCard():
 
 def removeCard():
     return {'success': 'card successfully removed'}, 200
+
+#if __name__ == "__main__":
+ # getBusinesses()
