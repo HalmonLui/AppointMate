@@ -69,7 +69,7 @@ def paymentAPI():
 
 
 @app.route('/createCustomer', methods=['GET'])
-def paymentAPI():
+def customerAPI():
     if request.method == 'GET':
         return controllers.createCustomer()
     else:
