@@ -108,7 +108,7 @@ export function HomePage({
               />
               Remember Me
               </div>
-            <StyledButton href="/bookings">Log In</StyledButton>
+            <StyledButton href="/discover">Log In</StyledButton>
           </Form>
           <a id="forgotpassword">Forgot your password?</a>
         </Section>

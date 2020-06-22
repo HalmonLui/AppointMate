@@ -185,9 +185,6 @@ input[type=submit] {
   align-self: center;
 }
 
-.container {
-  overflow: hidden;
-}
 .modal-green-background {
   width: 100%;
   position: absolute;

@@ -18,6 +18,7 @@ import ListItemTitle from './ListItemTitle';
 import AppointmentItem from 'components/AppointmentItem';
 import Bellicon from './appointmentpage.png';
 import './AppointmentsPage.css'
+import '../LoyaltyPage/LoyaltyPage.css'
 import Modal from 'react-modal';
 import quokka from './quokka.png';
 import calendarImg from './calendar.png';
@@ -28,17 +29,26 @@ class AppointmentsPage extends React.Component {
   constructor () {
     super();
     this.state = {
-      showModal: false
+      showModal: false,
+      activeImageUrl: '',
+      activeTitle: '',
+      activePoints: '',
+      activeTotalPoints: ''
     };
-
-    this.handleOpenModal = this.handleOpenModal.bind(this);
-    this.handleCloseModal = this.handleCloseModal.bind(this);
   }
-  handleOpenModal () {
-    this.setState({ showModal: true });
+  handleOpenModal = (title, imageurl, date, time, address, phone) => {
+    this.setState({
+      showModal: true,
+      activeTitle: title,
+      activeImageUrl: imageurl,
+      activeDate: date,
+      activeTime: time,
+      activeAddress: address,
+      activePhone: phone
+    });
   }
 
-  handleCloseModal () {
+  handleCloseModal = () => {
     this.setState({ showModal: false });
   }
   render() {
@@ -68,6 +78,7 @@ class AppointmentsPage extends React.Component {
         </div>
           <AppointmentItem
             title="Sally's Salon"
+            imageurl="https://garboasalon.com/img/HP_SLIDER1_garbo_aveda_hair_salon_spa_best_austin_hair_color_nails_top_hair_stylist_men_hair_cut_austin_78757_atx_78741_hair_salon_near_me_austin_hairdress.jpg"
             address="123 Beacon Street"
             phone="617-617-6176"
             day="Fri"
@@ -78,6 +89,7 @@ class AppointmentsPage extends React.Component {
           />
           <AppointmentItem
             title="Nancy's Salon"
+            imageurl="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80"
             address="2 Washington Street"
             phone="617-617-6176"
             day="Tue"
@@ -88,6 +100,7 @@ class AppointmentsPage extends React.Component {
           />
           <AppointmentItem
             title="Barbara's Barber Shop"
+            imageurl="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQwOTrW1_BwLDStRVfYdQIVkNfT0nq6A_RPXA&usqp=CAU"
             address="22 Bakery Avenue"
             phone="617-617-6176"
             day="Sat"
@@ -97,62 +110,49 @@ class AppointmentsPage extends React.Component {
             AppointmentModal={this.handleOpenModal}
           />
         <Modal isOpen={this.state.showModal}>
-        <div class="container">
+        <div class="modal-green-background">
         </div>
-        <div class="bg">
-        </div>
-        <button onClick={this.handleCloseModal}>x</button>
+        <button id="close-modal-button" onClick={this.handleCloseModal}>&times;</button>
         <div class="modal-top-container">
           <div class="center">
-              <h2>Spa Center</h2>
-              <img id="store-image" src={quokka}/>
+              <h2 id="modal-title">{this.state.activeTitle}</h2>
+              <img id="modal-store-image" src={this.state.activeImageUrl}/>
           </div>
             <div id="store-icons-align">
               <img id="store-icons" src={calendarImg}/>
-            </div>
-            <div id="store-icons-align">
-                <h4 id="line-height-zero">Jul 21, 2020</h4>
-                <p id="line-height-zero-muted">1:00 pm - 2:30 pm</p>
-            </div> 
-            <div class="row" >
-              <div class="column">
-                <img id="store-icons" src={locationImg}/> 
-                <p id="line-height-zero-muted"> 87-11 10th Street</p>
+              <div>
+                <h4 id="line-height-zero">{this.state.activeDate}</h4>
+                <p id="line-height-zero-muted">{this.state.activeTime}</p>
               </div>
-              <div class="column">
+            </div>
+            <div class="modal-row-container" >
+              <div class="modal-column-container">
+                <img id="store-icons" src={locationImg}/>
+                <p id="line-height-zero-muted">{this.state.activeAddress}</p>
+              </div>
+              <div class="modal-column-container">
                 <img id="store-icons" src={phoneImg}/>
-                <p id="line-height-zero-muted">718-222-3333</p>
+                <p id="line-height-zero-muted">{this.state.activePhone}</p>
               </div>
             </div>
             <p id="line-height-zero"><b>Status: </b>Pay in Store</p>
           </div>
-          <div class='card'>
-          <p><b>Summary</b></p>
-            <div class="summary-container">
-              <div class="summary-left-align">
-                <h4 id="summary-container-text">Sweedish Massage</h4>
-                <p id="summary-container-text-green">with Bob</p>
-                <p id="summary-container-text">Duration: 1hr</p>
+          <div class='modal-appointment-card'>
+            <h3 id="modal-summary">Summary</h3>
+            <div id="modal-summary-text-container">
+              <div id="modal-summary-title-container">
+                <h4 id="modal-summary-title">Men's Haircut</h4>
+                <h4 id="modal-summary-price">$75</h4>
               </div>
-              <div class="summary-right-align">
-                <h4 id="summary-container-text">$75</h4>
-              </div>
+              <p id="modal-with">with Sasha</p>
+              <p id="modal-duration">Duration: 30 mins</p>
             </div>
-            <div class="summary-container">
-              <div class="summary-left-align">
-                <h4 id="summary-container-text">Deep Tissue Massage</h4>
-                <p id="summary-container-text-green">with Sasha</p>
-                <p id="summary-container-text">Duration: 30 mins</p>
-              </div>
-              <div class="summary-right-align">
-                <h4 id="summary-container-text">$40</h4>
-              </div>
+            <div id="modal-total-container">
+              <h4 id="modal-total">Total:</h4>
+              <h4 id="modal-total-price">$75</h4>
             </div>
-            <div class="summary-container">
-              <h4 id="summary-container-text">Total: $115</h4>
-            </div>
-            <button class="modify-button">Modify</button>
           </div>
+          <button class="modify-button">Modify</button>
         </Modal>
         <Footer activepage="appointments"/>
       </div>

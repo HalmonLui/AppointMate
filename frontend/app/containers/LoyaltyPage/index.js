@@ -35,7 +35,14 @@ class LoyaltyPage extends React.Component {
   }
   handleOpenModal = (title, points, totalpoints, imageurl) => {
     var progress_percent = points / totalpoints * 100
-    this.setState({ showModal: true, activeImageUrl: imageurl, activeTitle: title, activePoints: points, activeTotalPoints: totalpoints, activeProgressPercent:  progress_percent});
+    this.setState({
+      showModal: true,
+      activeImageUrl: imageurl,
+      activeTitle: title,
+      activePoints: points,
+      activeTotalPoints: totalpoints,
+      activeProgressPercent:  progress_percent
+    });
   }
 
   handleCloseModal = () => {
