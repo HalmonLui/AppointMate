@@ -87,6 +87,8 @@ export default class ConfirmationPage extends Component {
                 });
               }
             )
+
+      this.setState({receipturl: 'https://squareupsandbox.com/receipt/preview/9mwGCNiOAKnsD9bkDxTNLIyHWWdZY'})
     }
   render(){
     return (
@@ -110,9 +112,9 @@ export default class ConfirmationPage extends Component {
               <span class="start">2:45</span>
               <span class="end">3:30</span>
               <span class="timezone">America/Los_Angeles</span>
-              <span class="title">Appointment at Sally's Salon</span>
+              <span class="title">Appointment at Nicole Salon B</span>
               <span class="description">Men's Haircut with Sally</span>
-              <span class="location">Sally's Salon</span>
+              <span class="location">Nicole Salon B</span>
           </div>
         </div>
 
@@ -120,7 +122,7 @@ export default class ConfirmationPage extends Component {
           <div className="business-section-card" id="confirmation-text-container">
             <p class="confirmation-text">Your booking for a</p>
             <p class="confirmation-text"><b>Men's Haircut</b></p>
-            <p class="confirmation-text">at <b>Sally's Salon</b> has been</p>
+            <p class="confirmation-text">at <b>Nicole Salon B</b> has been</p>
             <p class="confirmation-text">confirmed for Monday,</p>
             <p class="confirmation-text"><b id="confirmation-date-text">Aug 3, 2020</b> at <b id="confirmation-date-text">2:45 pm</b></p>
             <Link to="/confirmation" id="view-details-link">
