@@ -5,6 +5,7 @@ import './BusinessPage.css'
 function ServiceItem(props){
     return (
         <div class="service-item-container">
+            <input name="isGoing" type="checkbox" id="checkbox"/>
             <div class="service-card-text">
                 <h4>{props.service}</h4>
                 <p class="text-muted">Duration: {props.duration}</p>

@@ -38,6 +38,10 @@
   align-items: center;
   justify-content: space-between;
 }
+#title-container h2 {
+  margin-top: -1.2em;
+  color: #fafafa;
+}
 #heart {
   width: 2em;
 }
@@ -120,6 +124,7 @@
 }
 #business-section-title {
   font-family: Inter;
+  margin-top: -2em;
 }
 .business-section-card {
   box-shadow: 2px 2px 8px 1px rgba(0,0,0,0.1);
@@ -150,6 +155,24 @@
 #business-service-item-container {
 
 }
+#service-title {
+  margin-top: 3em;
+}
+#checkbox {
+  width: 1.3em;
+  height: 1.3em;
+  background-color: white;
+  border-radius: 50%;
+  vertical-align: middle;
+  border: 1px solid #ddd;
+  -webkit-appearance: none;
+  outline: none;
+   cursor: pointer;
+   margin-left: 1em;
+}
+#checkbox:checked {
+    background-color: #5DB075;
+}
 .service-item-container {
   display: flex;
   border-bottom: 1px solid #E8E8E8;
@@ -168,6 +191,8 @@
   margin: 0px;
   margin-left: 1em;
   margin-top: .5em;
+  align-self: flex-start;
+  text-align: left;
 }
 .service-card-text p {
   font-family: Inter;
