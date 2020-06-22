@@ -66,3 +66,11 @@ def paymentAPI():
         return controllers.sendPayment()
     else:
         return {'error': 'Not a valid endpoint'}, 400
+
+
+@app.route('/createCustomer', methods=['GET'])
+def paymentAPI():
+    if request.method == 'GET':
+        return controllers.createCustomer()
+    else:
+        return {'error': 'Not a valid endpoint'}, 400
