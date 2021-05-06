@@ -8,6 +8,6 @@ typing==3.6.6
 pymongo==3.10.1
 numpy==1.17.0
 pandas==0.25.3
-Flask_Cors==3.0.6
+Flask_Cors==3.0.9
 python-dotenv==0.13.0
 square==0.0.3
